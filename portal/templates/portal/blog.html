@@ -1,0 +1,224 @@
+{% extends 'users/main.html' %}
+
+{% block content %}
+    <style>
+        .my-link-style:hover {
+            text-decoration: underline;
+        }
+
+        #feedback {
+            background: #7E57C2;
+            padding: 0% 10%;
+        }
+
+        .hr-style {
+            border: 5px dotted white;
+            border-bottom: none;
+            width: 50px;
+        }
+
+        .carousel-item {
+            padding: 0% 10%;
+            text-align: center;
+            font-style: italic;
+        }
+
+        .feedback-img {
+            width: 120px;
+            height: auto;
+        }
+
+        .carousel-indicators {
+            bottom: -20px;
+        }
+        .dropdown-menu {
+            min-width: 3rem;
+        }
+        .dropdown-menu a {
+            color: black;
+        }
+        .dropdown-menu a:hover{
+            background-color: #f8b739;
+            color: white;
+        }
+    </style>
+    <div class="text-white mb-3">
+        <section id="feedback">
+            <div class="section-title">
+                <h3 class="text-white text-center">BLog</h3>
+            </div>
+
+            <div class="row">
+                <div class="col-lg-12">
+                    <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel"
+                        data-interval="2000" data-pause="hover">
+                        <ol class="carousel-indicators">
+                            <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+                            <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+                            <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+                        </ol>
+                        <div class="carousel-inner">
+                            <div class="carousel-item active">
+                                <p>Item1. Lorem ipsum dolor sit amet consectetur adipisicing elit. Explicabo maxime
+                                    provident amet fugiat, repellat sunt?</p>
+                                <img class="feedback-img rounded-circle mb-3"
+                                    src="https://avatars3.githubusercontent.com/u/47079665?s=460&u=a32284fed6c90a4b5d8a202d10a0efdbd7f3ee9d&v=4"
+                                    alt="">
+                                <h6>Subroto Karmokar</h6>
+                            </div>
+                            <div class="carousel-item">
+                                <p>Item2. Lorem ipsum dolor sit amet consectetur adipisicing elit. Explicabo maxime
+                                    provident amet fugiat, repellat sunt?</p>
+                                <img class="feedback-img rounded-circle mb-3"
+                                    src="https://avatars3.githubusercontent.com/u/47079665?s=460&u=a32284fed6c90a4b5d8a202d10a0efdbd7f3ee9d&v=4"
+                                    alt="">
+                                <h6>Subroto Karmokar</h6>
+                            </div>
+                            <div class="carousel-item">
+                                <p>Item3. Lorem ipsum dolor sit amet consectetur adipisicing elit. Explicabo maxime
+                                    provident amet fugiat, repellat sunt?</p>
+                                <img class="feedback-img rounded-circle mb-3"
+                                    src="https://avatars3.githubusercontent.com/u/47079665?s=460&u=a32284fed6c90a4b5d8a202d10a0efdbd7f3ee9d&v=4"
+                                    alt="">
+                                <h6>Subroto Karmokar</h6>
+                            </div>
+                        </div>
+                        <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button"
+                            data-slide="prev">
+                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                            <span class="sr-only">Previous</span>
+                        </a>
+                        <a class="carousel-control-next" href="#carouselExampleIndicators" role="button"
+                            data-slide="next">
+                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                            <span class="sr-only">Next</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+    <div class="bg-light px-2 py-3">
+        <div class="row">
+            <div class="col-8">
+                <h3 class="pl-2">Recent</h3>
+            </div>
+            <div class="col-4 text-right">
+{#                <button class="btn btn-primary"><i class="fa fa-plus-circle"></i></button>#}
+                <div class="dropdown">
+                    <button role="button" type="button" class="btn btn-primary" data-toggle="dropdown">
+                      <i class="fa fa-plus-circle"></i>
+                    </button>
+                    <div class="dropdown-menu text-center mr-5">
+                      <a class="dropdown-item" data-toggle="modal" data-target="#newModal" href="#">Create New</a>
+                      <a class="dropdown-item" href="#">My Blog</a>
+                      <a class="dropdown-item" href="#">Popular</a>
+                    </div>
+                 </div>
+            </div>
+        </div>
+        <div class="row">
+            {% for blog in blogs %}
+            <div class="col-lg-4">
+                <div class="card">
+                    <img src="https://media.timeout.com/images/105730440/image.jpg" alt="Image" class="img-fluid rounded">
+                    <div class="card-body">
+                        <h4 class="card-title"><a href="single.html">{{ blog.title }}</a></h4>
+                        <div class="post-meta align-items-center text-left clearfix">
+                            <img src={{ blog.author.immigrant.photo.url }} alt="Image" class="rounded-circle p-1" style="width: 50px; height: 50px;">
+                            <span class="d-inline-block mt-1">By <a href="#">{{ blog.author.immigrant.immigrant_name }}</a></span>
+                            <span>&nbsp;-&nbsp; {{ blog.date_posted|date:'M d, Y' }}</span>
+                        </div>
+                        <p class="text-dark card-text">{{ blog.content }}</p>
+                        <p><a href="#">Read More</a></p>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+{#            <div class="col-lg-4">#}
+{#                <div class="card">#}
+{#                    <img src="https://adventure.com/wp-content/uploads/2020/01/Saudi-Arabia-At-Turaif-is-beautifully-lit-at-night.-Image-credit-Sarah-Reid-scaled.jpg" alt="Image" class="img-fluid rounded">#}
+{#                    <div class="card-body">#}
+{#                        <h4 class="card-title"><a href="single.html">Travel in Saudi Arabia: Is the country ready for tourists?</a></h4>#}
+{#                        <div class="post-meta align-items-center text-left clearfix">#}
+{#                            <img src="https://avatars3.githubusercontent.com/u/47079665?s=460&u=a32284fed6c90a4b5d8a202d10a0efdbd7f3ee9d&v=4" alt="Image" class="rounded-circle p-1" style="width: 50px; height: auto">#}
+{#                            <span class="d-inline-block mt-1">By <a href="#">Carrol Atkinson</a></span>#}
+{#                            <span>&nbsp;-&nbsp; July 19, 2019</span>#}
+{#                        </div>#}
+{#                        <p class="text-dark card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quo sunt tempora dolor laudantium sed optio, explicabo ad deleniti impedit facilis fugit recusandae! Illo, aliquid, dicta beatae quia porro id est.</p>#}
+{#                        <p><a href="#">Read More</a></p>#}
+{#                    </div>#}
+{#                </div>#}
+{#            </div>#}
+{#            <div class="col-lg-4">#}
+{#                <div class="card">#}
+{#                    <img src="https://www.fodors.com/assets/destinations/2869/tower-bridge-london-england_980x650.jpg" alt="Image" class="img-fluid rounded">#}
+{#                    <div class="card-body">#}
+{#                        <h4 class="card-title"><a href="single.html">London Travel Guide - Expert Picks for your Vacation</a></h4>#}
+{#                        <div class="post-meta align-items-center text-left clearfix">#}
+{#                            <img src="https://avatars3.githubusercontent.com/u/47079665?s=460&u=a32284fed6c90a4b5d8a202d10a0efdbd7f3ee9d&v=4" alt="Image" class="rounded-circle p-1" style="width: 50px; height: auto">#}
+{#                            <span class="d-inline-block mt-1">By <a href="#">Carrol Atkinson</a></span>#}
+{#                            <span>&nbsp;-&nbsp; July 19, 2019</span>#}
+{#                        </div>#}
+{#                        <p class="text-dark card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quo sunt tempora dolor laudantium sed optio, explicabo ad deleniti impedit facilis fugit recusandae! Illo, aliquid, dicta beatae quia porro id est.</p>#}
+{#                        <p><a href="#">Read More</a></p>#}
+{#                    </div>#}
+{#                </div>#}
+{#            </div>#}
+        </div>
+        <!-- Modal new meeting -->
+        <div class="modal fade" id="newModal" role="dialog">
+            <div class="modal-dialog modal-lg">
+                  <div class="modal-content">
+                        <div class="modal-header">
+                            <div class="text-center modal-title text-center">
+                                    <h3 class="font-weight-bolder">Contact Me</h3>
+                            </div>
+                            <button type="button" class="close" data-dismiss="modal">&times;</button>
+
+                        </div>
+                        <div class="modal-body">
+                          <div class="contact-section">
+
+                                <form action="" class="col-lg-8 col-md-6 m-auto was-validated bg-light text-black p-3  ">
+
+                                    <div class="form-group">
+                                        <label for="fullname">Fullname</label>
+                                        <input type="text" class="form-control" name="fullname" required>
+                                        <div class="valid-feedback">Valid</div>
+                                        <div class="invalid-feedback">Please enter your fullname as soon as possible</div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="email">Email</label>
+                                        <input type="email" class="form-control" name="email">
+                                        <div class="invalid-feedback">Please enter your valid email</div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="subject">Subject</label>
+                                        <input type="text" class="form-control" name="subject">
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="message">message</label>
+                                        <textarea style="resize: none;" name="message" class="form-control" id="" cols="30"
+                                            rows="10"></textarea>
+                                    </div>
+
+                                    <div class="form-group text-right">
+                                        <input type="submit" class="btn btn-secondary" value="submit">
+                                        <input type="reset" class="btn btn-secondary" value="Reset">
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                        </div>
+                  </div>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}

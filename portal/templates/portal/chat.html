@@ -1,0 +1,125 @@
+{% load static %}
+<style>
+    body {font-family: Arial, Helvetica, sans-serif;}
+    * {box-sizing: border-box;}
+
+    /* Button used to open the chat form - fixed at the bottom of the page */
+    .open-button {
+    background-color: Transparent;
+    color: #81D4FA;
+    padding: 16px 20px;
+    border: none;
+    cursor: pointer;
+    opacity: 0.6;
+    position: fixed;
+    bottom: 23px;
+    right: 28px;
+    width: fit-content;
+    background-repeat:no-repeat;
+    overflow: hidden;
+    outline:none;
+    position: fixed;
+    z-index: 1;
+    }
+    .open-button i:hover{
+        color: #039BE5;
+    }
+
+    /* The popup chat - hidden by default */
+    .chat-popup {
+    display: none;
+    position: fixed;
+    bottom: 0;
+    right: 15px;
+    z-index: 9;
+    }
+
+    /* Add styles to the form container */
+    .form-container {
+    max-width: 300px;
+    padding: 10px;
+    border-radius: 10px 10px 0px 0px;
+    background-color: white;
+    }
+
+    /* Full-width textarea */
+    {#.form-container textarea {#}
+    {#width: 100%;#}
+    {#padding: 15px;#}
+    {#margin: 5px 0 22px 0;#}
+    {#border: none;#}
+    {#background: #f1f1f1;#}
+    {#resize: none;#}
+    {#min-height: 200px;#}
+    {#}#}
+
+    /* When the textarea gets focus, do something */
+    .form-container textarea:focus {
+    background-color: #ddd;
+    outline: none;
+    }
+
+    /* Set a style for the submit/send button */
+    {#.form-container .btn {#}
+    {#background-color: #4CAF50;#}
+    {#color: white;#}
+    {#padding: 16px 20px;#}
+    {#border: none;#}
+    {#cursor: pointer;#}
+    {#width: 100%;#}
+    {#margin-bottom:10px;#}
+    {#opacity: 0.8;#}
+    {#}#}
+
+    /* Add a red background color to the cancel button */
+    .form-container .cancel {
+    background-color: red;
+    }
+
+    /* Add some hover effects to buttons */
+    {#.form-container .btn:hover, .open-button:hover {#}
+    {#opacity: 1;#}
+    {#}#}
+</style>
+
+<button class="open-button" onclick="openForm()"><i class="fab fa-5x fa-facebook-messenger"></i></button>
+
+<div class="chat-popup" id="myForm">
+    <form action="" class="form-container">
+        <div class="row">
+            <div class="col-10">
+                <h4 class="text-center pl-4">Help Desk</h4>
+            </div>
+            <div class="col-2">
+                <button type="button" class="close" onclick="closeForm()">×</button>
+            </div>
+        </div>
+
+
+{#        <label for="msg"><b>Message</b></label>#}
+{#        <textarea placeholder="" name="msg" required></textarea>#}
+        <div class="overflow-auto mb-4" id="msgs" style="min-height: 250px; max-height: 250px; background-color:#f1f1f1; ">
+
+        </div>
+
+        <div class="input-group mb-3">
+          <input type="hidden" id="user" value={{ request.user.immigrant.immigrant_name }}>
+          <input type="text" class="form-control" id="mgs" placeholder="Type message..." style="border-radius: 20px">
+          <div class="input-group-append">
+              <button class="btn btn-primary ml-2" id="send" type="submit" style="border-radius: 10px"><i class="fa fa-paper-plane"></i></button>
+          </div>
+        </div>
+    </form>
+</div>
+
+<script>
+    function openForm() {
+    document.getElementById("myForm").style.display = "block";
+    }
+
+    function closeForm() {
+    document.getElementById("myForm").style.display = "none";
+    }
+</script>
+<script src="https://www.gstatic.com/firebasejs/8.2.1/firebase.js"></script>
+<script src="{% static 'js/chat.js' %}"></script>
