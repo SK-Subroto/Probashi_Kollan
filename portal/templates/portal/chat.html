@@ -35,47 +35,63 @@
     }
 
     /* Add styles to the form container */
-    .form-container {
+    .chat-container {
     max-width: 300px;
     padding: 10px;
     border-radius: 10px 10px 0px 0px;
     background-color: white;
     }
 
-    /* Full-width textarea */
-    {#.form-container textarea {#}
-    {#width: 100%;#}
-    {#padding: 15px;#}
-    {#margin: 5px 0 22px 0;#}
-    {#border: none;#}
-    {#background: #f1f1f1;#}
-    {#resize: none;#}
-    {#min-height: 200px;#}
-    {#}#}
-
-    /* When the textarea gets focus, do something */
-    .form-container textarea:focus {
-    background-color: #ddd;
-    outline: none;
+    .mgs_body {
+    {#min-height: 250px;#}
+    height: 250px;
+    width: 270px;
+    {#max-width: 270px;#}
+    background-color:#f1f1f1;
+    padding: 5px 12px 5px 12px;
     }
 
-    /* Set a style for the submit/send button */
-    {#.form-container .btn {#}
-    {#background-color: #4CAF50;#}
-    {#color: white;#}
-    {#padding: 16px 20px;#}
-    {#border: none;#}
-    {#cursor: pointer;#}
-    {#width: 100%;#}
-    {#margin-bottom:10px;#}
-    {#opacity: 0.8;#}
-    {#}#}
 
     /* Add a red background color to the cancel button */
     .form-container .cancel {
     background-color: red;
     }
+    .chat_message {
+	position: relative;
+	font-size: 15px;
+	padding: 5px;
+	border-radius: 10px;
+	width: fit-content;
+	background-color: #ffffff;
+	margin-bottom: 15px;
+    }
 
+    .chat_reciever{
+     position: relative;
+     font-size: 15px;
+     padding: 5px;
+     border-radius: 10px;
+     margin-left: auto;
+     width: fit-content;
+     background-color: #dcf8c6;
+     margin-bottom: 15px;
+     text-align: right;
+    }
+    .message_name {
+	position: relative;
+	margin-bottom: 0px;
+	font-weight: 800;
+	font-size: xx-small;
+    }
+    .recieve_name {
+	position: relative;
+	margin-bottom: 0px;
+    margin-left: auto;
+    width: fit-content;
+    {#margin-left: -15px;#}
+	font-weight: 800;
+	font-size: xx-small;
+    }
     /* Add some hover effects to buttons */
     {#.form-container .btn:hover, .open-button:hover {#}
     {#opacity: 1;#}
@@ -85,7 +101,7 @@
 <button class="open-button" onclick="openForm()"><i class="fab fa-5x fa-facebook-messenger"></i></button>
 
 <div class="chat-popup" id="myForm">
-    <form action="" class="form-container">
+    <div class="chat-container">
         <div class="row">
             <div class="col-10">
                 <h4 class="text-center pl-4">Help Desk</h4>
@@ -96,20 +112,23 @@
         </div>
 
 
-{#        <label for="msg"><b>Message</b></label>#}
-{#        <textarea placeholder="" name="msg" required></textarea>#}
-        <div class="overflow-auto mb-4" id="msgs" style="min-height: 250px; max-height: 250px; background-color:#f1f1f1; ">
+        <div class="mgs_body overflow-auto mb-4" id="msgs">
 
         </div>
 
-        <div class="input-group mb-3">
-          <input type="hidden" id="user" value={{ request.user.immigrant.immigrant_name }}>
+        <div id="sec_2" class="input-group mb-3" style="">
+          <input type="hidden" id="user" value="{{ request.user.immigrant.immigrant_name }}">
           <input type="text" class="form-control" id="mgs" placeholder="Type message..." style="border-radius: 20px">
           <div class="input-group-append">
               <button class="btn btn-primary ml-2" id="send" type="submit" style="border-radius: 10px"><i class="fa fa-paper-plane"></i></button>
           </div>
         </div>
-    </form>
+
+        <div id="sec_1" class="text-center" style="">
+            <button id="start" class="btn btn-warning btn-block">Stat chat</button>
+        </div>
+
+    </div>
 </div>
 
 <script>

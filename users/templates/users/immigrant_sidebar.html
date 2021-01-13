@@ -6,41 +6,44 @@
 {#            <img class="profile-pic" src="{{ request.user.immigrant.photo.url }}">#}
         <ul class="list-unstyled components mb-5">
           <li class="active">
-            <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Home</a>
+              <a href="#"><i class="fas fa-home mr-2"></i> Dashboard</a>
+          </li>
+          <li>
+            <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle"><i class="fas fa-user mr-2"></i> Profile</a>
             <ul class="collapse list-unstyled" id="homeSubmenu">
-            <li>
-                <a href="#">Home 1</a>
-            </li>
-            <li>
-                <a href="#">Home 2</a>
-            </li>
-            <li>
-                <a href="#">Home 3</a>
-            </li>
+                <li>
+                    <a href="#">View profile</a>
+                </li>
+                <li>
+                    <a href="#">Update profile</a>
+                </li>
             </ul>
           </li>
           <li>
-              <a href="#">About</a>
-          </li>
-          <li>
-          <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Pages</a>
+          <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle"><i class="fas fa-blog mr-2"></i> Blog</a>
           <ul class="collapse list-unstyled" id="pageSubmenu">
             <li>
-                <a href="#">Page 1</a>
+                <a href="{% url 'blog' %}">All blog</a>
             </li>
             <li>
-                <a href="#">Page 2</a>
+                <a href="#">New blow</a>
             </li>
             <li>
-                <a href="#">Page 3</a>
+                <a href="#">My blog</a>
             </li>
           </ul>
           </li>
           <li>
-          <a href="#">Portfolio</a>
+            <a href="{% url 'notice' %}"><i class="fas fa-bell mr-2"></i> Notice</a>
           </li>
           <li>
-          <a href="#">Contact</a>
+            <a href="{% url 'meeting' %}"><i class="fas fa-users mr-2"></i> Meeting</a>
+          </li>
+          <li>
+            <a href="{% url 'job' %}"><i class="fas fa-briefcase mr-2"></i> Job</a>
+          </li>
+          <li>
+            <a href="{% url 'flight' %}"><i class="fas fa-plane mr-2"></i> Flight</a>
           </li>
         </ul>
 

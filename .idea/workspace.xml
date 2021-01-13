@@ -13,13 +13,17 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Python Script" />
-        <option value="HTML File" />
         <option value="JavaScript File" />
+        <option value="HTML File" />
+        <option value="Python Script" />
       </list>
     </option>
   </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
   <component name="ProjectId" id="1lsNhhF5hxnmc9KXZGFNiiyeA2S" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showExcludedFiles" value="true" />
@@ -29,7 +33,7 @@
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/static/calender/js" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../Todo" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
@@ -103,7 +107,37 @@
       <workItem from="1608788141711" duration="23734000" />
       <workItem from="1608877826894" duration="4295000" />
       <workItem from="1609080250105" duration="11517000" />
-      <workItem from="1609135676046" duration="4240000" />
+      <workItem from="1609135676046" duration="4260000" />
+      <workItem from="1609238203951" duration="15094000" />
+      <workItem from="1609310323813" duration="6621000" />
+      <workItem from="1609342215427" duration="5618000" />
+      <workItem from="1609391915951" duration="14019000" />
+      <workItem from="1609422966632" duration="5832000" />
+      <workItem from="1609479979530" duration="845000" />
+      <workItem from="1609604677667" duration="8584000" />
+      <workItem from="1609653128175" duration="4246000" />
+      <workItem from="1609692260540" duration="8346000" />
+      <workItem from="1609739637382" duration="10084000" />
+      <workItem from="1609775580357" duration="8150000" />
+      <workItem from="1609824464214" duration="6116000" />
+      <workItem from="1609861151802" duration="11972000" />
+      <workItem from="1609915148671" duration="9282000" />
+      <workItem from="1609946579292" duration="8200000" />
+      <workItem from="1609998486423" duration="7848000" />
+      <workItem from="1610029505122" duration="13247000" />
+      <workItem from="1610088990432" duration="6636000" />
+      <workItem from="1610122990914" duration="9294000" />
+      <workItem from="1610168375078" duration="12328000" />
+      <workItem from="1610203080448" duration="11825000" />
+      <workItem from="1610256773275" duration="1161000" />
+      <workItem from="1610258176330" duration="7833000" />
+      <workItem from="1610288508554" duration="8204000" />
+      <workItem from="1610343584993" duration="6789000" />
+      <workItem from="1610376044537" duration="16487000" />
+      <workItem from="1610434294134" duration="7037000" />
+      <workItem from="1610456499319" duration="14087000" />
+      <workItem from="1610517765498" duration="7405000" />
+      <workItem from="1610548139625" duration="12964000" />
     </task>
     <servers />
   </component>
@@ -115,25 +149,33 @@
       <screen x="0" y="0" width="1536" height="834" />
     </state>
     <state x="346" y="126" key="#com.intellij.ide.fileTemplates.ui.ConfigureTemplatesDialog/0.0.1536.834@0.0.1536.834" timestamp="1608655613421" />
-    <state width="1481" height="163" key="GridCell.Tab.0.bottom" timestamp="1609094162828">
+    <state x="499" y="110" key="FileChooserDialogImpl" timestamp="1609952158015">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
-    <state width="1481" height="163" key="GridCell.Tab.0.bottom/0.0.1536.834@0.0.1536.834" timestamp="1609094162828" />
-    <state width="1481" height="163" key="GridCell.Tab.0.center" timestamp="1609094162828">
+    <state x="499" y="110" key="FileChooserDialogImpl/0.0.1536.834@0.0.1536.834" timestamp="1609952158015" />
+    <state width="1481" height="321" key="GridCell.Tab.0.bottom" timestamp="1610561217554">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
-    <state width="1481" height="163" key="GridCell.Tab.0.center/0.0.1536.834@0.0.1536.834" timestamp="1609094162828" />
-    <state width="1481" height="163" key="GridCell.Tab.0.left" timestamp="1609094162828">
+    <state width="1481" height="321" key="GridCell.Tab.0.bottom/0.0.1536.834@0.0.1536.834" timestamp="1610561217554" />
+    <state width="1481" height="321" key="GridCell.Tab.0.center" timestamp="1610561217553">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
-    <state width="1481" height="163" key="GridCell.Tab.0.left/0.0.1536.834@0.0.1536.834" timestamp="1609094162828" />
-    <state width="1481" height="163" key="GridCell.Tab.0.right" timestamp="1609094162828">
+    <state width="1481" height="321" key="GridCell.Tab.0.center/0.0.1536.834@0.0.1536.834" timestamp="1610561217553" />
+    <state width="1481" height="321" key="GridCell.Tab.0.left" timestamp="1610561217553">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
-    <state width="1481" height="163" key="GridCell.Tab.0.right/0.0.1536.834@0.0.1536.834" timestamp="1609094162828" />
+    <state width="1481" height="321" key="GridCell.Tab.0.left/0.0.1536.834@0.0.1536.834" timestamp="1610561217553" />
+    <state width="1481" height="321" key="GridCell.Tab.0.right" timestamp="1610561217553">
+      <screen x="0" y="0" width="1536" height="834" />
+    </state>
+    <state width="1481" height="321" key="GridCell.Tab.0.right/0.0.1536.834@0.0.1536.834" timestamp="1610561217553" />
     <state x="372" y="0" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser" timestamp="1608719310258">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
     <state x="372" y="0" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser/0.0.1536.834@0.0.1536.834" timestamp="1608719310258" />
+    <state x="347" y="-1" width="840" height="1034" key="search.everywhere.popup" timestamp="1610090428220">
+      <screen x="0" y="0" width="1536" height="834" />
+    </state>
+    <state x="347" y="-1" width="840" height="1034" key="search.everywhere.popup/0.0.1536.834@0.0.1536.834" timestamp="1610090428220" />
   </component>
 </project>

@@ -1,0 +1,276 @@
+{% extends 'users/main.html' %}
+
+{% block content %}
+        <style>
+        .my-link-style:hover {
+            text-decoration: underline;
+        }
+
+        #feedback {
+            background: #7E57C2;
+            {#padding: 0% 10%;#}
+        }
+
+        .hr-style {
+            border: 5px dotted white;
+            border-bottom: none;
+            width: 50px;
+        }
+
+        .carousel-item {
+            {#padding: 0% 10%;#}
+            text-align: center;
+            font-style: italic;
+        }
+
+        .feedback-img {
+            width: 100%;
+            height: 250px;
+        }
+
+        .carousel-indicators {
+            bottom: -20px;
+        }
+        .dropdown-menu {
+            min-width: 3rem;
+        }
+        .dropdown-menu a {
+            color: black;
+        }
+        .dropdown-menu a:hover{
+            background-color: #f8b739;
+            color: white;
+        }
+    </style>
+    <div class="">
+        <section id="feedback">
+
+            <div class="row">
+                <div class="col-lg-12">
+                    <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel"
+                        data-interval="2000" data-pause="hover">
+                        <ol class="carousel-indicators">
+                            <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+                            <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+                            <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+                        </ol>
+                        <div class="carousel-inner">
+                            <div class="carousel-item active">
+                                <img class="feedback-img"
+                                    src="https://i0.wp.com/www.onlinecivilforum.com/site/wp-content/uploads/2016/09/home-proffessionals.jpg?fit=3000%2C1100&ssl=1"
+                                    alt="">
+                            </div>
+                            <div class="carousel-item">
+                                <img class="feedback-img"
+                                    src="https://d3jh33bzyw1wep.cloudfront.net/s3/W1siZiIsIjIwMjAvMDcvMDYvMTYvMjEvNTYvMzY0L1BpbmsgYW5kIFJlZCBCZWF1dHkgSW5mbHVlbmNlciBBc3ltbWV0cmljYWwgT3ZlcmxheXMgRmFjZWJvb2sgQ292ZXIgKDEyKS5wbmciXSxbInAiLCJ0aHVtYiIsIjIwMDB4NTAwXHUwMDNjIl1d"
+                                    alt="">
+                            </div>
+                            <div class="carousel-item">
+                                <img class="feedback-img"
+                                    src="https://remotebliss.com/wp-content/uploads/2019/01/blog-10.jpg"
+                                    alt="">
+                            </div>
+                        </div>
+                        <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button"
+                            data-slide="prev">
+                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                            <span class="sr-only">Previous</span>
+                        </a>
+                        <a class="carousel-control-next" href="#carouselExampleIndicators" role="button"
+                            data-slide="next">
+                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                            <span class="sr-only">Next</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <div class="bg-light">
+            <div class="row  mb-2">
+                <div class="col-12 text-center">
+                    <h1 class="text-primary font-weight-bold" >LATEST JOBS</h1>
+                    <p class="text-secondary font-italic" >View Thousands of Latest Full Time or Part Time Job Offers listed by Top Companies</p>
+                </div>
+            </div>
+            <div class="row px-3 mb-2">
+                <div class="col-lg-3 col-md-4 px-0">
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-sm-4 text-left">
+                                    <img class="" src="https://cdn0.iconfinder.com/data/icons/shift-free/32/Microsoft-512.png" alt="sans" style="width: 65px; height: 65px;">
+                                </div>
+                                <div class="col-sm-8">
+                                    <h5 class="card-title">Microsoft</h5>
+                                    <a href="" class="card-text" data-toggle="modal" data-target="#myModal" data-backdrop="static" data-keyboard="false"><i class="fa fa-arrow-circle-right"></i> Jr. software enginer</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-4 px-0">
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-sm-4 text-left">
+                                    <img class="" src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/Google_%22G%22_Logo.svg/1004px-Google_%22G%22_Logo.svg.png" alt="sans" style="width: 65px; height: 65px;">
+                                </div>
+                                <div class="col-sm-8">
+                                    <h5 class="card-title">Google</h5>
+                                    <a href="" class="card-text"><i class="fa fa-arrow-circle-right"></i> Jr. software enginer</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-4 px-0">
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-sm-4 text-left">
+                                    <img class="" src="https://upload.wikimedia.org/wikipedia/commons/5/51/Facebook_f_logo_%282019%29.svg" alt="sans" style="width: 65px; height: 65px;">
+                                </div>
+                                <div class="col-sm-8">
+                                    <h5 class="card-title">Facebook</h5>
+                                    <a href="" class="card-text"><i class="fa fa-arrow-circle-right"></i> Jr. software enginer</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-4 px-0">
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-sm-4 text-left">
+                                    <img class="" src="https://cdn2.iconfinder.com/data/icons/social-media-icons-23/800/linkedin-512.png" alt="sans" style="width: 65px; height: 65px;">
+                                </div>
+                                <div class="col-sm-8">
+                                    <h5 class="card-title">LinkedIn</h5>
+                                    <a href="" class="card-text"><i class="fa fa-arrow-circle-right"></i> Jr. software enginer</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Modal -->
+      <div class="modal fade" id="myModal" role="dialog">
+        <div class="modal-dialog modal-lg">
+          <div class="bg-light modal-content">
+            <div class="modal-header">
+              <h4 class="modal-title">Description</h4>
+              <button id="close" type="button" class="close" data-dismiss="modal">&times;</button>
+            </div>
+            <div class="modal-body">
+
+{#                job body#}
+              <div id="jobBody">
+                  <h5>Name of the post: <strong>Sr. Software Engineering</strong></h5>
+                  <h5 class="pt-4">Google</h5>
+                  <p>Vacancy: Not specific</p>
+                  <p>Job Description / Responsibility</p>
+                  <ul>
+                      <li>Follow up on collection to ensure deposit in the organization bank account.</li>
+                      <li>Prepare all receivable report with analysis and suggest for the way forward.</li>
+                      <li>Follow up on accounts receivable against report.</li>
+                      <li>Daily follow up with client for the collection of previous balance.</li>
+                      <li>Daily basis to communicate with USA office.</li>
+                      <li>Ensure the accounts receivable function performance.</li>
+                      <li>Prepare & submitted accounts receivable report to the department.</li>
+                      <li>Monthly reconciliation of agencies.</li>
+                      <li>Plus any other jobs that assigned by the management when necessary</li>
+                  </ul>
+                    <p><strong>Employment Status:</strong> Full Time</p>
+                    <p><strong>Educational Requirements</strong></p>
+                    <ul>
+                        <li>Bachelor of Commerce (BCom) in Accounting, Bachelor of Business Administration (BBA) in Accounting</li>
+                    </ul>
+                    <b>Additional Requirements</b>
+                    <p>The position involves working in a team environment. Our team work in a very sophisticated web-based platform. So ideal candidate should be-</p>
+                    <ul>
+                  <li>Conversant in system-based work environment or computer literate with some basic IT skills;</li>
+                  <li>Excellent communication skill in spoken and written English;</li>
+                  <li>Be a smart speaker with great patience;</li>
+                  <li>Be a quick learner and good problem solver;</li>
+                  <li>Able to work in a team environment;</li>
+                  <li>Should be dynamic, energetic, enthusiastic and self-motivated;</li>
+                  <li>Skilled in MS-Office specially in Advanced Excel;.</li>
+                  <li>Candidate must agree to work at night shifts when necessary.</li>
+                </ul>
+                <p><strong>Job Location:</strong> Dhaka</p>
+                <p><strong>Salary:</strong> Negotiable</p>
+                <p><strong>Compensation & Other Benefits:</strong> This position will get the standard remuneration package as per the Company policy.</p>
+                <div class="">
+                      <hr style="background-color: #E91E63; height: 1px; border: 0;">
+                      <div class="text-center">
+                         <p><b>If you think you are the right person whom we are looking for, please apply with confidence.</b></p>
+                         <button id="apply" type="button" class="btn btn-outline-danger" >Apply</button>
+                         <h4 class="mt-2"><strong>Application Deadline:</strong><span class="text-danger"> February 1, 2021</span></h4>
+                      </div>
+                 </div>
+              </div>
+
+
+{#                Apply form#}
+              <div id="applyBody" class="">
+                  <div class="contact-section">
+                    <form action="" class="col-lg-8 col-md-6 m-auto was-validated bg-light text-black p-3  ">
+
+                        <div class="form-group">
+                            <label for="fullname">Fullname</label>
+                            <input type="text" class="form-control" name="fullname" required>
+                            <div class="valid-feedback">Valid</div>
+                            <div class="invalid-feedback">Please enter your fullname as soon as possible</div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input type="email" class="form-control" name="email">
+                            <div class="invalid-feedback">Please enter your valid email</div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="subject">Subject</label>
+                            <input type="text" class="form-control" name="subject">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="message">message</label>
+                            <textarea style="resize: none;" name="message" class="form-control" id="" cols="30"
+                                rows="10"></textarea>
+                        </div>
+
+                        <div class="form-group text-right">
+                            <input type="submit" class="btn btn-secondary" value="submit">
+                            <input type="reset" class="btn btn-secondary" value="Reset">
+                        </div>
+                    </form>
+                   </div>
+            </div>
+
+            </div>
+
+          </div>
+        </div>
+      </div>
+
+    <script>
+        $(document).ready(function () {
+            {#$('#myModal').modal({backdrop: 'static', keyboard: false}) #}
+            $('#applyBody').css({"display": "none"});
+            $('#jobBody').show()
+        })
+        $("#close").click(function () {
+            $('#applyBody').css({"display": "none"});
+            $('#jobBody').show()
+        })
+        $("#apply").click(function () {
+            $('#jobBody').hide()
+            $('#applyBody').show()
+            {#console.log("hello")#}
+        })
+    </script>
+{% endblock %}

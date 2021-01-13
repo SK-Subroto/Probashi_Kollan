@@ -23,7 +23,7 @@ urlpatterns = [
     path('', include('portal.urls')),
     path('', include('desk.urls')),
     path('', include('personal.urls')),
-    path('immigrant/', include('users.urls')),
+    path('', include('users.urls')),
 
 ]
 

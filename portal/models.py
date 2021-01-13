@@ -14,6 +14,7 @@ class Job(models.Model):
     salary_scale = models.CharField(max_length=100, null=True)
     date_posted = models.DateTimeField(default=timezone.now, null=True)
     deadline = models.DateField(null=True)
+    test = models.JSONField(null=True)
 
     def __str__(self):
         return self.title
@@ -24,6 +25,8 @@ class Blog(models.Model):
     title = models.CharField(max_length=100, null=True)
     content = models.TextField(null=True)
     date_posted = models.DateTimeField(default=timezone.now, null=True)
+    photo = models.ImageField(null=True, blank=True)
+    permission = models.BooleanField(default=False, null=True)
 
     def __str__(self):
         return self.title

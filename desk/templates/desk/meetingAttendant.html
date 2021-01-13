@@ -1,0 +1,294 @@
+{% extends 'users/main_2.html' %}
+
+{% block content %}
+    <div class="row">
+        <div class="col-lg-5 col-md-12 pr-lg-2">
+            <div class="">
+                <form action="{% url 'attendant-meeting' %}" method="get">
+                  <div class="input-group input-group-lg">
+                    <input name="query" type="search" class="form-control border border-primary" placeholder="Search">
+                    <div class="input-group-prepend">
+                      <button class="btn btn-primary" type="submit">
+                        <i class="fas fa-search"></i>
+                      </button>
+                    </div>
+                  </div>
+                </form>
+                <div class="card mt-3">
+                    <table class="table">
+                        <thead>
+                          <tr>
+                            <th>Id</th>
+                            <th>Fullname</th>
+                            <th>Passport Nb.</th>
+                            <th>Action</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                        {% for immigrant in immigrant_lists %}
+                          <tr>
+                            <td>{{ immigrant.immigrant_id }}</td>
+                            <td>{{ immigrant.immigrant_name }}</td>
+                            <td>{{ immigrant.passport_nb }}</td>
+                            <td>
+                                <button class="btn btn-sm btn-outline-primary" onclick="getImmigrantID({{ immigrant.id }})">Add</button>
+                            </td>
+                          </tr>
+                        {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-7 col-md-12 pl-lg-2">
+            <div class="card">
+                <div class="card-header">
+                    <h5 class="text-center">Meeting</h5>
+                </div>
+                <div id="form-wrapper" class="card-body">
+                    <form id="form" action="">
+                        <div class="row">
+                            <div class="col-lg-6">
+                                <div class="form-group">
+                                  <label for="title">Title:</label>
+                                  <input type="text" class="form-control" id="title" placeholder="Write title" name="title">
+                                </div>
+                                <div class="form-group">
+                                  <label for="dateTime">Date & Time:</label>
+                                  <input type="datetime-local" class="form-control" id="meeting_date" placeholder="Select Date & Time" name="meeting_date">
+                                </div>
+                            </div>
+                            <div class="col-lg-6">
+                                <div class="form-group">
+                                  <label for="description">Description:</label>
+                                  <textarea class="form-control" id="description" placeholder="Enter description" name="description"></textarea>
+                                </div>
+                                <div class="btn float-right">
+                                    <input type="reset" class="btn btn-secondary" value="Reset">
+                                    <button type="submit" class="btn btn-primary">Submit</button>
+                                </div>
+
+                            </div>
+                        </div>
+                     </form>
+                </div>
+            </div>
+            <div class="card mt-1">
+                <div class="card-body">
+                    <table id="myTable" class="table table-striped" >
+                        <thead>
+                          <tr>
+                            <th>#</th>
+                            <th>Author</th>
+                            <th>Title</th>
+                            <th>Date</th>
+                            <th>Action</th>
+                          </tr>
+                        </thead>
+                        <tbody id="meeting-wrapper">
+
+                        </tbody>
+                     </table>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal fade" id="myModal" role="dialog">
+
+    </div>
+    <script>
+        function getCookie(name) {
+		    var cookieValue = null;
+		    if (document.cookie && document.cookie !== '') {
+		        var cookies = document.cookie.split(';');
+		        for (var i = 0; i < cookies.length; i++) {
+		            var cookie = cookies[i].trim();
+		            // Does this cookie string begin with the name we want?
+		            if (cookie.substring(0, name.length + 1) === (name + '=')) {
+		                cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+		                break;
+		            }
+		        }
+		    }
+		    return cookieValue;
+		}
+		var csrftoken = getCookie('csrftoken');
+
+        var activeItem = null
+		var list_snapshot = []
+
+        {#meetingList()#}
+
+        function meetingList() {
+            var wrapper = document.getElementById('meeting-wrapper')
+            wrapper.innerHTML = ''
+
+            var url = 'http://127.0.0.1:8000/api/meeting-atten-list/'
+
+            fetch(url)
+            .then((resp) => resp.json())
+            .then(function (data) {
+                console.log(data)
+                var list = data
+                for(var i in list){
+
+                    try{
+						document.getElementById(`meeting-row-${i}`).remove()
+					}catch(err){
+                        {#console.log(err)#}
+					}
+
+                    var item = `
+                    <tr id="meeting-row-${i}">
+                        <th>${i}</th>
+                        <td>${list[i].attendant}</td>
+                        <td class="title">${list[i].title}</td>
+                        <td>${list[i].meeting_date}</td>
+                        <td>
+                            <button class="btn btn-sm btn-outline-info edit"><i class="fas fa-edit"></i></button>
+                            <button class="btn btn-sm btn-outline-danger delete"><i class="fas fa-trash-alt"></i></button>
+                        </td>
+                     </tr>
+                    `
+                    wrapper.innerHTML += item
+                }
+
+                $('#myTable').dataTable();
+
+                if (list_snapshot.length > list.length){
+					for (var i = list.length; i < list_snapshot.length; i++){
+						document.getElementById(`meeting-row-${i}`).remove()
+					}
+				}
+
+				list_snapshot = list
+
+
+				for (var i in list) {
+                    var editBtn = document.getElementsByClassName('edit')[i]
+                    var deleteBtn = document.getElementsByClassName('delete')[i]
+                    var title = document.getElementsByClassName('title')[i]
+
+
+                    editBtn.addEventListener('click', (function (item) {
+                        return function () {
+                            editItem(item)
+                        }
+                    })(list[i]))
+
+                    deleteBtn.addEventListener('click', (function(item){
+						return function(){
+							deleteItem(item)
+						}
+					})(list[i]))
+
+                    title.addEventListener('click', (function(item){
+						return function(){
+							modalView(item)
+						}
+					})(list[i]))
+
+                }
+
+            })
+        }
+
+        function getImmigrantID(i) {
+             activeItem = null
+		    list_snapshot = []
+            var url = 'http://127.0.0.1:8000/api/get-immigrant-id/'
+
+            var id = i
+            console.log(id)
+            fetch(url, {
+                method:'POST',
+                headers:{
+                    'Content-type':'application/json',
+                    'X-CSRFToken':csrftoken,
+                },
+                body:JSON.stringify({'id':id})
+            }
+            ).then(function(response){
+                meetingList()
+            })
+        }
+
+
+
+
+        var form = document.getElementById('form-wrapper')
+		form.addEventListener('submit', function(e){
+			e.preventDefault()
+			console.log('Form submitted')
+			var url = 'http://127.0.0.1:8000/api/meeting-create/'
+            if (activeItem != null){
+				var url = `http://127.0.0.1:8000/api/meeting-update/${activeItem.id}/`
+				activeItem = null
+			}
+
+			var title = document.getElementById('title').value
+            var description = document.getElementById('description').value
+            var meeting_date = document.getElementById('meeting_date').value
+			fetch(url, {
+				method:'POST',
+				headers:{
+					'Content-type':'application/json',
+					'X-CSRFToken':csrftoken,
+				},
+				body:JSON.stringify({'title':title, 'description':description, 'meeting_date':meeting_date})
+			}
+			).then(function(response){
+				meetingList()
+				document.getElementById('form').reset()
+			})
+		});
+
+        {#udate#}
+        function editItem(item){
+			console.log('Item clicked:', item)
+			activeItem = item
+			document.getElementById('title').value = activeItem.title
+            document.getElementById('description').value = activeItem.description
+            document.getElementById('meeting_date').value = activeItem.meeting_date
+		}
+
+		{#delete#}
+		function deleteItem(item){
+			console.log(item.id)
+			fetch(`http://127.0.0.1:8000/api/meeting-delete/${item.id}/`, {
+				method:'DELETE',
+				headers:{
+					'Content-type':'application/json',
+					'X-CSRFToken':csrftoken,
+				}
+			}).then((response) => {
+				meetingList()
+			})
+		}
+
+		function modalView(item){
+			console.log('Strike clicked')
+            var myModal = $("#myModal")
+            myModal.html(`
+                <div class="modal-dialog modal-lg">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h4 class="modal-title">${item.title}</h4>
+                      <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    </div>
+                    <div class="modal-body">
+                      <p class="text-dark">${item.description}</p>
+                    </div>
+                    <div class="modal-footer">
+                      <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    </div>
+                  </div>
+                </div>
+            `)
+
+
+
+            $('#myModal').modal('show');
+		}
+    </script>
+{% endblock %}

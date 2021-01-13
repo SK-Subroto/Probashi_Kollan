@@ -8193,7 +8193,7 @@ h1, h2, h3, h4, h5,
   background: #fff;
   border: none;
   border-radius: 0;
-  margin-bottom: 40px;
+  margin-bottom: 25px;
   -webkit-box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
   box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1); }
 
@@ -8213,9 +8213,9 @@ h1, h2, h3, h4, h5,
   width: 100%; }
 
 #sidebar {
-  min-width: 280px;
-  max-width: 280px;
-  background: #1D1928;
+  min-width: 300px;
+  max-width: 300px;
+  background: #343957;
   color: #fff;
   -webkit-transition: all 0.3s;
   -o-transition: all 0.3s;
