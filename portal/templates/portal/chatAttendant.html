@@ -1,0 +1,110 @@
+{% extends 'users/main_2.html' %}
+{% load static %}
+{% block content %}
+    <style>
+        .chat_message {
+        position: relative;
+        font-weight: normal;
+        color: black;
+        font-size: 15px;
+        padding: 5px;
+        border-radius: 10px;
+        width: fit-content;
+        background-color: #ffffff;
+        margin-bottom: 15px;
+        }
+
+        .chat_reciever{
+         position: relative;
+         font-weight: normal;
+         color: black;
+         font-size: 15px;
+         padding: 5px;
+         border-radius: 10px;
+         margin-left: auto;
+         width: fit-content;
+         background-color: #dcf8c6;
+         margin-bottom: 15px;
+         text-align: right;
+        }
+        .message_name {
+        position: relative;
+        color: #616161;
+        margin-bottom: 0px;
+        font-weight: 800;
+        font-size: xx-small;
+        }
+        .recieve_name {
+        position: relative;
+        color: #616161;
+        margin-bottom: 0px;
+        margin-left: auto;
+        width: fit-content;
+        {#margin-left: -15px;#}
+        font-weight: 800;
+        font-size: xx-small;
+        }
+        #chat_btn{
+        border-top: 1px solid white;
+        border-bottom: 1px solid white;
+        border-left: 1px solid #607DA2;
+        border-right: 1px solid #607DA2;
+        background: #607DA2;
+        color: white;
+        font-weight: lighter;
+        }
+        #chat_btn:hover{
+            background: #B2DFDB;
+            color: black;
+        }
+    </style>
+    <div class="row px-5">
+        <div class="col-4 pr-0">
+            <div class="card" style="height: 550px; border-radius: 10px; background: #607DA2;">
+               <div class="row px-5 pt-4 pb-3">
+                    <img class="img logo rounded-circle" src="{{ request.user.attendant.photo.url }}" alt="Image" class="img-fluid" style="width: 50px; height: 50px;">
+                    <h6 class="text-white font-weight-bolder pl-2 pt-3">{{ request.user.attendant.attendant_name }}</h6>
+               </div>
+{#                <div class="px-3 py-2">#}
+{#                    <input class="form-control" placeholder="search.." style="border-radius: 20px">#}
+{#                </div>#}
+                <div class="card-body p-4 overflow-auto">
+                   <ul id="room" class="list-group">
+
+               </ul>
+                </div>
+
+               <div class="card-footer">
+                   <button id="end" class="btn btn-info btn-block font-weight-bolder">End chat</button>
+               </div>
+            </div>
+        </div>
+        <div class="col-8 pl-0">
+            <div class="card" style="height: 550px; border-radius: 10px; background: #B2DFDB;">
+                <div class="card-title bg-light" style="border-top-left-radius: 10px; border-top-right-radius: 10px;">
+                   <h4 class="text-center font-weight-bolder p-2">Help Desk</h4>
+                </div>
+                <div class="card-body p-4 overflow-auto" id="chat_body">
+
+                </div>
+                <div class="card-footer">
+                    <div class="input-group">
+                      <input placeholder="User" id="user" type="hidden" value="{{ request.user.attendant.attendant_name }}" class="mb-2">
+                      <input type="text" class="form-control border-info" id="mgs" placeholder="Type...." style="border-top-left-radius: 20px; border-bottom-left-radius: 20px;">
+                      <div class="input-group-append">
+                        <button class="btn btn-info" id="send" style="border-top-right-radius: 20px; border-bottom-right-radius: 20px;"><i class="fa fa-paper-plane"></i></button>
+                      </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+{#        <button id="end" class="btn btn-danger">End chat</button>#}
+
+
+
+    <script src="https://www.gstatic.com/firebasejs/8.2.1/firebase.js"></script>
+    <script src="{% static 'js/attendantChat.js' %}"></script>
+{% endblock %}

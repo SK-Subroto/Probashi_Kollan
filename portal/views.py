@@ -32,9 +32,28 @@ def blogAttendant(request):
     return render(request, 'portal/blogAttendant.html')
 
 
+search_q = ''
+
+
+@api_view(['POST'])
+def blogAttenSearch(request):
+    query_data = request.data
+    search = query_data["search"]
+    global search_q
+    search_q = search
+    print(search)
+    return HttpResponse(search)
+
+
 @api_view(['GET'])
 def blogAttenList(request):
-    blogs = Blog.objects.all().order_by('-date_posted')
+    global search_q
+    print(search_q)
+    if not search_q:
+        blogs = Blog.objects.all().order_by('-date_posted')
+    else:
+        blogs = Blog.objects.filter(Q(title__icontains=search_q)).order_by('-date_posted')
+        search_q = ''
     serializer = BlogSerializer(blogs, many=True)
     return Response(serializer.data)
 
@@ -73,3 +92,7 @@ def blogDelete(request, pk):
     blog.delete()
 
     return Response('Item succsesfully delete!')
+
+
+def attendnatChat(request):
+    return render(request, 'portal/chatAttendant.html')

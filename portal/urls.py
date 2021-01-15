@@ -14,9 +14,11 @@ urlpatterns = [
 
     path('attendant/blog/', views.blogAttendant, name='attendant-blog'),
     path('api/blog-list/', views.blogAttenList),
+    path('api/blog-search/', views.blogAttenSearch),
     path('api/blog-create/', views.blogAttenCreate),
     path('api/blog-update/<str:pk>/', views.blogUpdate),
     path('api/blog-delete/<str:pk>/', views.blogDelete),
+    path('attendant/chat/', views.attendnatChat, name='attendant-chat'),
 
     # path('', include(router.urls)),
 ]

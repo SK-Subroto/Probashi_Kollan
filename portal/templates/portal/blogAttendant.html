@@ -3,7 +3,7 @@
 {% block content %}
     <div class="row">
         <div class="col-lg-2">
-            <div class="card p-2" style="border-radius: 10px;">
+            <div class="card p-2 sticky-top" style="border-radius: 10px;">
                 <div class="text-center">
                     <div class="bg-light py-2">
                         <img class="img logo rounded-circle" src="{{ request.user.attendant.photo.url }}" alt="Image" class="img-fluid" style="width: 50px; height: 50px;">
@@ -30,9 +30,10 @@
                           <a href="#" class="btn btn-lg btn-default"><i class="far fa-calendar-alt text-success"></i> Event</a>
                         </div>
                     </div>
-                    <div class="col-lg-4 pt-1">
-                        <form action="">
-                            <input class="form-control border-primary" type="text" placeholder="Search" style="border-radius: 20px;">
+                    <div class="col-lg-4 pt-1" id="form-search-wrapper">
+                        <form id="search_form" action="">
+                            <input class="form-control border-primary" id="search" type="text" placeholder="Search" style="border-radius: 20px;">
+                            <button type="submit" hidden>search</button>
                         </form>
                     </div>
                 </div>
@@ -90,7 +91,7 @@
               </div>
         </div>
         <div class="col-lg-4">
-            <div class="card p-2" style="border-radius: 10px;">
+            <div class="card p-2 sticky-top" style="border-radius: 10px;">
                 <div class="card-title text-center bg-info text-light pt-1" style="border-radius: 20px">
                     <h4 class="font-weight-bold">PENDING POST</h4>
                 </div>
@@ -301,6 +302,31 @@
 
             })
         }
+
+        {#search#}
+        var form_search = document.getElementById('form-search-wrapper')
+		form_search.addEventListener('submit', function(e){
+			e.preventDefault()
+			console.log('Form submitted')
+			var url = 'http://127.0.0.1:8000/api/blog-search/'
+
+			var search = document.getElementById('search').value
+            {#var content = document.getElementById('content').value#}
+            {#var photo = document.getElementById('blogFile').value#}
+			fetch(url, {
+				method:'POST',
+                {#enctype: 'multipart/form-data',#}
+				headers:{
+					'Content-type':'application/json',
+					'X-CSRFToken':csrftoken,
+				},
+				body:JSON.stringify({'search':search})
+			}
+			).then(function(response){
+				blogList()
+				{#document.getElementById('search_form').reset()#}
+			})
+		});
 
         {#create#}
         var form = document.getElementById('form-wrapper')

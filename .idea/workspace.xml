@@ -13,9 +13,9 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="JavaScript File" />
-        <option value="HTML File" />
         <option value="Python Script" />
+        <option value="HTML File" />
+        <option value="JavaScript File" />
       </list>
     </option>
   </component>
@@ -137,7 +137,10 @@
       <workItem from="1610434294134" duration="7037000" />
       <workItem from="1610456499319" duration="14087000" />
       <workItem from="1610517765498" duration="7405000" />
-      <workItem from="1610548139625" duration="12964000" />
+      <workItem from="1610548139625" duration="13725000" />
+      <workItem from="1610602561430" duration="11692000" />
+      <workItem from="1610635331770" duration="12019000" />
+      <workItem from="1610686024773" duration="7531000" />
     </task>
     <servers />
   </component>
@@ -153,22 +156,22 @@
       <screen x="0" y="0" width="1536" height="834" />
     </state>
     <state x="499" y="110" key="FileChooserDialogImpl/0.0.1536.834@0.0.1536.834" timestamp="1609952158015" />
-    <state width="1481" height="321" key="GridCell.Tab.0.bottom" timestamp="1610561217554">
+    <state width="1481" height="169" key="GridCell.Tab.0.bottom" timestamp="1610701788103">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
-    <state width="1481" height="321" key="GridCell.Tab.0.bottom/0.0.1536.834@0.0.1536.834" timestamp="1610561217554" />
-    <state width="1481" height="321" key="GridCell.Tab.0.center" timestamp="1610561217553">
+    <state width="1481" height="169" key="GridCell.Tab.0.bottom/0.0.1536.834@0.0.1536.834" timestamp="1610701788103" />
+    <state width="1481" height="169" key="GridCell.Tab.0.center" timestamp="1610701788102">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
-    <state width="1481" height="321" key="GridCell.Tab.0.center/0.0.1536.834@0.0.1536.834" timestamp="1610561217553" />
-    <state width="1481" height="321" key="GridCell.Tab.0.left" timestamp="1610561217553">
+    <state width="1481" height="169" key="GridCell.Tab.0.center/0.0.1536.834@0.0.1536.834" timestamp="1610701788102" />
+    <state width="1481" height="169" key="GridCell.Tab.0.left" timestamp="1610701788102">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
-    <state width="1481" height="321" key="GridCell.Tab.0.left/0.0.1536.834@0.0.1536.834" timestamp="1610561217553" />
-    <state width="1481" height="321" key="GridCell.Tab.0.right" timestamp="1610561217553">
+    <state width="1481" height="169" key="GridCell.Tab.0.left/0.0.1536.834@0.0.1536.834" timestamp="1610701788102" />
+    <state width="1481" height="169" key="GridCell.Tab.0.right" timestamp="1610701788103">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
-    <state width="1481" height="321" key="GridCell.Tab.0.right/0.0.1536.834@0.0.1536.834" timestamp="1610561217553" />
+    <state width="1481" height="169" key="GridCell.Tab.0.right/0.0.1536.834@0.0.1536.834" timestamp="1610701788103" />
     <state x="372" y="0" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser" timestamp="1608719310258">
       <screen x="0" y="0" width="1536" height="834" />
     </state>

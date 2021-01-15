@@ -119,9 +119,9 @@
         </div>
         <div class="row">
             {% for blog in blogs %}
-            <div class="col-lg-4">
+            <div class="col-lg-4 mb-4">
                 <div class="card">
-                    <img src="https://media.timeout.com/images/105730440/image.jpg" alt="Image" class="img-fluid rounded">
+                    <img src="{{ blog.photo.url }}" alt="Image" class="img-fluid rounded">
                     <div class="card-body">
                         <h4 class="card-title"><a href="single.html">{{ blog.title }}</a></h4>
                         <div class="post-meta align-items-center text-left clearfix">
