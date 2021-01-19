@@ -93,169 +93,124 @@
                 </div>
             </div>
             <div class="row px-3 mb-2">
+            {% for job in jobs %}
                 <div class="col-lg-3 col-md-4 px-0">
                     <div class="card">
                         <div class="card-body">
                             <div class="row">
                                 <div class="col-sm-4 text-left">
-                                    <img class="" src="https://cdn0.iconfinder.com/data/icons/shift-free/32/Microsoft-512.png" alt="sans" style="width: 65px; height: 65px;">
+                                    <img class="" src="{{ job.company_logo }}" alt="sans" style="width: 65px; height: 65px;">
                                 </div>
                                 <div class="col-sm-8">
-                                    <h5 class="card-title">Microsoft</h5>
-                                    <a href="" class="card-text" data-toggle="modal" data-target="#myModal" data-backdrop="static" data-keyboard="false"><i class="fa fa-arrow-circle-right"></i> Jr. software enginer</a>
+                                    <h5 class="card-title">{{ job.company_name }}</h5>
+                                    <a href="" class="card-text" data-toggle="modal" data-target="#detail-modal-{{ job.id }}" data-backdrop="static" data-keyboard="false" onclick="description('{{ job.id }}')"><i class="fa fa-arrow-circle-right"></i> {{ job.title }}</a>
+{#                                    <p>{{ job.requirements }}</p>#}
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-3 col-md-4 px-0">
-                    <div class="card">
-                        <div class="card-body">
-                            <div class="row">
-                                <div class="col-sm-4 text-left">
-                                    <img class="" src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/Google_%22G%22_Logo.svg/1004px-Google_%22G%22_Logo.svg.png" alt="sans" style="width: 65px; height: 65px;">
-                                </div>
-                                <div class="col-sm-8">
-                                    <h5 class="card-title">Google</h5>
-                                    <a href="" class="card-text"><i class="fa fa-arrow-circle-right"></i> Jr. software enginer</a>
-                                </div>
-                            </div>
+
+                  <!-- Modal -->
+                <div class="modal fade" id="detail-modal-{{ job.id }}" role="dialog">
+                    <div class="modal-dialog modal-lg">
+                      <div class="bg-light modal-content">
+                        <div class="modal-header">
+                          <h4 class="modal-title">Description</h4>
+                          <button id="close" type="button" class="close" data-dismiss="modal">&times;</button>
                         </div>
+                        <div class="modal-body">
+
+                        {#job body#}
+                        <div id="jobBody">
+                              <h5>Name of the post: <strong>{{ job.title }}</strong></h5>
+                              <h5 class="pt-4">{{ job.company_name }}</h5>
+                              <p>Vacancy: Not specific</p>
+                              <p>Job Description / Responsibility</p>
+
+                                <input id="requirement-{{ job.id }}" type="hidden" value="{{ job.requirements }}">
+
+                                <ul id="dataList-{{ job.id }}">
+
+                                </ul>
+
+                                <p><strong>Employment Status:</strong> Full Time</p>
+                                <p><strong>Educational Requirements</strong></p>
+                                <ul>
+                                    <li>Bachelor of Commerce (BCom) in Accounting, Bachelor of Business Administration (BBA) in Accounting</li>
+                                </ul>
+                                <b>Additional Requirements</b>
+                                <p>The position involves working in a team environment. Our team work in a very sophisticated web-based platform. So ideal candidate should be-</p>
+                                <ul>
+                              <li>Conversant in system-based work environment or computer literate with some basic IT skills;</li>
+                              <li>Excellent communication skill in spoken and written English;</li>
+                              <li>Be a smart speaker with great patience;</li>
+                              <li>Be a quick learner and good problem solver;</li>
+                              <li>Able to work in a team environment;</li>
+                              <li>Should be dynamic, energetic, enthusiastic and self-motivated;</li>
+                              <li>Skilled in MS-Office specially in Advanced Excel;.</li>
+                              <li>Candidate must agree to work at night shifts when necessary.</li>
+                            </ul>
+                            <p><strong>Job Location:</strong> Dhaka</p>
+                            <p><strong>Salary:</strong> Negotiable</p>
+                            <p><strong>Compensation & Other Benefits:</strong> This position will get the standard remuneration package as per the Company policy.</p>
+                            <div class="">
+                                  <hr style="background-color: #E91E63; height: 1px; border: 0;">
+                                  <div class="text-center">
+                                     <p><b>If you think you are the right person whom we are looking for, please apply with confidence.</b></p>
+                                     <button id="apply" type="button" class="btn btn-outline-danger" >Apply</button>
+                                     <h4 class="mt-2"><strong>Application Deadline:</strong><span class="text-danger"> February 1, 2021</span></h4>
+                                  </div>
+                             </div>
+                          </div>
+
+
+                        {#Apply form#}
+                        <div id="applyBody" class="">
+                              <div class="contact-section">
+                                <form action="" class="col-lg-8 col-md-6 m-auto was-validated bg-light text-black p-3  ">
+
+                                    <div class="form-group">
+                                        <label for="fullname">Fullname</label>
+                                        <input type="text" class="form-control" name="fullname" required>
+                                        <div class="valid-feedback">Valid</div>
+                                        <div class="invalid-feedback">Please enter your fullname as soon as possible</div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="email">Email</label>
+                                        <input type="email" class="form-control" name="email">
+                                        <div class="invalid-feedback">Please enter your valid email</div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="subject">Subject</label>
+                                        <input type="text" class="form-control" name="subject">
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="message">message</label>
+                                        <textarea style="resize: none;" name="message" class="form-control" id="" cols="30"
+                                            rows="10"></textarea>
+                                    </div>
+
+                                    <div class="form-group text-right">
+                                        <input type="submit" class="btn btn-secondary" value="submit">
+                                        <input type="reset" class="btn btn-secondary" value="Reset">
+                                    </div>
+                                </form>
+                               </div>
+                            </div>
+
+                        </div>
+
+                      </div>
                     </div>
                 </div>
-                <div class="col-lg-3 col-md-4 px-0">
-                    <div class="card">
-                        <div class="card-body">
-                            <div class="row">
-                                <div class="col-sm-4 text-left">
-                                    <img class="" src="https://upload.wikimedia.org/wikipedia/commons/5/51/Facebook_f_logo_%282019%29.svg" alt="sans" style="width: 65px; height: 65px;">
-                                </div>
-                                <div class="col-sm-8">
-                                    <h5 class="card-title">Facebook</h5>
-                                    <a href="" class="card-text"><i class="fa fa-arrow-circle-right"></i> Jr. software enginer</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-4 px-0">
-                    <div class="card">
-                        <div class="card-body">
-                            <div class="row">
-                                <div class="col-sm-4 text-left">
-                                    <img class="" src="https://cdn2.iconfinder.com/data/icons/social-media-icons-23/800/linkedin-512.png" alt="sans" style="width: 65px; height: 65px;">
-                                </div>
-                                <div class="col-sm-8">
-                                    <h5 class="card-title">LinkedIn</h5>
-                                    <a href="" class="card-text"><i class="fa fa-arrow-circle-right"></i> Jr. software enginer</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+            {% endfor %}
             </div>
         </div>
     </div>
-    <!-- Modal -->
-      <div class="modal fade" id="myModal" role="dialog">
-        <div class="modal-dialog modal-lg">
-          <div class="bg-light modal-content">
-            <div class="modal-header">
-              <h4 class="modal-title">Description</h4>
-              <button id="close" type="button" class="close" data-dismiss="modal">&times;</button>
-            </div>
-            <div class="modal-body">
-
-{#                job body#}
-              <div id="jobBody">
-                  <h5>Name of the post: <strong>Sr. Software Engineering</strong></h5>
-                  <h5 class="pt-4">Google</h5>
-                  <p>Vacancy: Not specific</p>
-                  <p>Job Description / Responsibility</p>
-                  <ul>
-                      <li>Follow up on collection to ensure deposit in the organization bank account.</li>
-                      <li>Prepare all receivable report with analysis and suggest for the way forward.</li>
-                      <li>Follow up on accounts receivable against report.</li>
-                      <li>Daily follow up with client for the collection of previous balance.</li>
-                      <li>Daily basis to communicate with USA office.</li>
-                      <li>Ensure the accounts receivable function performance.</li>
-                      <li>Prepare & submitted accounts receivable report to the department.</li>
-                      <li>Monthly reconciliation of agencies.</li>
-                      <li>Plus any other jobs that assigned by the management when necessary</li>
-                  </ul>
-                    <p><strong>Employment Status:</strong> Full Time</p>
-                    <p><strong>Educational Requirements</strong></p>
-                    <ul>
-                        <li>Bachelor of Commerce (BCom) in Accounting, Bachelor of Business Administration (BBA) in Accounting</li>
-                    </ul>
-                    <b>Additional Requirements</b>
-                    <p>The position involves working in a team environment. Our team work in a very sophisticated web-based platform. So ideal candidate should be-</p>
-                    <ul>
-                  <li>Conversant in system-based work environment or computer literate with some basic IT skills;</li>
-                  <li>Excellent communication skill in spoken and written English;</li>
-                  <li>Be a smart speaker with great patience;</li>
-                  <li>Be a quick learner and good problem solver;</li>
-                  <li>Able to work in a team environment;</li>
-                  <li>Should be dynamic, energetic, enthusiastic and self-motivated;</li>
-                  <li>Skilled in MS-Office specially in Advanced Excel;.</li>
-                  <li>Candidate must agree to work at night shifts when necessary.</li>
-                </ul>
-                <p><strong>Job Location:</strong> Dhaka</p>
-                <p><strong>Salary:</strong> Negotiable</p>
-                <p><strong>Compensation & Other Benefits:</strong> This position will get the standard remuneration package as per the Company policy.</p>
-                <div class="">
-                      <hr style="background-color: #E91E63; height: 1px; border: 0;">
-                      <div class="text-center">
-                         <p><b>If you think you are the right person whom we are looking for, please apply with confidence.</b></p>
-                         <button id="apply" type="button" class="btn btn-outline-danger" >Apply</button>
-                         <h4 class="mt-2"><strong>Application Deadline:</strong><span class="text-danger"> February 1, 2021</span></h4>
-                      </div>
-                 </div>
-              </div>
-
-
-{#                Apply form#}
-              <div id="applyBody" class="">
-                  <div class="contact-section">
-                    <form action="" class="col-lg-8 col-md-6 m-auto was-validated bg-light text-black p-3  ">
-
-                        <div class="form-group">
-                            <label for="fullname">Fullname</label>
-                            <input type="text" class="form-control" name="fullname" required>
-                            <div class="valid-feedback">Valid</div>
-                            <div class="invalid-feedback">Please enter your fullname as soon as possible</div>
-                        </div>
-
-                        <div class="form-group">
-                            <label for="email">Email</label>
-                            <input type="email" class="form-control" name="email">
-                            <div class="invalid-feedback">Please enter your valid email</div>
-                        </div>
-
-                        <div class="form-group">
-                            <label for="subject">Subject</label>
-                            <input type="text" class="form-control" name="subject">
-                        </div>
-
-                        <div class="form-group">
-                            <label for="message">message</label>
-                            <textarea style="resize: none;" name="message" class="form-control" id="" cols="30"
-                                rows="10"></textarea>
-                        </div>
-
-                        <div class="form-group text-right">
-                            <input type="submit" class="btn btn-secondary" value="submit">
-                            <input type="reset" class="btn btn-secondary" value="Reset">
-                        </div>
-                    </form>
-                   </div>
-            </div>
-
-            </div>
-
-          </div>
-        </div>
-      </div>
 
     <script>
         $(document).ready(function () {
@@ -272,5 +227,24 @@
             $('#applyBody').show()
             {#console.log("hello")#}
         })
+
+
+        function description(id) {
+            var jsonString = $(`#requirement-${id}`).val()
+            var jsonString = jsonString.replace(/'/g, '"')
+            console.log(jsonString)
+
+            var dataObject = JSON.parse(jsonString);
+            var listItemString = document.getElementById(`dataList-${id}`);
+            listItemString.innerHTML = ''
+            dataObject.forEach(buildNewList);
+
+            function buildNewList(item, index) {
+                var listItem = `
+                    <li>${item.title}</li>
+                `
+                listItemString.innerHTML += listItem;
+            }
+        }
     </script>
 {% endblock %}

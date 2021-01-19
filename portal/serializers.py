@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from .models import Blog
+from .models import Blog, Job
 
 
 class BlogSerializer(serializers.ModelSerializer):
@@ -10,3 +10,9 @@ class BlogSerializer(serializers.ModelSerializer):
         model = Blog
         fields = ('id', 'author', 'title', 'content', 'date_posted', 'photo', 'permission')
 
+
+class JobSerializer(serializers.ModelSerializer):
+
+    class Meta:
+        model = Job
+        fields = '__all__'

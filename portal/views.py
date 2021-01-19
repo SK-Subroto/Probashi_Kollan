@@ -5,13 +5,16 @@ from rest_framework.decorators import api_view
 from rest_framework.response import Response
 from rest_framework.parsers import FileUploadParser, MultiPartParser, FormParser
 from rest_framework.decorators import parser_classes
-from .serializers import BlogSerializer
-from .models import Blog
+from .serializers import BlogSerializer, JobSerializer
+from .models import Blog, Job
+from users.models import Attendant
 from django.contrib.auth.models import User
 
 
 def job(request):
-    return render(request, 'portal/job.html')
+    jobs = Job.objects.all()
+    context = {'jobs': jobs}
+    return render(request, 'portal/job.html', context)
 
 
 def blog(request):
@@ -96,3 +99,30 @@ def blogDelete(request, pk):
 
 def attendnatChat(request):
     return render(request, 'portal/chatAttendant.html')
+
+
+def jobAttendant(request):
+    return render(request, 'portal/jobAttendant.html')
+
+
+@api_view(['POST'])
+def jobCreate(request):
+    attendant_user = Attendant.objects.get(user__id=request.user.id)
+    print(attendant_user)
+    job_data = request.data
+    print(job_data)
+    new_job = Job.objects.create(attendant=attendant_user,
+                                 title=job_data["title"],
+                                 company_name=job_data["c_name"],
+                                 company_logo=job_data["c_logo"],
+                                 deadline=job_data["deadline"],
+                                 requirements=job_data["requirement"]
+                                 )
+    new_job.save()
+    serializer = JobSerializer(new_job)
+    # serializer = NoticeSerializer(data=request.data)
+
+    # if serializer.is_valid():
+    #     serializer.save()
+
+    return Response(serializer.data)

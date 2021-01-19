@@ -1,0 +1,127 @@
+{% extends 'users/main_2.html' %}
+
+{% block content %}
+    <div id="form-wrapper">
+        <form id="form" action="">
+            <div class="form-group">
+              <label for="title">Title:</label>
+              <input type="text" class="form-control" id="title" placeholder="Enter title" name="title">
+            </div>
+            <div class="form-group">
+              <label for="c_name">Company Name:</label>
+              <input type="text" class="form-control" id="c_name" placeholder="Enter Company Name" name="c_name">
+            </div>
+            <div class="form-group">
+              <label for="c_logo">Company logo:</label>
+              <input type="url" class="form-control" id="c_logo" placeholder="Enter logo link" name="c_logo">
+            </div>
+            <div class="form-group">
+              <label for="deadline">Deadline:</label>
+              <input type="date" class="form-control" id="deadline" placeholder="Enter deadline" name="deadline">
+            </div>
+
+            <div id="inputFormRow">
+                <div class="input-group mb-3">
+                    <input type="text" name="title[]" id="skill" class="form-control m-input" placeholder="Enter title" autocomplete="off">
+                    <div class="input-group-append">
+                        <button id="removeRow" type="button" class="btn btn-danger">Remove</button>
+                    </div>
+                </div>
+            </div>
+
+
+            <div id="newRow"></div>
+            <button id="addRow" type="button" class="btn btn-info">Add Row</button>
+
+
+            <button id="add" type="submit" class="btn btn-primary">Submit</button>
+        </form>
+    </div>
+
+    <script>
+        function getCookie(name) {
+		    var cookieValue = null;
+		    if (document.cookie && document.cookie !== '') {
+		        var cookies = document.cookie.split(';');
+		        for (var i = 0; i < cookies.length; i++) {
+		            var cookie = cookies[i].trim();
+		            // Does this cookie string begin with the name we want?
+		            if (cookie.substring(0, name.length + 1) === (name + '=')) {
+		                cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+		                break;
+		            }
+		        }
+		    }
+		    return cookieValue;
+		}
+		var csrftoken = getCookie('csrftoken');
+
+        var jsonString = []
+
+        // add row
+        $("#addRow").click(function () {
+            var html = '';
+            html += '<div id="inputFormRow">';
+            html += '<div class="input-group mb-3">';
+            html += '<input type="text" name="title[]" id="skill" class="form-control m-input" placeholder="Enter title" autocomplete="off">';
+            html += '<div class="input-group-append">';
+            html += '<button id="removeRow" type="button" class="btn btn-danger">Remove</button>';
+            html += '</div>';
+            html += '</div>';
+
+            $('#newRow').append(html);
+        });
+
+        // remove row
+        $(document).on('click', '#removeRow', function () {
+            $(this).closest('#inputFormRow').remove();
+        });
+
+
+        var array = [];
+        $('#add').click(function(e){
+            {#e.preventDefault();#}
+            $("input[id=skill]").each(function() {
+            array.push({
+                // title: $(this).attr("title"),
+                title: $(this).val()
+            });
+        });
+        // then to get the JSON string
+        {#jsonString = JSON.stringify(array);#}
+
+        // alert(jsonString)
+        console.log(jsonString)
+        })
+
+
+        {#create#}
+        var form = document.getElementById('form-wrapper')
+		form.addEventListener('submit', function(e){
+			e.preventDefault()
+			console.log('Form submitted')
+			var url = 'http://127.0.0.1:8000/api/job-create/'
+
+
+			var title = document.getElementById('title').value
+            var c_name = document.getElementById('c_name').value
+            var c_logo = document.getElementById('c_logo').value
+            var deadline = document.getElementById('deadline').value
+            var requirement = array
+			fetch(url, {
+				method:'POST',
+				headers:{
+					'Content-type':'application/json',
+					'X-CSRFToken':csrftoken,
+				},
+				body:JSON.stringify({'title':title, 'c_name':c_name, 'c_logo':c_logo, 'deadline':deadline, 'requirement':requirement})
+			}
+			).then(function(response){
+				{#noticeList()#}
+                alert("success")
+				document.getElementById('form').reset()
+                array = []
+			})
+		});
+    </script>
+{% endblock %}

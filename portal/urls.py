@@ -20,5 +20,8 @@ urlpatterns = [
     path('api/blog-delete/<str:pk>/', views.blogDelete),
     path('attendant/chat/', views.attendnatChat, name='attendant-chat'),
 
+    path('attendant/job/', views.jobAttendant, name='attendant-job'),
+    path('api/job-create/', views.jobCreate),
+
     # path('', include(router.urls)),
 ]
