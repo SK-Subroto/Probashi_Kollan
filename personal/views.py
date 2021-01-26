@@ -16,3 +16,11 @@ def report(request):
 
 def moneyTransfer(request):
     return HttpResponse("this is moneyTransfer")
+
+
+def doctor(request):
+    return render(request, 'personal/doctor.html')
+
+
+def lawyer(request):
+    return render(request, 'personal/lawyer.html')

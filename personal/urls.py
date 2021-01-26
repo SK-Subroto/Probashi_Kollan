@@ -6,4 +6,6 @@ urlpatterns = [
     path('visa/', views.visa),
     path('report/', views.report),
     path('money_transfer/', views.moneyTransfer),
+    path('emergency/doctor/', views.doctor, name='emergency-doctor'),
+    path('emergency/lawyer/', views.lawyer, name='emergency-lawyer'),
 ]

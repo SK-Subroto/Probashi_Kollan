@@ -1,12 +1,12 @@
 {% load static %}
 
 <nav id="sidebar">
-    <div class="p-4 pt-5 sticky-top">
-        <a href="#" class="img logo rounded-circle mb-5" style="background-image: url({{ request.user.immigrant.photo.url }});"></a>
+    <div class="p-4 pt-4 sticky-top">
+        <a href="#" class="img logo rounded-circle mb-4" style="background-image: url({{ request.user.immigrant.photo.url }});"></a>
 {#            <img class="profile-pic" src="{{ request.user.immigrant.photo.url }}">#}
         <ul class="list-unstyled components mb-5">
           <li class="active">
-              <a href="#"><i class="fas fa-home mr-2"></i> Dashboard</a>
+              <a href="{% url 'home' %}"><i class="fas fa-home mr-2"></i> Dashboard</a>
           </li>
           <li>
             <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle"><i class="fas fa-user mr-2"></i> Profile</a>
@@ -40,15 +40,29 @@
             <a href="{% url 'meeting' %}"><i class="fas fa-users mr-2"></i> Meeting</a>
           </li>
           <li>
+          <a href="#emergencySubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle"><i class="fas fa-heartbeat mr-2"></i></i> Emergency</a>
+          <ul class="collapse list-unstyled" id="emergencySubmenu">
+            <li>
+                <a href="{% url 'emergency-doctor' %}">Doctor</a>
+            </li>
+            <li>
+                <a href="{% url 'emergency-lawyer' %}">Lawyer</a>
+            </li>
+          </ul>
+          </li>
+          <li>
             <a href="{% url 'job' %}"><i class="fas fa-briefcase mr-2"></i> Job</a>
           </li>
           <li>
             <a href="{% url 'flight' %}"><i class="fas fa-plane mr-2"></i> Flight</a>
           </li>
+          <li>
+            <a href="{% url 'logout' %}"><i class="fas fa-sign-out-alt mr-2"></i> Logout</a>
+          </li>
         </ul>
 
         <div class="footer">
-            <p>Demon footer</p>
+
         </div>
 
   </div>

@@ -103,7 +103,7 @@
                                 </div>
                                 <div class="col-sm-8">
                                     <h5 class="card-title">{{ job.company_name }}</h5>
-                                    <a href="" class="card-text" data-toggle="modal" data-target="#detail-modal-{{ job.id }}" data-backdrop="static" data-keyboard="false" onclick="description('{{ job.id }}')"><i class="fa fa-arrow-circle-right"></i> {{ job.title }}</a>
+                                    <a href="" class="card-text" data-toggle="modal" data-target="#detail-modal-{{ job.id }}" data-backdrop="static" data-keyboard="false" onclick="modal('{{ job.id }}')"><i class="fa fa-arrow-circle-right"></i> {{ job.title }}</a>
 {#                                    <p>{{ job.requirements }}</p>#}
                                 </div>
                             </div>
@@ -117,48 +117,22 @@
                       <div class="bg-light modal-content">
                         <div class="modal-header">
                           <h4 class="modal-title">Description</h4>
-                          <button id="close" type="button" class="close" data-dismiss="modal">&times;</button>
+                          <button id="close" type="button" class="close" data-dismiss="modal" onclick="modal('{{ job.id }}')">&times;</button>
                         </div>
                         <div class="modal-body">
 
                         {#job body#}
-                        <div id="jobBody">
+                        <div id="jobBody-{{ job.id }}" class="px-2">
                               <h5>Name of the post: <strong>{{ job.title }}</strong></h5>
                               <h5 class="pt-4">{{ job.company_name }}</h5>
-                              <p>Vacancy: Not specific</p>
-                              <p>Job Description / Responsibility</p>
-
-                                <input id="requirement-{{ job.id }}" type="hidden" value="{{ job.requirements }}">
-
-                                <ul id="dataList-{{ job.id }}">
-
-                                </ul>
-
-                                <p><strong>Employment Status:</strong> Full Time</p>
-                                <p><strong>Educational Requirements</strong></p>
-                                <ul>
-                                    <li>Bachelor of Commerce (BCom) in Accounting, Bachelor of Business Administration (BBA) in Accounting</li>
-                                </ul>
-                                <b>Additional Requirements</b>
-                                <p>The position involves working in a team environment. Our team work in a very sophisticated web-based platform. So ideal candidate should be-</p>
-                                <ul>
-                              <li>Conversant in system-based work environment or computer literate with some basic IT skills;</li>
-                              <li>Excellent communication skill in spoken and written English;</li>
-                              <li>Be a smart speaker with great patience;</li>
-                              <li>Be a quick learner and good problem solver;</li>
-                              <li>Able to work in a team environment;</li>
-                              <li>Should be dynamic, energetic, enthusiastic and self-motivated;</li>
-                              <li>Skilled in MS-Office specially in Advanced Excel;.</li>
-                              <li>Candidate must agree to work at night shifts when necessary.</li>
-                            </ul>
-                            <p><strong>Job Location:</strong> Dhaka</p>
-                            <p><strong>Salary:</strong> Negotiable</p>
-                            <p><strong>Compensation & Other Benefits:</strong> This position will get the standard remuneration package as per the Company policy.</p>
+                              <div>
+                                  {{ job.body | safe }}
+                              </div>
                             <div class="">
                                   <hr style="background-color: #E91E63; height: 1px; border: 0;">
                                   <div class="text-center">
                                      <p><b>If you think you are the right person whom we are looking for, please apply with confidence.</b></p>
-                                     <button id="apply" type="button" class="btn btn-outline-danger" >Apply</button>
+                                     <button id="apply" type="button" class="btn btn-outline-danger" onclick="modalApply('{{ job.id }}')">Apply</button>
                                      <h4 class="mt-2"><strong>Application Deadline:</strong><span class="text-danger"> February 1, 2021</span></h4>
                                   </div>
                              </div>
@@ -166,7 +140,7 @@
 
 
                         {#Apply form#}
-                        <div id="applyBody" class="">
+                        <div id="applyBody-{{ job.id }}" class="">
                               <div class="contact-section">
                                 <form action="" class="col-lg-8 col-md-6 m-auto was-validated bg-light text-black p-3  ">
 
@@ -213,38 +187,15 @@
     </div>
 
     <script>
-        $(document).ready(function () {
-            {#$('#myModal').modal({backdrop: 'static', keyboard: false}) #}
-            $('#applyBody').css({"display": "none"});
-            $('#jobBody').show()
-        })
-        $("#close").click(function () {
-            $('#applyBody').css({"display": "none"});
-            $('#jobBody').show()
-        })
-        $("#apply").click(function () {
-            $('#jobBody').hide()
-            $('#applyBody').show()
-            {#console.log("hello")#}
-        })
-
-
-        function description(id) {
-            var jsonString = $(`#requirement-${id}`).val()
-            var jsonString = jsonString.replace(/'/g, '"')
-            console.log(jsonString)
-
-            var dataObject = JSON.parse(jsonString);
-            var listItemString = document.getElementById(`dataList-${id}`);
-            listItemString.innerHTML = ''
-            dataObject.forEach(buildNewList);
-
-            function buildNewList(item, index) {
-                var listItem = `
-                    <li>${item.title}</li>
-                `
-                listItemString.innerHTML += listItem;
-            }
+        function modal(id) {
+            $(`#applyBody-${id}`).css({"display": "none"});
+            $(`#jobBody-${id}`).show()
         }
+
+        function modalApply(id) {
+            $(`#jobBody-${id}`).hide()
+            $(`#applyBody-${id}`).show()
+        }
+
     </script>
 {% endblock %}

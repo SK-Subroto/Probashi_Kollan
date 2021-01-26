@@ -1,196 +1,272 @@
 {% extends 'users/main_2.html' %}
 
+{% load static %}
+
 {% block content %}
-    <div class="row justify-content-center">
-        <div class="col-md-9">
-          <div class="row">
-            <div class="col-md-6">
-              <div class="d-flex post-entry">
-                <div class="custom-thumbnail">
-                  <img src="images/person_1.jpg" alt="Image" class="img-fluid">
+    <link rel="stylesheet" href="{% static 'css/attendant/home.css' %}">
+    <div class="main">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-lg-8 p-r-0 title-margin-right">
+                    <div class="page-header">
+                        <div class="page-title">
+                            <h1 class="text-success">Hello, <span>Welcome to Attendant Dashboard</span></h1>
+                        </div>
+                    </div>
                 </div>
-                <div class="post-content">
-                  <h3>How the gut microbes you're born with affect your lifelong health</h3>
-                  <div class="post-meta"><span>Posted:</span> Dec 17, 2019</div>
-                </div>
-              </div>
             </div>
-            <div class="col-md-6">
-              <div class="d-flex post-entry">
-                <div class="custom-thumbnail">
-                  <img src="images/person_2.jpg" alt="Image" class="img-fluid">
+            <!-- /# row -->
+            <section id="main-content">
+                <div class="row">
+                    <div class="col-lg-4">
+                        <div class="card">
+                            <div class="stat-widget-one">
+                                <div class="stat-icon dib"><i class="far fa-user text-primary"></i></div>
+                                <div class="stat-content dib">
+                                    <div class="stat-text">Account Request</div>
+                                    <div class="stat-digit">6</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4">
+                        <div class="card">
+                            <div class="stat-widget-one">
+                                <div class="stat-icon dib"><i class="fas fa-4x fa-border-all text-warning"></i></div>
+                                <div class="stat-content dib">
+                                    <div class="stat-text">Meeting Request</div>
+                                    <div class="stat-digit">7</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4">
+                        <div class="card">
+                            <div class="stat-widget-one">
+                                <div class="stat-icon dib"><i class="far fa-4x fa-calendar-check text-danger"></i></div>
+                                <div class="stat-content dib">
+                                    <div class="stat-text">Pending Blog</div>
+                                    <div class="stat-digit">17</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <div class="post-content">
-                  <h3>How the gut microbes you're born with affect your lifelong health</h3>
-                  <div class="post-meta"><span>Posted:</span> Dec 17, 2019</div>
-                </div>
-              </div>
-            </div>
 
-            <div class="col-md-6">
-              <div class="d-flex post-entry">
-                <div class="custom-thumbnail">
-                  <img src="images/person_3.jpg" alt="Image" class="img-fluid">
-                </div>
-                <div class="post-content">
-                  <h3>How the gut microbes you're born with affect your lifelong health</h3>
-                  <div class="post-meta"><span>Posted:</span> Dec 17, 2019</div>
-                </div>
-              </div>
-            </div>
-            <div class="col-md-6">
-              <div class="d-flex post-entry">
-                <div class="custom-thumbnail">
-                  <img src="images/person_4.jpg" alt="Image" class="img-fluid">
-                </div>
-                <div class="post-content">
-                  <h3>How the gut microbes you're born with affect your lifelong health</h3>
-                  <div class="post-meta"><span>Posted:</span> Dec 17, 2019</div>
-                </div>
-              </div>
-            </div>
+                <div class="row">
+                    <div class="col-lg-4">
+                        <div class="card">
+                            <div class="card-title">
+                                <h4 class="text-primary">Account Request List</h4>
 
-            <div class="col-md-6">
-              <div class="d-flex post-entry">
-                <div class="custom-thumbnail">
-                  <img src="images/person_1.jpg" alt="Image" class="img-fluid">
-                </div>
-                <div class="post-content">
-                  <h3>How the gut microbes you're born with affect your lifelong health</h3>
-                  <div class="post-meta"><span>Posted:</span> Dec 17, 2019</div>
-                </div>
-              </div>
-            </div>
-            <div class="col-md-6">
-              <div class="d-flex post-entry">
-                <div class="custom-thumbnail">
-                  <img src="images/person_2.jpg" alt="Image" class="img-fluid">
-                </div>
-                <div class="post-content">
-                  <h3>How the gut microbes you're born with affect your lifelong health</h3>
-                  <div class="post-meta"><span>Posted:</span> Dec 17, 2019</div>
-                </div>
-              </div>
-            </div>
+                            </div>
+                            <div class="recent-comment m-t-15">
+                                <div class="media">
+                                    <div class="media-left">
+                                        <a href="#"><img class="media-object" src="https://st3.depositphotos.com/4111759/13425/v/600/depositphotos_134255626-stock-illustration-avatar-male-profile-gray-person.jpge=6037C0A9" alt="..."></a>
+                                    </div>
+                                    <div class="media-body">
+                                        <h4 class="media-heading">Mr. Ahammed</h4>
+                                        <p class="comment-date">25 min ago</p>
+                                    </div>
+                                </div>
+                                <div class="media">
+                                    <div class="media-left">
+                                        <a href="#"><img class="media-object" src="https://st3.depositphotos.com/4111759/13425/v/600/depositphotos_134255626-stock-illustration-avatar-male-profile-gray-person.jpg" alt="..."></a>
+                                    </div>
+                                    <div class="media-body">
+                                        <h4 class="media-heading">Mr. Sakib</h4>
+                                        <p class="comment-date">1 hour ago</p>
+                                    </div>
+                                </div>
+                                <div class="media">
+                                    <div class="media-left">
+                                        <a href="#"><img class="media-object" src="https://st3.depositphotos.com/4111759/13425/v/600/depositphotos_134255626-stock-illustration-avatar-male-profile-gray-person.jpg" alt="..."></a>
+                                    </div>
+                                    <div class="media-body">
+                                        <h4 class="media-heading">Mr. Subroto</h4>
+                                        <div class="comment-date">Yesterday</div>
+                                    </div>
+                                </div>
+                                <div class="media">
+                                    <div class="media-left">
+                                        <a href="#"><img class="media-object" src="https://st3.depositphotos.com/4111759/13425/v/600/depositphotos_134255626-stock-illustration-avatar-male-profile-gray-person.jpg" alt="..."></a>
+                                    </div>
+                                    <div class="media-body">
+                                        <h4 class="media-heading">Mr. Kamal</h4>
+                                        <p class="comment-date">Yesterday</p>
+                                    </div>
+                                </div>
+                                <div class="media">
+                                    <div class="media-left">
+                                        <a href="#"><img class="media-object" src="https://st3.depositphotos.com/4111759/13425/v/600/depositphotos_134255626-stock-illustration-avatar-male-profile-gray-person.jpg" alt="..."></a>
+                                    </div>
+                                    <div class="media-body">
+                                        <h4 class="media-heading">Mr. Anowar</h4>
+                                        <p class="comment-date">22 Jan 2021</p>
+                                    </div>
+                                </div>
+                                <div class="media no-border">
+                                    <div class="media-left">
+                                        <a href="#"><img class="media-object" src="https://st3.depositphotos.com/4111759/13425/v/600/depositphotos_134255626-stock-illustration-avatar-male-profile-gray-person.jpg" alt="..."></a>
+                                    </div>
+                                    <div class="media-body">
+                                        <h4 class="media-heading">Mr.Munna</h4>
+                                        <div class="comment-date">26 Jan 2021</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- /# card -->
+                    </div>
 
-            <div class="col-md-6">
-              <div class="d-flex post-entry">
-                <div class="custom-thumbnail">
-                  <img src="images/person_3.jpg" alt="Image" class="img-fluid">
-                </div>
-                <div class="post-content">
-                  <h3>How the gut microbes you're born with affect your lifelong health</h3>
-                  <div class="post-meta"><span>Posted:</span> Dec 17, 2019</div>
-                </div>
-              </div>
-            </div>
-            <div class="col-md-6">
-              <div class="d-flex post-entry">
-                <div class="custom-thumbnail">
-                  <img src="images/person_4.jpg" alt="Image" class="img-fluid">
-                </div>
-                <div class="post-content">
-                  <h3>How the gut microbes you're born with affect your lifelong health</h3>
-                  <div class="post-meta"><span>Posted:</span> Dec 17, 2019</div>
-                </div>
-              </div>
-            </div>
+                    <div class="col-lg-4">
+                        <div class="card">
+                            <div class="card-title">
+                                <h4 class="text-dark">Meeting Request List</h4>
 
+                            </div>
+                            <div class="recent-comment m-t-15">
+                                <div class="media">
+                                    <div class="media-left">
+                                        <a href="#"><img class="media-object" src="https://scontent.fdac7-1.fna.fbcdn.net/v/t1.0-9/79706240_2391963637786922_3688675590644170752_o.jpg?_nc_cat=108&ccb=2&_nc_sid=174925&_nc_eui2=AeHOp3PS8y0Q_vtHSbVl44ITSks_EXOJBiNKSz8Rc4kGI6LUcWai8dt52FTlTwgQhFCqREWk7ftMo9ZCCeHAf39I&_nc_ohc=ViypX6CcohsAX86ubsR&_nc_ht=scontent.fdac7-1.fna&oh=bd65103f57afb3b1b629320b248b4112&oe=60346A7C" alt="..."></a>
+                                    </div>
+                                    <div class="media-body">
+                                        <h4 class="media-heading">Saron Mazumdar</h4>
+                                        <p>Please, help me my passport was stolen.</p>
+                                        <p class="comment-date">10 min ago</p>
+                                    </div>
+                                </div>
+                                <div class="media">
+                                    <div class="media-left">
+                                        <a href="#"><img class="media-object" src="https://scontent.fdac7-1.fna.fbcdn.net/v/t1.0-1/p200x200/84733113_2581243022147027_6408649654459695104_o.jpg?_nc_cat=109&ccb=2&_nc_sid=7206a8&_nc_eui2=AeGnmR6q3QE5khLbhsEM7RxoIeG0Ki-goHsh4bQqL6Cge3tUzjC_vRLiNd_8U4Kkl_r_auax_o4jtXq908Noo7ek&_nc_ohc=LlCq_l0Wx6YAX_k3Ln0&_nc_ht=scontent.fdac7-1.fna&tp=6&oh=6615d407969b98cf6305fdf581e2d06a&oe=60345292" alt="..."></a>
+                                    </div>
+                                    <div class="media-body">
+                                        <h4 class="media-heading">Nahid Zesun</h4>
+                                        <p>i lost my mobile phone, in gravida nulla.</p>
+                                        <p class="comment-date">1 hour ago</p>
+                                    </div>
+                                </div>
+                                <div class="media">
+                                    <div class="media-left">
+                                        <a href="#"><img class="media-object" src="https://scontent.fdac7-1.fna.fbcdn.net/v/t1.0-9/68921426_2424356811168983_8954573544449114112_n.jpg?_nc_cat=110&ccb=2&_nc_sid=174925&_nc_eui2=AeH6YSoyU_M9smMu1f62SG-OYvks08NVqbZi-SzTw1WptnEVgTaUxwBm5zafZW8C9Oj-tujiKK5FmTsapG6gRNDA&_nc_ohc=Nm1khD1EGP8AX-j8w8T&_nc_ht=scontent.fdac7-1.fna&oh=160c6cdc0bda056bee5c0dc17926cd92&oe=6037B373" alt="..."></a>
+                                    </div>
+                                    <div class="media-body">
+                                        <h4 class="media-heading">Md Abul Hasnat</h4>
+                                        <p>Cras sit amet nibh libero, in gravida nulla.</p>
+                                        <div class="comment-date">Yesterday</div>
+                                    </div>
+                                </div>
+                                <div class="media">
+                                    <div class="media-left">
+                                        <a href="#"><img class="media-object" src="https://scontent.fdac7-1.fna.fbcdn.net/v/t1.0-9/64764314_2381974215407243_3442836357020385280_o.jpg?_nc_cat=111&ccb=2&_nc_sid=174925&_nc_eui2=AeEhZ_x7Y9rB3BylbjaQnFSztyZia0ORzSi3JmJrQ5HNKIwIdU5Q7X2dbG3JvlmZH1CT952RViXy9JoDsj55UnQm&_nc_ohc=DHj8FWQS0zcAX8pcXCf&_nc_ht=scontent.fdac7-1.fna&oh=ec39eb7d80a4324ee2d817e922e32f95&oe=6033EC73" alt="..."></a>
+                                    </div>
+                                    <div class="media-body">
+                                        <h4 class="media-heading">Evan Hossain</h4>
+                                        <p>Cras sit amet nibh libero, in gravida nulla.</p>
+                                        <p class="comment-date">10 min ago</p>
+                                    </div>
+                                </div>
+                                <div class="media">
+                                    <div class="media-left">
+                                        <a href="#"><img class="media-object" src="https://scontent.fdac7-1.fna.fbcdn.net/v/t1.0-9/61513275_2368851850052813_562561306125664256_o.jpg?_nc_cat=100&ccb=2&_nc_sid=174925&_nc_eui2=AeGFtW-nfKnR67IC1HCazt0wOgspZ1kJUQc6CylnWQlRB6hcZV2y_4se-r5ZmoEaGXOM82kMFcIkHCScaVrSRp-K&_nc_ohc=lswQ5O067bQAX_GtAF6&_nc_ht=scontent.fdac7-1.fna&oh=6a84a4a72ee811545b5cc6ea042c9533&oe=60340647" alt="..."></a>
+                                    </div>
+                                    <div class="media-body">
+                                        <h4 class="media-heading">Sayed Akash</h4>
+                                        <p>Cras sit amet nibh libero, in gravida nulla.</p>
+                                        <p class="comment-date">1 hour ago</p>
+                                    </div>
+                                </div>
+                                <div class="media no-border">
+                                    <div class="media-left">
+                                        <a href="#"><img class="media-object" src="https://scontent.fdac7-1.fna.fbcdn.net/v/t1.0-9/59554493_2350981778506487_3485111131704393728_o.jpg?_nc_cat=101&ccb=2&_nc_sid=174925&_nc_eui2=AeHlJNUq54lUS1mlxdOz-8teEldJqmVQTSgSV0mqZVBNKGYRE6z-SeHHkgVqz_WVcIXF055dxGCdb1u2qokiJ93l&_nc_ohc=yaoO3B3qNVAAX_wb5Mt&_nc_ht=scontent.fdac7-1.fna&oh=626ceb7ed851e77f14ae58da01019ddb&oe=60353489" alt="..."></a>
+                                    </div>
+                                    <div class="media-body">
+                                        <h4 class="media-heading">Protik Ghosh</h4>
+                                        <p>Cras sit amet nibh libero, in gravida nulla.</p>
+                                        <div class="comment-date">Yesterday</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- /# card -->
+                    </div>
+                    <!-- /# column -->
+                    <div class="col-lg-4">
+                        <div class="card">
+                            <div class="card-title">
+                                <h4 class="text-danger">Pending Blog List</h4>
 
-            <div class="col-md-6">
-              <div class="d-flex post-entry">
-                <div class="custom-thumbnail">
-                  <img src="images/person_1.jpg" alt="Image" class="img-fluid">
+                            </div>
+                            <div class="recent-comment m-t-15">
+                                <div class="media">
+                                    <div class="media-left">
+                                        <a href="#"><img class="media-object" src="https://scontent.fdac7-1.fna.fbcdn.net/v/t1.0-9/128007925_812300235996989_1911287077625109549_n.jpg?_nc_cat=102&ccb=2&_nc_sid=174925&_nc_eui2=AeHMN9CI2RF2Oxcwu2T6mpLcnWIk21rJUmCdYiTbWslSYCW9Uw0eXUfAmBigvNQt2IAZBpCMnd1RLeIxH-yyVdaq&_nc_ohc=p7MnASQC0H0AX-FPH2E&_nc_ht=scontent.fdac7-1.fna&oh=10534d7de79fc13e40e06a44103607d7&oe=6037C0A9" alt="..."></a>
+                                    </div>
+                                    <div class="media-body">
+                                        <h4 class="media-heading">Ananta Ghosh</h4>
+                                        <p>Please, help me my passport was stolen.</p>
+                                        <p class="comment-date">10 min ago</p>
+                                    </div>
+                                </div>
+                                <div class="media">
+                                    <div class="media-left">
+                                        <a href="#"><img class="media-object" src="https://scontent.fdac7-1.fna.fbcdn.net/v/t1.0-9/69875681_2420789718036556_7956899718724845568_n.jpg?_nc_cat=100&ccb=2&_nc_sid=174925&_nc_eui2=AeGOwjo5u3MPnGJMogPGTr4tWDfw_5sBmKVYN_D_mwGYpXEfjc-HF75zelJ656avaWZFNNdWj2s2UHjABwAPStR2&_nc_ohc=VtcJyToXrTsAX9dngHC&_nc_ht=scontent.fdac7-1.fna&oh=d8c6369c0a2e89d4b7f612ee0dbaceb3&oe=603736DC" alt="..."></a>
+                                    </div>
+                                    <div class="media-body">
+                                        <h4 class="media-heading">Chandan Paul</h4>
+                                        <p>i lost my mobile phone, in gravida nulla.</p>
+                                        <p class="comment-date">1 hour ago</p>
+                                    </div>
+                                </div>
+                                <div class="media">
+                                    <div class="media-left">
+                                        <a href="#"><img class="media-object" src="https://scontent.fdac7-1.fna.fbcdn.net/v/t1.0-9/71841739_3051274168233093_760111646914904064_o.jpg?_nc_cat=101&ccb=2&_nc_sid=174925&_nc_eui2=AeFQLHH39C_5b_uMrXPh07oKUzRtTLt-EOpTNG1Mu34Q6vagHVuAK481bF6e8NrCSjX_LR374-aXs7AYwXgDbKvn&_nc_ohc=wPL4jBRixaoAX-AtxdK&_nc_ht=scontent.fdac7-1.fna&oh=deb47e6a1fbc99beb48d5289ce5e13ce&oe=60370F72" alt="..."></a>
+                                    </div>
+                                    <div class="media-body">
+                                        <h4 class="media-heading">Partha Bala</h4>
+                                        <p>Cras sit amet nibh libero, in gravida nulla.</p>
+                                        <div class="comment-date">Yesterday</div>
+                                    </div>
+                                </div>
+                                <div class="media">
+                                    <div class="media-left">
+                                        <a href="#"><img class="media-object" src="https://scontent.fdac7-1.fna.fbcdn.net/v/t1.0-9/74495924_1356089514546376_3511136395840192512_o.jpg?_nc_cat=101&ccb=2&_nc_sid=174925&_nc_eui2=AeFtvHdEk-Xoxe9wlbOgjsotL62OGRoWaeIvrY4ZGhZp4oHaMKdXAMPB5SiTrwlp1Yql6s_bRtWcnlApqfvak02n&_nc_ohc=ZJnIP7qYc30AX9eSFHR&_nc_ht=scontent.fdac7-1.fna&oh=8c0b94c9f05f8994ee3782d6023ca175&oe=60349E91" alt="..."></a>
+                                    </div>
+                                    <div class="media-body">
+                                        <h4 class="media-heading">Amiya Bala</h4>
+                                        <p>Cras sit amet nibh libero, in gravida nulla.</p>
+                                        <p class="comment-date">10 min ago</p>
+                                    </div>
+                                </div>
+                                <div class="media">
+                                    <div class="media-left">
+                                        <a href="#"><img class="media-object" src="https://scontent.fdac7-1.fna.fbcdn.net/v/t1.0-9/122633301_1262826490765482_6116889365640010021_o.jpg?_nc_cat=100&ccb=2&_nc_sid=174925&_nc_eui2=AeErv84fjpdQCgzQACQqOTMK_5rWW-G6QZH_mtZb4bpBkUkbWMe4-nlzf6hUr6BwaaZmOnaTUoUR9xn6k4f_otBt&_nc_ohc=a-HsdYdhOwUAX_EDHR5&_nc_ht=scontent.fdac7-1.fna&oh=e06900552e2c0961ba2b983dab5703a1&oe=6035E0EE" alt="..."></a>
+                                    </div>
+                                    <div class="media-body">
+                                        <h4 class="media-heading">Biplob Roy</h4>
+                                        <p>Cras sit amet nibh libero, in gravida nulla.</p>
+                                        <p class="comment-date">1 hour ago</p>
+                                    </div>
+                                </div>
+                                <div class="media no-border">
+                                    <div class="media-left">
+                                        <a href="#"><img class="media-object" src="https://scontent.fdac7-1.fna.fbcdn.net/v/t1.0-1/c0.18.160.160a/p160x160/139861303_3678822772209748_5467877995234421042_o.jpg?_nc_cat=110&ccb=2&_nc_sid=7206a8&_nc_eui2=AeHZeOaJhLGMbC51MvLJmE-mY3-p8VR5Dlhjf6nxVHkOWM5J8jtf2pU_uMtnQozzc6wvGPeQKmvS3uNNIihM8y0x&_nc_ohc=2qeg8bkD-bsAX-kYrIT&_nc_ht=scontent.fdac7-1.fna&tp=27&oh=9b3e43321e494a331f5ec541c7d61ebd&oe=60378464" alt="..."></a>
+                                    </div>
+                                    <div class="media-body">
+                                        <h4 class="media-heading">Auntu Biswas</h4>
+                                        <p>Cras sit amet nibh libero, in gravida nulla.</p>
+                                        <div class="comment-date">Yesterday</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- /# card -->
+                    </div>
+                    <!-- /# column -->
                 </div>
-                <div class="post-content">
-                  <h3>How the gut microbes you're born with affect your lifelong health</h3>
-                  <div class="post-meta"><span>Posted:</span> Dec 17, 2019</div>
-                </div>
-              </div>
-            </div>
-            <div class="col-md-6">
-              <div class="d-flex post-entry">
-                <div class="custom-thumbnail">
-                  <img src="images/person_2.jpg" alt="Image" class="img-fluid">
-                </div>
-                <div class="post-content">
-                  <h3>How the gut microbes you're born with affect your lifelong health</h3>
-                  <div class="post-meta"><span>Posted:</span> Dec 17, 2019</div>
-                </div>
-              </div>
-            </div>
 
-            <div class="col-md-6">
-              <div class="d-flex post-entry">
-                <div class="custom-thumbnail">
-                  <img src="images/person_3.jpg" alt="Image" class="img-fluid">
-                </div>
-                <div class="post-content">
-                  <h3>How the gut microbes you're born with affect your lifelong health</h3>
-                  <div class="post-meta"><span>Posted:</span> Dec 17, 2019</div>
-                </div>
-              </div>
-            </div>
-            <div class="col-md-6">
-              <div class="d-flex post-entry">
-                <div class="custom-thumbnail">
-                  <img src="images/person_4.jpg" alt="Image" class="img-fluid">
-                </div>
-                <div class="post-content">
-                  <h3>How the gut microbes you're born with affect your lifelong health</h3>
-                  <div class="post-meta"><span>Posted:</span> Dec 17, 2019</div>
-                </div>
-              </div>
-            </div>
-
-            <div class="col-md-6">
-              <div class="d-flex post-entry">
-                <div class="custom-thumbnail">
-                  <img src="images/person_1.jpg" alt="Image" class="img-fluid">
-                </div>
-                <div class="post-content">
-                  <h3>How the gut microbes you're born with affect your lifelong health</h3>
-                  <div class="post-meta"><span>Posted:</span> Dec 17, 2019</div>
-                </div>
-              </div>
-            </div>
-            <div class="col-md-6">
-              <div class="d-flex post-entry">
-                <div class="custom-thumbnail">
-                  <img src="images/person_2.jpg" alt="Image" class="img-fluid">
-                </div>
-                <div class="post-content">
-                  <h3>How the gut microbes you're born with affect your lifelong health</h3>
-                  <div class="post-meta"><span>Posted:</span> Dec 17, 2019</div>
-                </div>
-              </div>
-            </div>
-
-            <div class="col-md-6">
-              <div class="d-flex post-entry">
-                <div class="custom-thumbnail">
-                  <img src="images/person_3.jpg" alt="Image" class="img-fluid">
-                </div>
-                <div class="post-content">
-                  <h3>How the gut microbes you're born with affect your lifelong health</h3>
-                  <div class="post-meta"><span>Posted:</span> Dec 17, 2019</div>
-                </div>
-              </div>
-            </div>
-            <div class="col-md-6">
-              <div class="d-flex post-entry">
-                <div class="custom-thumbnail">
-                  <img src="images/person_4.jpg" alt="Image" class="img-fluid">
-                </div>
-                <div class="post-content">
-                  <h3>How the gut microbes you're born with affect your lifelong health</h3>
-                  <div class="post-meta"><span>Posted:</span> Dec 17, 2019</div>
-                </div>
-              </div>
-            </div>
-          </div>
+            </section>
         </div>
-
-
-  </div>
+    </div>
 {% endblock %}

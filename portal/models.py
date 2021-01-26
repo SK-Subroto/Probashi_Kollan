@@ -2,6 +2,7 @@ from django.db import models
 from django.utils import timezone
 from django.contrib.auth.models import User
 from users.models import Immigrant, Attendant
+from ckeditor.fields import RichTextField
 
 
 class Job(models.Model):
@@ -11,7 +12,7 @@ class Job(models.Model):
     company_logo = models.URLField(max_length=500, null=True)
     date_posted = models.DateTimeField(default=timezone.now, null=True)
     deadline = models.DateField(null=True)
-    requirements = models.JSONField(null=True)
+    body = RichTextField(blank=True, null=True)
 
     def __str__(self):
         return self.title
@@ -33,6 +34,14 @@ class Blog(models.Model):
 #     flight_no
 #     company_name
 #     flight_type
+
+
+class Test(models.Model):
+    title = models.CharField(max_length=100, null=True)
+    content = RichTextField(blank=True, null=True)
+
+    def __str__(self):
+        return self.title
 
 
 class Chat(models.Model):

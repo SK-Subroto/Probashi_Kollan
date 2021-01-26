@@ -18,7 +18,7 @@ class Immigrant(models.Model):
     stay_duration = models.FloatField(null=True)
 
     def __str__(self):
-        return self.immigrant_name
+        return f"{self.user.first_name} {self.user.last_name}"
 
 
 class Attendant(models.Model):
@@ -32,4 +32,4 @@ class Attendant(models.Model):
     category = models.CharField(max_length=20, null=True)
 
     def __str__(self):
-        return self.attendant_name
+        return f"{self.user.first_name} {self.user.last_name}"

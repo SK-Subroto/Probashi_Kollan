@@ -6,8 +6,10 @@ from rest_framework.response import Response
 from .serializers import MeetingSerializer, NoticeSerializer
 from .models import Notice, Meeting
 from users.models import Attendant, Immigrant
+from django.contrib.auth.decorators import login_required
 
 
+@login_required(login_url='login-immigrant')
 def notice(request):
     notices = Notice.objects.all()
     context = {'notices': notices}

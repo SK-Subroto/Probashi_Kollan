@@ -6,9 +6,11 @@ from rest_framework.response import Response
 from rest_framework.parsers import FileUploadParser, MultiPartParser, FormParser
 from rest_framework.decorators import parser_classes
 from .serializers import BlogSerializer, JobSerializer
-from .models import Blog, Job
+from .models import Blog, Job, Test
+from .forms import TestForm, JobFormAtten
 from users.models import Attendant
 from django.contrib.auth.models import User
+from django.contrib.auth.decorators import login_required
 
 
 def job(request):
@@ -101,6 +103,18 @@ def attendnatChat(request):
     return render(request, 'portal/chatAttendant.html')
 
 
+def jobAttendentCreate(request):
+    form = JobFormAtten()
+    if request.method == 'POST':
+        form = JobFormAtten(request.POST)
+        if form.is_valid():
+            form.save()
+            form.reset()
+
+    context = {'form': form}
+    return render(request, 'portal/jobAttenCreate.html', context)
+
+
 def jobAttendant(request):
     return render(request, 'portal/jobAttendant.html')
 
@@ -126,3 +140,20 @@ def jobCreate(request):
     #     serializer.save()
 
     return Response(serializer.data)
+
+
+def testView(request):
+    tests = Test.objects.all()
+    context = {'tests': tests}
+    return render(request, 'portal/testView.html', context)
+
+
+def testCreate(request):
+    form = TestForm()
+    if request.method == 'POST':
+        form = TestForm(request.POST)
+        if form.is_valid():
+            form.save()
+
+    context = {'form': form}
+    return render(request, 'portal/testCreate.html', context)

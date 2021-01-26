@@ -1,0 +1,66 @@
+{% extends 'users/main_2.html' %}
+
+{% block content %}
+{#    <form action="" method="post">#}
+{#        {% csrf_token %}#}
+{#        {{ form.media }}#}
+{#        {{ form.as_p }}#}
+{##}
+{#        <input type="submit" name="Submit">#}
+{#    </form>#}
+    <div class="card">
+        <div class="card-header">
+            <h5 class="text-center">Job Create</h5>
+        </div>
+        <div id="form-wrapper" class="card-body">
+            <form id="form" action="" method="post">
+                {% csrf_token %}
+                {{ form.media }}
+                <div class="row">
+                    <div class="col-lg-6">
+                        <div class="form-group">
+                          <label for="title">Job Title:</label>
+                            {{ form.title }}
+                        </div>
+                        <div class="form-group">
+                          <label for="title">Company Name:</label>
+                            {{ form.company_name }}
+                        </div>
+                        <div class="form-group">
+                          <label for="title">Company Logo:</label>
+                            {{ form.company_logo }}
+                        </div>
+                        <div class="form-group">
+                          <label for="title">Deadline:</label>
+                            {{ form.deadline }}
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="form-group">
+                          <label for="description">Description:</label>
+                            {{ form.body }}
+                        </div>
+                        <div class="btn float-right">
+                            <button type="reset" class="btn btn-secondary" value="Reset">Reset</button>
+                            <button type="submit" class="btn btn-primary">Submit</button>
+                        </div>
+
+                    </div>
+                </div>
+             </form>
+        </div>
+    </div>
+    <script>
+		var form_fields = document.getElementsByTagName('input')
+		form_fields[2].placeholder='Job title';
+		form_fields[3].placeholder='Company name';
+		form_fields[4].placeholder='Company logo URL';
+		form_fields[5].type='date';
+
+
+
+		for (var field in form_fields){
+			form_fields[field].className += ' form-control'
+		}
+	</script>
+{% endblock %}

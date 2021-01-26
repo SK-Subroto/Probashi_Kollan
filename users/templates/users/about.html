@@ -1,0 +1,96 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+<title>about</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<style>
+body {font-family: "Times New Roman", Georgia, Serif;}
+h1, h2, h3, h4, h5, h6 {
+  font-family: "Playfair Display";
+  letter-spacing: 5px;
+}
+</style>
+<body>
+<!-- Header -->
+<header class="w3-display-container w3-content w3-wide" style="max-width:1600px;min-width:500px" id="home">
+  <img class="w3-image" src="{% static 'images/about/aboutbanner.jpg' %}" alt="Hamburger Catering" style="width: 100%; height: 300px;">
+  <div class="w3-display-bottomleft w3-padding-large w3-opacity">
+    <h1 style="color: white; font-size: 280%;  font-weight: 900; ">Probashi Kallyan</h1>
+  </div>
+</header>
+
+<!-- Page content -->
+<div class="w3-content" style="max-width:1100px">
+
+  <!-- About Section -->
+  <div class="w3-row w3-padding-64" id="about">
+    <div class="w3-col m6 w3-padding-large ">
+     <img style="height: 450px; width: 650px;" src="https://media-eng.dhakatribune.com/uploads/2019/12/migrant-workers-syed-zakir-hossain-1575829263944.jpg" class="w3-round w3-image w3-opacity-min" alt="Table Setting" >
+    </div>
+
+    <div class="w3-col m6 w3-padding-large">
+      <h1 class="w3-center">About Probashi Kallyan</h1><br>
+      <h5 class="w3-center">Tradition since 1971</h5>
+      <p class="w3-large">Bangladesh's number one income source is the foreign reserve. All the people including the government directly depend on foreign reserves. But our govt has no central application to manage or monitor them. For this reason, when they have gone to a foreign country, they face many problems. My system “Probashi Kallyan Management System” can solve all of this problem properly Such as job facility, living problem, salary, medical facility, passport renewal, visa problem, etc. Using this system, they can be benefited. If they face any problem in any foreign, they can get help from this system. Since no such facility has been introduced so far it is the first time in Bangladesh that would be made for our remittance fighters. <span class="w3-tag w3-light-grey"></span></p>
+      <!-- <p class="w3-large w3-text-grey w3-hide-medium">Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum consectetur adipiscing elit, sed do eiusmod temporincididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p> -->
+    </div>
+  </div>
+
+  <hr>
+
+  <!-- Menu Section -->
+  <div class="w3-row w3-padding-64" id="menu">
+    <div class="w3-col l6 w3-padding-large">
+      <h1 class="w3-center" style="color: blue;">Our Features</h1><br>
+      <h4 style="color: orangered;">Real time Chatting System</h4>
+      <p class="w3-text-grey" >The chatting system will provide direct communication with admin. In that system when a probashi sends a message in any attendant then, a short identification will auto-generate.</p><br>
+
+      <h4 style="color: orangered;">Communicate any time for any emergency service </h4>
+      <p class="w3-text-grey">Probashi can Communicate any time for any emergency service. If they need anything. </p><br>
+
+      <h4 style="color: orangered;">View any update in real-time</h4>
+      <p class="w3-text-grey">Probashi can view any update in real-time. When they select an update option, they can view the notice list after that they select a particular service.</p><br>
+
+      <h4 style="color: orangered;">The system must be available 24x7</h4>
+      <p class="w3-text-grey">The system must be available 24 hours a day. And it must be updated regularly </p><br>
+
+      <h4 style="color: orangered;">User can write blog</h4>
+      <p class="w3-text-grey">Probashi people can write blog in this system. Others can see any importent news.</p>
+    </div>
+
+    <div class="w3-col l6 w3-padding-large">
+      <img src="https://assetsds.cdnedge.bluemix.net/sites/default/files/styles/very_big_1/public/feature/images/ed_2_186.jpg?itok=1K7UvvjI" class="w3-round w3-image" alt="Menu" style="width:100%">
+    </div>
+  </div>
+
+  <hr>
+
+  <!-- Contact Section -->
+  <div class="w3-container w3-padding-0" id="contact" style="width: 60%;">
+    <h1 style="color: rgb(236, 22, 140);">Any query?</h1><br>
+    <!-- <p>We offer full-service catering for any event, large or small. We understand your needs and we will cater the food to satisfy the biggerst criteria of them all, both look and taste. Do not hesitate to contact us.</p> -->
+    <p class="w3-text-blue-grey w3-large"><b>We are always at your service</b></p>
+    <p>You can also contact us by phone- 999 or email- bdgovt@gmail.com, or you can send us a message here:</p>
+    <form action="/action_page.php" target="_blank">
+      <p><input class="w3-input w3-padding-16" type="text" placeholder="Name" required name="Name"></p>
+      <p><input class="w3-input w3-padding-16" type="number" placeholder="Full address" required name="People"></p>
+      <p><input class="w3-input w3-padding-16" type="datetime-local" placeholder="Date and time" required name="date" value="2020-11-16T20:00"></p>
+      <p><input class="w3-input w3-padding-16" type="text" placeholder="Message \ Special requirements" required name="Message"></p>
+      <p><button class="w3-button w3-light-green w3-section" type="submit">SEND MESSAGE</button></p>
+    </form>
+  </div>
+
+<!-- End page content -->
+</div>
+
+<!-- Footer -->
+<footer class="w3-container w3-teal w3-center w3-margin-top">
+
+  <h3>Developed by <a href="https://www.facebook.com/prosenjit.chowdhury.988" target="_blank">Prosenjit Chowdhury. ID: 183-16-346  DIU</a></h3>
+</footer>
+
+</body>
+</html>

@@ -9,7 +9,7 @@
                     <div class="notice-btn mb-3">
                         <strong>
                             <i class="fas fa-hand-point-right"></i>
-                            <a href="" data-toggle="modal" data-target="#myModal">{{notice.title}}</a>
+                            <a href="" data-toggle="modal" data-target="#myModal-{{ notice.id }}">{{notice.title}}</a>
                         </strong>
                     </div>
                     <div class="row">
@@ -36,7 +36,7 @@
         </div>
     </div>
     <!-- Modal -->
-      <div class="modal fade" id="myModal" role="dialog">
+      <div class="modal fade" id="myModal-{{ notice.id }}" role="dialog">
         <div class="modal-dialog modal-lg">
           <div class="bg-light modal-content">
             <div class="modal-header">
