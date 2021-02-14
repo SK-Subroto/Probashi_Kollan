@@ -14,4 +14,13 @@ urlpatterns = [
 
     path('attendant/login/', views.loginAttendant, name='login-attendant'),
     path('logout/', views.logoutUser, name='logout'),
+
+    path('profile/', views.profileImmigrant, name='immigrant-profile'),
+    path('profile/update', views.profileUpdateImmigrant, name='immigrant-profile-update'),
+
+    path('attendant/profile/', views.profileAttendant, name='attendant-profile'),
+    path('attendant/profile/update', views.profileUpdateAttendant, name='attendant-profile-update'),
+
+    path('attendant/search', views.searchImmigrant),
+    path('attendant/search/<str:pk>', views.searchImmigrantDetail, name='attendant-search-detail'),
 ]

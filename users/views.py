@@ -1,8 +1,9 @@
+from django.db.models import Q
 from django.shortcuts import render, redirect
 from django.http import HttpResponse
 from django.contrib.auth.forms import UserCreationForm
-from .forms import CreateUserForm, ImmigrantForm
-from .models import Immigrant
+from .forms import CreateUserForm, ImmigrantForm, ImmigrantUpdateForm, AttendantUpdateForm
+from .models import Immigrant, Attendant
 from django.contrib import messages
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.models import Group, User
@@ -110,3 +111,58 @@ def logoutUser(request):
     else:
         logout(request)
         return HttpResponse("Not a part of any group")
+
+
+def profileImmigrant(request):
+    immigrant = Immigrant.objects.get(user_id=request.user.id)
+    context = {'immigrant': immigrant}
+    return render(request, 'users/immigrant_profile.html', context)
+
+
+def profileUpdateImmigrant(request):
+    immigrant = request.user.immigrant
+    form = ImmigrantUpdateForm(instance=immigrant)
+
+    if request.method == 'POST':
+        form = ImmigrantUpdateForm(request.POST, request.FILES, instance=immigrant)
+        if form.is_valid():
+            form.save()
+
+    context = {'form': form}
+    return render(request, 'users/immigrant_profile_update.html', context)
+
+
+def profileAttendant(request):
+    attendant = Attendant.objects.get(user_id=request.user.id)
+    context = {'attendant': attendant}
+    return render(request, 'users/attendant_profile.html', context)
+
+
+def profileUpdateAttendant(request):
+    attendant = request.user.attendant
+    form = AttendantUpdateForm(instance=attendant)
+
+    if request.method == 'POST':
+        form = AttendantUpdateForm(request.POST, request.FILES, instance=attendant)
+        if form.is_valid():
+            form.save()
+
+    context = {'form': form}
+    return render(request, 'users/attendant_profile_update.html', context)
+
+
+def searchImmigrant(request):
+    key = request.GET.get('key')
+    # meeting_data = request.data
+    # print(meeting_data["key"])
+    immigrants = Immigrant.objects.filter(Q(immigrant_id__icontains=key) |
+                                               Q(immigrant_name__icontains=key) |
+                                               Q(passport_nb__icontains=key))
+    context = {'immigrants': immigrants}
+    return render(request,'users/search_result.html', context)
+
+
+def searchImmigrantDetail(request, pk):
+    immigrant = Immigrant.objects.get(id=pk)
+    context = {'immigrant': immigrant}
+    return render(request, 'users/search_immigration_detail.html', context)

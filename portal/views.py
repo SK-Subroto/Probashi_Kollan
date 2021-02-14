@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.http import HttpResponse
 from django.db.models import Q
 from rest_framework.decorators import api_view
@@ -7,7 +7,7 @@ from rest_framework.parsers import FileUploadParser, MultiPartParser, FormParser
 from rest_framework.decorators import parser_classes
 from .serializers import BlogSerializer, JobSerializer
 from .models import Blog, Job, Test
-from .forms import TestForm, JobFormAtten
+from .forms import TestForm, JobFormAtten, blogForm
 from users.models import Attendant
 from django.contrib.auth.models import User
 from django.contrib.auth.decorators import login_required
@@ -20,9 +20,30 @@ def job(request):
 
 
 def blog(request):
-    blogs = Blog.objects.all()
-    context = {'blogs': blogs}
+    blogs = Blog.objects.filter(permission=True)
+    blog_form = blogForm()
+    if request.method == 'POST':
+        blog_form = blogForm(request.POST, request.FILES)
+        if blog_form.is_valid():
+            update_blog = blog_form.save()
+            update_blog.author = request.user
+            update_blog.save()
+            blog_form = blogForm()
+            # redirect('job')
+        else:
+            print("error")
+    context = {'blogs': blogs, 'blog_form': blog_form}
     return render(request, 'portal/blog.html', context)
+
+
+# def blogCreate(request):
+#     blog_form = blogForm()
+#     if request.method == 'POST':
+#         blog_form = blogForm(request.POST, request.FILES)
+#         if blog_form.is_valid():
+#             blog_form.save()
+#     context = {'blog_form': blog_form}
+#     return render(request, 'portal/blog.html', context)
 
 
 def flight(request):
@@ -36,6 +57,12 @@ def chat(request):
 def blogAttendant(request):
     return render(request, 'portal/blogAttendant.html')
 
+
+@api_view(['GET'])
+def blogAttenPendingList(request):
+    blogs = Blog.objects.filter(permission=False).order_by('-date_posted')
+    serializer = BlogSerializer(blogs, many=True)
+    return Response(serializer.data)
 
 search_q = ''
 
@@ -55,7 +82,7 @@ def blogAttenList(request):
     global search_q
     print(search_q)
     if not search_q:
-        blogs = Blog.objects.all().order_by('-date_posted')
+        blogs = Blog.objects.filter(permission=True).order_by('-date_posted')
     else:
         blogs = Blog.objects.filter(Q(title__icontains=search_q)).order_by('-date_posted')
         search_q = ''

@@ -6,6 +6,7 @@ from users.models import Attendant
 class MeetingSerializer(serializers.ModelSerializer):
     attendant = serializers.CharField(read_only=True)
     meeting_date = serializers.DateTimeField(read_only=True, format="%m/%d/%Y %I:%M %p")
+    date_posted = serializers.DateTimeField(read_only=True, format="%m/%d/%Y %I:%M %p")
 
     class Meta:
         model = Meeting

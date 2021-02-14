@@ -18,6 +18,8 @@ urlpatterns = [
     path('api/blog-create/', views.blogAttenCreate),
     path('api/blog-update/<str:pk>/', views.blogUpdate),
     path('api/blog-delete/<str:pk>/', views.blogDelete),
+    path('api/blog-pending-list/', views.blogAttenPendingList),
+
     path('attendant/chat/', views.attendnatChat, name='attendant-chat'),
 
     path('attendant/job/', views.jobAttendant, name='attendant-job'),

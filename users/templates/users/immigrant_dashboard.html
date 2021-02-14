@@ -10,7 +10,7 @@
           <div class="main__title">
             <img src="{% static 'images/immigrant/hello.svg' %}" alt="" />
             <div class="main__greeting">
-              <h1>Hello Prosenjit</h1>
+              <h1>{{ request.user.immigrant.immigrant_name }}</h1>
               <p>Welcome to your Probashi Kallyan dashboard</p>
             </div>
           </div>
@@ -19,27 +19,27 @@
 
           <!-- MAIN CARDS STARTS HERE -->
           <div class="main__cards">
-            <div class="card3" style="background-color: rgb(135, 240, 240);">
-              <h2 style="margin-bottom: 5px;">Total Blog</h2>
-              <h3 style="color: red;">13</h3>
-              <i class="fab fa-4x fa-blogger" style="color: #FF9800; margin-top: 5px;"></i>
+            <div class="card3 shadow" style="background-color: #FFE0B2;">
+              <h3 style="margin-bottom: 5px;">Total Blog</h3>
+              <h5 style="color: #FFA726; font-weight: bolder;">13</h5>
+              <i class="fab fa-4x fa-blogger" style="color: #FFA726;"></i>
             </div>
 
-            <div class="card3" style="background-color: rgb(90, 172, 226);">
-              <h2 style="margin-bottom: 5px;">Unseen Notice</h2>
-              <h3 style="color: red;">13</h3>
-              <i class="fas fa-4x fa-bell" style="color: green; margin-top: 5px;"></i>
+            <div class="card3 shadow" style="background-color: #B3E5FC;">
+              <h3 style="margin-bottom: 5px;">Unseen Notice</h3>
+              <h5 style="color: #29B6F6; font-weight: bolder;">13</h5>
+              <i class="fas fa-4x fa-bell" style="color: #29B6F6;"></i>
             </div>
-            <div class="card3" style="background-color: rgb(228, 110, 208);">
-              <h2 style="margin-bottom: 5px;">Next Meeting</h2>
-              <h3 style="color: red;">12 Feb 2021</h3>
-              <i class="fas fa-4x fa-calendar-alt" style="color: blue; margin-top: 5px;"></i>
+            <div class="card3 shadow" style="background-color: #C8E6C9;">
+              <h3 style="margin-bottom: 5px;">Next Meeting</h3>
+              <h5 style="color: #66BB6A; font-weight: bolder;">12 Feb 2021</h5>
+              <i class="fas fa-4x fa-calendar-alt" style="color: #66BB6A;"></i>
             </div>
 
-            <div class="card3" style="background-color: rgb(70, 226, 96);">
-              <h2 style="margin-bottom: 5px;">Upcoming Flight</h2>
-              <h3 style="color: rgb(83, 52, 52);">10 Mar 2021</h3>
-              <i class="fas fa-4x fa-plane-departure" style="color: orangered; margin-top: 5px;"></i>
+            <div class="card3 shadow" style="background-color: #FFCCBC;">
+              <h3 style="margin-bottom: 5px;">Flight Schedule</h3>
+              <h5 style="color: #FF7043; font-weight: bolder;">10 Mar 2021</h5>
+              <i class="fas fa-4x fa-plane-departure" style="color: #FF7043;"></i>
             </div>
           </div>
           <!-- MAIN CARDS ENDS HERE -->

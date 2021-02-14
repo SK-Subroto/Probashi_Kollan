@@ -1,0 +1,106 @@
+{% extends 'users/main.html' %}
+
+{% block content %}
+
+<div class="row">
+	<div class="col-md-3">
+		<div class="card card-body">
+			<a class="btn btn-warning" href="{% url 'immigrant-profile' %}"> &#8592; Back to Profile</a>
+{#			<hr>#}
+{#			<h3 style="text-align: center">Account Settings</h3>#}
+			<hr>
+			<img class="img-fluid" src="{{request.user.immigrant.photo.url}}" style="width: 300px; height: 270px;" >
+
+		</div>
+	</div>
+	<div class="col-md-9">
+		<div class="card card-body">
+
+			<form method="POST" action="" enctype="multipart/form-data">
+				{% csrf_token %}
+                <div class="">
+                    <div class="row">
+                        <div class="col form-group">
+                            <label>Photo:</label>
+                            {{ form.photo }}
+                        </div>
+                        <div class="col form-group">
+                            <label>Date-of-birth:</label>
+                            {{ form.dob }}
+                        </div>
+                    </div>
+                </div>
+                <div class="">
+                    <div class="row">
+                        <div class="col form-group">
+                            <label>Job Status:</label>
+                            {{ form.job_status }}
+                        </div>
+                        <div class="col form-group">
+                            <label>Job Designation:</label>
+                            {{ form.job_desig }}
+                        </div>
+                    </div>
+                </div>
+                <div class="">
+                    <div class="row">
+                        <div class="col form-group">
+                            <label>Address:</label>
+                            {{ form.address }}
+                        </div>
+                        <div class="col form-group">
+                            <label>Country:</label>
+                            {{ form.county }}
+                        </div>
+                    </div>
+                </div>
+                <div class="">
+                    <div class="row">
+                        <div class="col form-group">
+                            <label>Contact Number:</label>
+                            {{ form.contact_nb }}
+                        </div>
+                        <div class="col form-group">
+                            <label>Passport Number:</label>
+                            {{ form.passport_nb }}
+                        </div>
+                    </div>
+                </div>
+                <div class="">
+                    <div class="row">
+                        <div class="col form-group">
+                            <label>Visa Number:</label>
+                            {{ form.visa_nb }}
+                        </div>
+                        <div class="col form-group">
+                            <label>Stay Duration:</label>
+                            {{ form.stay_duration }}
+                        </div>
+                    </div>
+                </div>
+
+{#				{{form.as_p}}#}
+
+			<input class="btn btn-primary" type="submit" name="Update Information">
+			</form>
+		</div>
+	</div>
+</div>
+
+<script>
+    var form_fields = document.getElementsByTagName('input')
+    var select_fields = document.getElementsByTagName('select')
+
+    select_fields[0].className = 'form-control'
+
+    form_fields[1].className = "p-1";
+    form_fields[2].type = "date";
+
+    for (var field in form_fields){
+        form_fields[field].className += ' form-control'
+    }
+
+
+</script>
+
+{% endblock %}

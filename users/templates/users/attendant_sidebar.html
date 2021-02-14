@@ -14,18 +14,19 @@
       <span class="logo-text">{{ request.user.attendant.attendant_name }}</span>
     </div>
 
-    <div class="search-form">
-      <form action="#">
+    <div class="search-form" id="form-wrapper-11">
+      <form id="form-11" method="get" action="http://127.0.0.1:8000/attendant/search">
         <span class="wrap-icon">
           <i class="fas fa-search"></i>
         </span>
-        <input type="text" class="form-control" placeholder="Search...">
+        <input type="text" class="form-control" name="key" id="key" placeholder="Search...">
+        <button type="submit" hidden>submit</button>
       </form>
     </div>
     <div class="nav-menu">
       <ul>
         <li class="active"><a href="{% url 'attendant-home' %}" class="d-flex align-items-center"><i class="fas fa-home mr-3"></i></span><span class="menu-text">Dashboard</span></a></li>
-        <li><a href="#" class="d-flex align-items-center"><i class="fas fa-user mr-3"></i><span class="menu-text">Profile</span></a></li>
+        <li><a href="{% url 'attendant-profile' %}" class="d-flex align-items-center"><i class="fas fa-user mr-3"></i><span class="menu-text">Profile</span></a></li>
         <li><a href="{% url 'attendant-blog' %}" class="d-flex align-items-center"><i class="fas fa-blog mr-3"></i><span class="menu-text">Blog</span></a></li>
         <li><a href="{% url 'attendant-notice' %}" class="d-flex align-items-center"><i class="fas fa-bell mr-3"></i><span class="menu-text">Notification</span></a></li>
         <li><a href="{% url 'attendant-meeting' %}" class="d-flex align-items-center"><i class="fas fa-users mr-3"></i><span class="menu-text">Meeting</span></a></li>
@@ -36,5 +37,46 @@
       </ul>
     </div>
   </div>
+
+  <script>
+      function getCookie(name) {
+            var cookieValue = null;
+            if (document.cookie && document.cookie !== '') {
+                var cookies = document.cookie.split(';');
+                for (var i = 0; i < cookies.length; i++) {
+                    var cookie = cookies[i].trim();
+                    // Does this cookie string begin with the name we want?
+                    if (cookie.substring(0, name.length + 1) === (name + '=')) {
+                        cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+                        break;
+                    }
+                }
+            }
+            return cookieValue;
+       }
+       var csrftoken = getCookie('csrftoken');
+
+      /*var form = document.getElementById('form-wrapper')
+		form.addEventListener('submit', function(e){
+			e.preventDefault()
+			console.log('Form submitted')
+			var url = 'http://127.0.0.1:8000/attendant/search'
+
+			var key = document.getElementById('key').value
+            console.log(key)
+			fetch(url, {
+				method:'POST',
+				headers:{
+					'Content-type':'application/json',
+					'X-CSRFToken':csrftoken,
+				},
+				body:JSON.stringify({'key':key})
+			}
+			).then(function(response){
+				{#noticeList()#}
+				document.getElementById('form').reset()
+			})
+		});*/
+  </script>
 
 </aside>

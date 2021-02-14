@@ -14,8 +14,8 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="JavaScript File" />
-        <option value="Python Script" />
         <option value="HTML File" />
+        <option value="Python Script" />
       </list>
     </option>
   </component>
@@ -33,24 +33,25 @@
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/static/css/attendant" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/static/images" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
+    <property name="run.code.analysis.last.selected.profile" value="aDefault" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\Users\subro\PycharmProjects\probashi_kollan\static\css\attendant" />
-      <recent name="C:\Users\subro\PycharmProjects\probashi_kollan\static\images\immigrant" />
-      <recent name="C:\Users\subro\PycharmProjects\probashi_kollan\static\js\immigrant" />
-      <recent name="C:\Users\subro\PycharmProjects\probashi_kollan\static\css\immigrant" />
-      <recent name="C:\Users\subro\PycharmProjects\probashi_kollan\static\images\about" />
-    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\subro\PycharmProjects\probashi_kollan\portal\templates\portal" />
       <recent name="C:\Users\subro\PycharmProjects\probashi_kollan\static\js" />
       <recent name="C:\Users\subro\PycharmProjects\probashi_kollan\static\css" />
       <recent name="C:\Users\subro\PycharmProjects\probashi_kollan\desk\templates\desk" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\subro\PycharmProjects\probashi_kollan\static\images" />
+      <recent name="C:\Users\subro\PycharmProjects\probashi_kollan\static\images\landing" />
+      <recent name="C:\Users\subro\PycharmProjects\probashi_kollan\static\css\attendant" />
+      <recent name="C:\Users\subro\PycharmProjects\probashi_kollan\static\images\immigrant" />
+      <recent name="C:\Users\subro\PycharmProjects\probashi_kollan\static\js\immigrant" />
     </key>
   </component>
   <component name="RunManager">
@@ -162,7 +163,23 @@
       <workItem from="1611501305607" duration="7124000" />
       <workItem from="1611602263794" duration="1086000" />
       <workItem from="1611639202331" duration="9262000" />
-      <workItem from="1611680610088" duration="6491000" />
+      <workItem from="1611680610088" duration="6653000" />
+      <workItem from="1611738579824" duration="383000" />
+      <workItem from="1611739135834" duration="596000" />
+      <workItem from="1612763870939" duration="31355000" />
+      <workItem from="1612857955367" duration="4063000" />
+      <workItem from="1612870320939" duration="1309000" />
+      <workItem from="1612876794802" duration="7184000" />
+      <workItem from="1612951130356" duration="1637000" />
+      <workItem from="1612959034017" duration="8633000" />
+      <workItem from="1613016807151" duration="616000" />
+      <workItem from="1613027513608" duration="7668000" />
+      <workItem from="1613046026529" duration="10683000" />
+      <workItem from="1613103129088" duration="6455000" />
+      <workItem from="1613150949664" duration="5528000" />
+      <workItem from="1613192510682" duration="8682000" />
+      <workItem from="1613226065242" duration="9106000" />
+      <workItem from="1613316332399" duration="2138000" />
     </task>
     <servers />
   </component>
@@ -174,26 +191,30 @@
       <screen x="0" y="0" width="1536" height="834" />
     </state>
     <state x="346" y="126" key="#com.intellij.ide.fileTemplates.ui.ConfigureTemplatesDialog/0.0.1536.834@0.0.1536.834" timestamp="1608655613421" />
+    <state x="482" y="258" key="ANALYSIS_DLG_com.intellij.analysis.BaseAnalysisAction$1" timestamp="1613108369053">
+      <screen x="0" y="0" width="1536" height="834" />
+    </state>
+    <state x="482" y="258" key="ANALYSIS_DLG_com.intellij.analysis.BaseAnalysisAction$1/0.0.1536.834@0.0.1536.834" timestamp="1613108369053" />
     <state x="499" y="110" key="FileChooserDialogImpl" timestamp="1609952158015">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
     <state x="499" y="110" key="FileChooserDialogImpl/0.0.1536.834@0.0.1536.834" timestamp="1609952158015" />
-    <state width="1481" height="48" key="GridCell.Tab.0.bottom" timestamp="1611654630915">
+    <state width="1481" height="180" key="GridCell.Tab.0.bottom" timestamp="1613237014154">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
-    <state width="1481" height="48" key="GridCell.Tab.0.bottom/0.0.1536.834@0.0.1536.834" timestamp="1611654630915" />
-    <state width="1481" height="48" key="GridCell.Tab.0.center" timestamp="1611654630915">
+    <state width="1481" height="180" key="GridCell.Tab.0.bottom/0.0.1536.834@0.0.1536.834" timestamp="1613237014154" />
+    <state width="1481" height="180" key="GridCell.Tab.0.center" timestamp="1613237014153">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
-    <state width="1481" height="48" key="GridCell.Tab.0.center/0.0.1536.834@0.0.1536.834" timestamp="1611654630915" />
-    <state width="1481" height="48" key="GridCell.Tab.0.left" timestamp="1611654630914">
+    <state width="1481" height="180" key="GridCell.Tab.0.center/0.0.1536.834@0.0.1536.834" timestamp="1613237014153" />
+    <state width="1481" height="180" key="GridCell.Tab.0.left" timestamp="1613237014153">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
-    <state width="1481" height="48" key="GridCell.Tab.0.left/0.0.1536.834@0.0.1536.834" timestamp="1611654630914" />
-    <state width="1481" height="48" key="GridCell.Tab.0.right" timestamp="1611654630915">
+    <state width="1481" height="180" key="GridCell.Tab.0.left/0.0.1536.834@0.0.1536.834" timestamp="1613237014153" />
+    <state width="1481" height="180" key="GridCell.Tab.0.right" timestamp="1613237014154">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
-    <state width="1481" height="48" key="GridCell.Tab.0.right/0.0.1536.834@0.0.1536.834" timestamp="1611654630915" />
+    <state width="1481" height="180" key="GridCell.Tab.0.right/0.0.1536.834@0.0.1536.834" timestamp="1613237014154" />
     <state x="372" y="0" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser" timestamp="1608719310258">
       <screen x="0" y="0" width="1536" height="834" />
     </state>

@@ -1,5 +1,5 @@
 from django.forms import ModelForm
-from .models import Test, Job
+from .models import Test, Job, Blog
 
 
 class TestForm(ModelForm):
@@ -13,3 +13,12 @@ class JobFormAtten(ModelForm):
         model = Job
         fields = '__all__'
         exclude = ('attendant', 'date_posted',)
+
+
+class blogForm(ModelForm):
+    class Meta:
+        model = Blog
+        fields = '__all__'
+        exclude = ('author', 'permission', 'date_posted',)
+
+

@@ -70,7 +70,29 @@ def meeting(request):
 
 @api_view(['GET'])
 def meetingList(request):
-    meetings = Meeting.objects.all()
+    meetings = Meeting.objects.filter(Q(immigrant__user_id=request.user.id) & Q(meeting_status=True)).order_by('-date_posted')
+    serializer = MeetingSerializer(meetings, many=True)
+    return Response(serializer.data)
+
+
+@api_view(['POST'])
+def meetingImmiCreate(request):
+    user_id = request.user.id
+    print(user_id)
+    meeting_data = request.data
+    print(meeting_data)
+    new_notice = Meeting.objects.create(immigrant=Immigrant.objects.get(user_id=user_id),
+                                        title=meeting_data["title"],
+                                        description=meeting_data["description"])
+    new_notice.save()
+    serializer = MeetingSerializer(new_notice)
+
+    return Response(serializer.data)
+
+
+@api_view(['GET'])
+def meetingPendingList(request):
+    meetings = Meeting.objects.filter(Q(immigrant__user_id=request.user.id) & Q(meeting_status=False))
     serializer = MeetingSerializer(meetings, many=True)
     return Response(serializer.data)
 
@@ -139,6 +161,8 @@ def meetingUpdate(request, pk):
 
     if serializer.is_valid():
         serializer.save()
+    else:
+        print('error')
 
     return Response(serializer.data)
 

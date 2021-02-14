@@ -28,11 +28,24 @@
             <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro&display=swap" rel="stylesheet">
             <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
             <link href="https://fonts.googleapis.com/css2?family=Fira+Mono&display=swap" rel="stylesheet">
-    <style>
 
-    </style>
 </head>
 <body>
+    <style>
+        .modal-body {
+            max-height: calc(100vh - 210px);
+            overflow-y: auto;
+        }
+        body.modal-open {
+          overflow: inherit;
+          padding-right: 0 !important;
+        }
+        div.sticky {
+          position: -webkit-sticky; /* Safari */
+          position: sticky;
+          top: 0;
+        }
+    </style>
     <div class="wrapper d-flex align-items-stretch">
         {%  include 'users/immigrant_sidebar.html' %}
 
@@ -55,9 +68,9 @@
 	<h5>Our footer</h5>
 </body>
 <!-- bootstrap js, jquery, popper -->
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
-        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
-        crossorigin="anonymous"></script>
+{#    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"#}
+{#        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"#}
+{#        crossorigin="anonymous"></script>#}
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
         integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
         crossorigin="anonymous"></script>
@@ -68,7 +81,7 @@
     <script src="{% static 'js/main.js' %}"></script>
 
 {#    meeting#}
-    <script src="https://cdn.jsdelivr.net/npm/jquery@3.4.1/dist/jquery.min.js"></script>
+{#    <script src="https://cdn.jsdelivr.net/npm/jquery@3.4.1/dist/jquery.min.js"></script>#}
             <script src="{% static 'js/evo-calendar.min.js' %}"></script>
             <script src="{% static 'js/demo.js' %}"></script>
 

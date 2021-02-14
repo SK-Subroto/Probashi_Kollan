@@ -1,7 +1,7 @@
 from django.forms import ModelForm
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import User
-from .models import Immigrant
+from .models import Immigrant, Attendant
 from django import forms
 
 
@@ -15,3 +15,24 @@ class ImmigrantForm(ModelForm):
     class Meta:
         model = Immigrant
         fields = ('contact_nb', 'passport_nb')
+
+
+class ImmigrantUpdateForm(ModelForm):
+    class Meta:
+        model = Immigrant
+        fields = '__all__'
+        exclude = ('user', 'immigrant_id', 'immigrant_name',)
+        widgets = {
+            'photo': forms.FileInput(),
+        }
+
+
+class AttendantUpdateForm(ModelForm):
+    class Meta:
+        model = Attendant
+        fields = '__all__'
+        exclude = ('user', 'attendant_id', 'attendant_name',)
+        widgets = {
+            'photo': forms.FileInput(),
+        }
+

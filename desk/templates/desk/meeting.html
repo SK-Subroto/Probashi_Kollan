@@ -1,142 +1,209 @@
 {% extends 'users/main.html' %}
 
 {% block content %}
-{#    {% load static %}#}
-{#    <!DOCTYPE html>#}
-{#    <html lang="en">#}
-{#        <head>#}
-{#            <title>Evo Calendar</title>#}
-{##}
-{#            <meta charset="utf-8">#}
-{#            <meta name="description" content="Simple Modern-looking Event Calendar Plugin">#}
-{#            <meta name="keywords" content="jQuery, Plugin, Event, Calendar, EvoCalendar">#}
-{#            <meta name="author" content="Edlyn Villegas">#}
-{#            <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">#}
-{##}
-{#            <link rel="icon" href="favicon.png">#}
-{##}
-{#            <!-- CSS -->#}
-{#            <link rel="stylesheet" type="text/css" href="{% static 'css/evo-calendar.min.css' %}">#}
-{#            <link rel="stylesheet" type="text/css" href="{% static 'css/evo-calendar.royal-navy.min.css' %}">#}
-{##}
-{#            <link rel="stylesheet" type="text/css" href="{% static 'css/demo.css' %}">#}
-{#            <!-- Fonts -->#}
-{#            <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro&display=swap" rel="stylesheet">#}
-{#            <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">#}
-{#            <link href="https://fonts.googleapis.com/css2?family=Fira+Mono&display=swap" rel="stylesheet">#}
-{#        </head>#}
-{#        <body>#}
 
-            <main>
-                <div class="main-container">
+    <main>
+        <div class="main-container">
 
-                    <section id="demos">
-                        <div class="section-content">
-                            <div class="action-buttons">
-                                <!-- <button class="btn-action" data-set-theme="Default">DEFAULT</button> -->
-                                <!-- <button class="btn-action" data-set-theme="Midnight Blue">MIDNIGHT BLUE</button> -->
-                                <button class="btn-action active" data-set-theme="Royal Navy" style="display: none">ROYAL NAVY</button>
-                                <!-- <button class="btn-action" data-set-theme="Orange Coral">ORANGE CORAL</button> -->
+            <section id="demos">
+                <div class="section-content">
+                    <div class="action-buttons">
+                        <!-- <button class="btn-action" data-set-theme="Default">DEFAULT</button> -->
+                        <!-- <button class="btn-action" data-set-theme="Midnight Blue">MIDNIGHT BLUE</button> -->
+                        <button class="btn-action active" data-set-theme="Royal Navy" style="display: none">ROYAL NAVY</button>
+                        <!-- <button class="btn-action" data-set-theme="Orange Coral">ORANGE CORAL</button> -->
+                    </div>
+                    <div class="console-log">
+                        <div class="row my-3">
+                            <div class="col-6">
+                                <button class="btn btn-primary btn-lg btn-block" data-toggle="modal" data-target="#newModal"><i class="fas fa-plus-circle"></i> Add New</button>
                             </div>
-                            <div class="console-log">
-                                <div class="row my-3">
-                                    <div class="col-6">
-                                        <button class="btn btn-primary btn-lg btn-block" data-toggle="modal" data-target="#newModal"><i class="fas fa-plus-circle"></i> Add New</button>
-                                    </div>
-                                    <div class="col-6">
-                                        <button class="btn btn-info btn-lg btn-block" data-toggle="modal" data-target="#infoModal"><i class="fas fa-info-circle"></i> Check Status</button>
-                                    </div>
-                                </div>
-                                <div class="log-content">
-                                    <div class="--noshadow" id="demoEvoCalendar"></div>
-                                </div>
+                            <div class="col-6">
+                                <button class="btn btn-info btn-lg btn-block" data-toggle="modal" data-target="#infoModal"><i class="fas fa-info-circle"></i> Check Status</button>
                             </div>
-                            <!-- <div class="action-buttons">
-                                <button class="btn-action" id="addBtn">ADD EVENT</button>
-                                <button class="btn-action" id="removeBtn" disabled>REMOVE EVENT</button>
-                            </div> -->
                         </div>
-                    </section>
-                    <!-- Modal new meeting -->
-                     <div class="modal fade" id="newModal" role="dialog">
-                        <div class="modal-dialog modal-lg">
-                              <div class="modal-content">
-                                    <div class="modal-header">
-                                        <div class="text-center modal-title text-center">
-                                                <h3 class="font-weight-bolder">Contact Me</h3>
-                                        </div>
-                                        <button type="button" class="close" data-dismiss="modal">&times;</button>
-
-                                    </div>
-                                    <div class="modal-body">
-                                      <div class="contact-section">
-
-                                            <form action="" class="col-lg-8 col-md-6 m-auto was-validated bg-light text-black p-3  ">
-
-                                                <div class="form-group">
-                                                    <label for="fullname">Fullname</label>
-                                                    <input type="text" class="form-control" name="fullname" required>
-                                                    <div class="valid-feedback">Valid</div>
-                                                    <div class="invalid-feedback">Please enter your fullname as soon as possible</div>
-                                                </div>
-
-                                                <div class="form-group">
-                                                    <label for="email">Email</label>
-                                                    <input type="email" class="form-control" name="email">
-                                                    <div class="invalid-feedback">Please enter your valid email</div>
-                                                </div>
-
-                                                <div class="form-group">
-                                                    <label for="subject">Subject</label>
-                                                    <input type="text" class="form-control" name="subject">
-                                                </div>
-
-                                                <div class="form-group">
-                                                    <label for="message">message</label>
-                                                    <textarea style="resize: none;" name="message" class="form-control" id="" cols="30"
-                                                        rows="10"></textarea>
-                                                </div>
-
-                                                <div class="form-group text-right">
-                                                    <input type="submit" class="btn btn-secondary" value="submit">
-                                                    <input type="reset" class="btn btn-secondary" value="Reset">
-                                                </div>
-                                            </form>
-                                        </div>
-                                    </div>
-                                    <div class="modal-footer">
-                                      <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                                    </div>
-                              </div>
+                        <div class="log-content">
+                            <div class="--noshadow" id="demoEvoCalendar"></div>
                         </div>
-                     </div>
-                    <!-- Modal meeting status -->
-                     <div class="modal fade" id="infoModal" role="dialog">
-                        <div class="modal-dialog modal-lg">
-                              <div class="modal-content">
-                                    <div class="modal-header">
-                                        <h4 class="modal-title">Modal Header</h4>
-                                        <button type="button" class="close" data-dismiss="modal">&times;</button>
-
-                                    </div>
-                                    <div class="modal-body">
-                                      <p>This is a large modal.</p>
-                                    </div>
-                                    <div class="modal-footer">
-                                      <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                                    </div>
-                              </div>
-                        </div>
-                     </div>
-
-
+                    </div>
+                    <!-- <div class="action-buttons">
+                        <button class="btn-action" id="addBtn">ADD EVENT</button>
+                        <button class="btn-action" id="removeBtn" disabled>REMOVE EVENT</button>
+                    </div> -->
                 </div>
-            </main>
+            </section>
+            <!-- Modal new meeting -->
+             <div class="modal fade" id="newModal" role="dialog">
+                <div class="modal-dialog modal-lg">
+                      <div class="modal-content">
+                            <div class="modal-header">
+                                <div class="text-center modal-title text-center">
+                                        <h3 class="font-weight-bolder">Set meeting</h3>
+                                </div>
+                                <button type="button" class="close" data-dismiss="modal">&times;</button>
 
-            <!-- jQuery -->
-{#            <script src="https://cdn.jsdelivr.net/npm/jquery@3.4.1/dist/jquery.min.js"></script>#}
-{#            <script src="{% static 'js/evo-calendar.min.js' %}"></script>#}
-{#            <script src="{% static 'js/demo.js' %}"></script>#}
-{#        </body>#}
-{#    </html>#}
+                            </div>
+                            <div class="modal-body">
+                              <div id="form-wrapper" class="contact-section">
+
+                                    <form id="form" action="" class="col-lg-8 col-md-6 m-auto was-validated bg-light text-black p-3  ">
+
+                                        <div class="form-group">
+                                            <label for="title">Title</label>
+                                            <input type="text" class="form-control" name="title" id="title" required>
+                                        </div>
+
+
+                                        <div class="form-group">
+                                            <label for="description">Description</label>
+                                            <textarea style="resize: none;" name="description" id="description" class="form-control" id="" cols="30"
+                                                rows="10"></textarea>
+                                        </div>
+
+                                        <div class="form-group text-right">
+                                            <input type="submit" class="btn btn-secondary" value="submit">
+                                            <input type="reset" class="btn btn-secondary" value="Reset">
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                            <div class="modal-footer">
+                              <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                            </div>
+                      </div>
+                </div>
+             </div>
+            <!-- Modal meeting status -->
+             <div class="modal fade" id="infoModal" role="dialog">
+                <div class="modal-dialog modal-lg">
+                      <div class="modal-content">
+                            <div class="modal-header">
+                                <div class="bg-info" style="border-radius: 20px">
+                                    <h4 class="font-weight-bold px-2 text-white text-center">PENDING MEETING</h4>
+                                </div>
+{#                                <h4 class="modal-title">Meeting status</h4>#}
+                                <button type="button" class="close" data-dismiss="modal">&times;</button>
+
+                            </div>
+                            <div class="modal-body">
+                              <ul class="list-group list-group-flush" id="meeting-pending-wrapper">
+
+                              </ul>
+                            </div>
+                            <div class="modal-footer">
+                              <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                            </div>
+                      </div>
+                </div>
+             </div>
+
+
+        </div>
+    </main>
+
+
+<script>
+    function getCookie(name) {
+        var cookieValue = null;
+        if (document.cookie && document.cookie !== '') {
+            var cookies = document.cookie.split(';');
+            for (var i = 0; i < cookies.length; i++) {
+                var cookie = cookies[i].trim();
+                // Does this cookie string begin with the name we want?
+                if (cookie.substring(0, name.length + 1) === (name + '=')) {
+                    cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+                    break;
+                }
+            }
+        }
+        return cookieValue;
+    }
+    var csrftoken = getCookie('csrftoken');
+
+    var activeItem = null
+    var list_snapshot = []
+
+    meetingPendingList()
+
+    function meetingPendingList() {
+        var wrapper = document.getElementById('meeting-pending-wrapper')
+        {#wrapper.innerHTML = ''#}
+
+        var url = 'http://127.0.0.1:8000/api/meeting-pending-list/'
+
+        fetch(url)
+        .then((resp) => resp.json())
+        .then(function (data) {
+            console.log(data)
+            var list = data
+            for(var i in list){
+
+                try{
+                    document.getElementById(`pending-row-${i}`).remove()
+                }catch(err){
+
+                }
+
+                var item = `
+                <li id="pending-row-${i}" class="list-group-item bg-light">
+                  <div class="row">
+                      <div class="col-10">
+                        <h5 class="font-weight-bolder text-dark">${list[i].title}</h5>
+                        <div class="post-meta align-items-center text-left">
+                            {#<img src="{{ request.user.attendant.photo.url }}" alt="Image" class="rounded-circle" style="width: 30px; height: 30px">#}
+                            {#<span class="d-inline-block small">By <a href="#">${list[i].author.first_name} ${list[i].author.last_name}</a></span>#}
+                            <span class="medium"><b>DATE</b>&nbsp;-&nbsp; ${list[i].date_posted}</span>
+                        </div>
+                      </div>
+                      <div class="col-2">
+                          <div class="btn-group-vertical">
+                              <button class="detail btn btn-sm btn-outline-info"><i class="fas fa-bars"></i></button>
+                          </div>
+                      </div>
+                    </div>
+                </li>
+                `
+                wrapper.innerHTML += item
+            }
+
+
+            if (list_snapshot.length > list.length){
+                for (var i = list.length; i < list_snapshot.length; i++){
+                    document.getElementById(`pending-row-${i}`).remove()
+                }
+            }
+
+            list_snapshot = list
+
+
+        })
+    }
+
+    var form = document.getElementById('form-wrapper')
+    form.addEventListener('submit', function(e){
+        e.preventDefault()
+        console.log('Form submitted')
+        var url = 'http://127.0.0.1:8000/api/meeting-immi-create/'
+        /*if (activeItem != null){
+            var url = `http://127.0.0.1:8000/api/notice-update/${activeItem.id}/`
+            activeItem = null
+        }*/
+
+        var title = document.getElementById('title').value
+        var description = document.getElementById('description').value
+        fetch(url, {
+            method:'POST',
+            headers:{
+                'Content-type':'application/json',
+                'X-CSRFToken':csrftoken,
+            },
+            body:JSON.stringify({'title':title, 'description':description})
+        }
+        ).then(function(response){
+            document.getElementById('form').reset()
+            meetingPendingList()
+            $('#newModal').modal('hide');
+        })
+    });
+</script>
 {% endblock %}

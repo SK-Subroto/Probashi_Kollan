@@ -1,0 +1,65 @@
+{% extends 'users/main_2.html' %}
+
+{% block content %}
+    <style>
+      table {
+        border-collapse: separate;
+        border-spacing: 0 15px;
+      }
+      .table td {
+        vertical-align: middle!important;
+      }
+    </style>
+
+{#    <div class="card p-3 mb-2 bg-light shadow">#}
+{#        <div class="row">#}
+{#            <div class="col-md-2">#}
+{#                <img class="img logo rounded-circle" src="{{ immigrant.photo.url }}" alt="Image" style="width:60px; height: 60px;">#}
+{#            </div>#}
+{#            <div class="col-md-4">#}
+{#                <strong>#}
+{#                    <a href="{% url 'attendant-search-detail' immigrant.id %}" >{{immigrant.user.first_name}} {{immigrant.user.last_name}}</a>#}
+{#                </strong>#}
+{#            </div>#}
+{#            <div class="col-md-3">#}
+{#                <p>{{immigrant.immigrant_id}}</p>#}
+{#            </div>#}
+{#            <div class="col-md-3">#}
+{#                <p>{{immigrant.passport_nb}}</p>#}
+{#            </div>#}
+{#            <div class="col-md-3">#}
+{#                <p>{{immigrant.job_desig}}</p>#}
+{#            </div>#}
+{#            <div class="col-md-5">#}
+{#                <p>{{immigrant.county}}</p>#}
+{#            </div>#}
+{#        </div>#}
+{#    </div>#}
+
+    <table class="table">
+      <thead>
+        <tr class="bg-light">
+          <th scope="col">#</th>
+          <th scope="col">Name</th>
+          <th scope="col">Id</th>
+          <th scope="col">Passport</th>
+          <th scope="col">Designation</th>
+          <th scope="col">Country</th>
+          <th scope="col">Action</th>
+        </tr>
+      </thead>
+      <tbody>
+          {% for immigrant in immigrants %}
+            <tr class="bg-light shadow">
+              <th><img class="img logo rounded-circle" src="{{ immigrant.photo.url }}" alt="Image" style="width:60px; height: 60px;"></th>
+              <td><strong>{{immigrant.user.first_name}} {{immigrant.user.last_name}}</strong></td>
+              <td>{{immigrant.immigrant_id}}</td>
+              <td>{{ immigrant.passport_nb }}</td>
+              <td>{{ immigrant.job_desig }}</td>
+              <td>{{ immigrant.county }}</td>
+              <td><a href="{% url 'attendant-search-detail' immigrant.id %}" class="btn btn-sm btn-outline-info">Detail</a></td>
+            </tr>
+          {% endfor %}
+      </tbody>
+    </table>
+{% endblock %}

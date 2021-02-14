@@ -11,6 +11,8 @@ urlpatterns = [
 
     path('meeting/', views.meeting, name='meeting'),
     path('meeting-list/', views.meetingList),
+    path('api/meeting-immi-create/', views.meetingImmiCreate),
+    path('api/meeting-pending-list/', views.meetingPendingList),
     path('attendant/meeting/', views.meetingAttendant, name='attendant-meeting'),
     path('api/get-immigrant-id/', views.getImmigrantId),
     path('api/meeting-atten-list/', views.meetingAttenList),

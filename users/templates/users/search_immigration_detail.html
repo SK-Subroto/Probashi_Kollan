@@ -1,0 +1,128 @@
+{% extends 'users/main_2.html' %}
+
+{% block content %}
+  <div class="row">
+    <div class="col-lg-12">
+      <div class="card">
+        <div class="card-body">
+          <div class="user-profile">
+            <div class="row">
+              <div class="col-lg-4">
+                <div class="">
+                  <img class="img-fluid" src="{{ immigrant.photo.url }}" alt="" style="width: 400px; height: 370px;" />
+                </div>
+                <div class="mt-4">
+                  <h3 class="nav nav-tabs">work</h3>
+                  <div class="mt-2">
+                    <h5>IT Solution </h5>
+                    <p>123, South Mugda</p>
+                    <p>New York, 1214</p>
+                  </div>
+                  <div class="work-content">
+                    <h5>Unix</h5>
+                    <p>123, South Mugda</p>
+                    <p>New York, 1214</p>
+                  </div>
+                </div>
+{#                <div class="user-skill">#}
+{#                  <h5 class="nav nav-tabs">Skill</h5>#}
+{#                  <ul class="list-group border-0">#}
+{#                    <li class="list-group-item">#}
+{#                      <a href="#">Branding</a>#}
+{#                    </li>#}
+{#                    <li class="list-group-item">#}
+{#                      <a href="#">UI/UX</a>#}
+{#                    </li>#}
+{#                    <li class="list-group-item">#}
+{#                      <a href="#">Web Design</a>#}
+{#                    </li>#}
+{#                    <li class="list-group-item">#}
+{#                      <a href="#">Wordpress</a>#}
+{#                    </li>#}
+{#                    <li class="list-group-item">#}
+{#                      <a href="#">Magento</a>#}
+{#                    </li>#}
+{#                  </ul>#}
+{#                </div>#}
+              </div>
+              <div class="col-lg-8">
+                <div class="">
+                    <span class="mt-0" style="font-size: x-large">{{ immigrant.user.first_name }} {{ immigrant.user.last_name }}</span>
+                    <span class="ml-2"><i class="fas fa-map-marker-alt"></i> {{ immigrant.address }}, {{ immigrant.county }}</span>
+                </div>
+                <div class="text-info" style="font-size: large">{{ immigrant.job_desig }}</div>
+                <div class="">
+                  <h6>Ratings</h6>
+                  <div>8.9</div>
+                  <i class="far fa-star text-warning"></i>
+                  <i class="far fa-star text-warning"></i>
+                  <i class="far fa-star text-warning"></i>
+                  <i class="far fa-star text-warning"></i>
+                  <i class="far fa-star"></i>
+                </div>
+                <div class="mt-2">
+                  <button class="btn btn-primary" type="button">
+                    <i class="far fa-envelope"></i> Send Message</button>
+
+{#                  <a href="{% url 'attendant-profile-update' %}" class="btn btn-secondary">Update Profile</a>#}
+                </div>
+                <div class="mt-3">
+                  <ul class="nav nav-tabs">
+                    <li class="active">
+                      <h3>About</h3>
+                    </li>
+                  </ul>
+                  <div class="">
+                    <div class="">
+                      <div class="">
+
+                          <table class="table table-borderless" style="width: 70%;">
+                              <tbody>
+                                <tr>
+                                    <td class="text-left"><h5>Contact information</h5></td>
+                                </tr>
+                                <tr>
+                                    <td>Phone:</td>
+                                    <td>{{ attendant.contact_nb }}</td>
+                                </tr>
+                                <tr>
+                                    <td>Address:</td>
+                                    <td>{{ immigrant.address }}</td>
+                                </tr>
+                                <tr>
+                                    <td>Email:</td>
+                                    <td>{{ attendant.user.email }}</td>
+                                </tr>
+                                <tr>
+                                    <td>Website:</td>
+                                    <td>N/A</td>
+                                </tr>
+                                <tr>
+                                    <td>Skype:</td>
+                                    <td>N/A</td>
+                                </tr>
+                                <tr>
+                                    <td class="text-left"><h5>Basic information</h5></td>
+                                </tr>
+                                <tr>
+                                    <td>Birthday:</td>
+                                    <td>{{ attendant.dob }}</td>
+                                </tr>
+                                <tr>
+                                    <td>Gender:</td>
+                                    <td>Male</td>
+                                </tr>
+                              </tbody>
+                          </table>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+{% endblock %}

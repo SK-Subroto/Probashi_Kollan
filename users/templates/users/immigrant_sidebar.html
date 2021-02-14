@@ -1,7 +1,7 @@
 {% load static %}
 
 <nav id="sidebar">
-    <div class="p-4 pt-4 sticky-top">
+    <div class="p-4 pt-4 sticky">
         <a href="#" class="img logo rounded-circle mb-4" style="background-image: url({{ request.user.immigrant.photo.url }});"></a>
 {#            <img class="profile-pic" src="{{ request.user.immigrant.photo.url }}">#}
         <ul class="list-unstyled components mb-5">
@@ -11,11 +11,11 @@
           <li>
             <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle"><i class="fas fa-user mr-2"></i> Profile</a>
             <ul class="collapse list-unstyled" id="homeSubmenu">
-                <li>
-                    <a href="#">View profile</a>
+                <li class="ml-3">
+                    <a href="{% url 'immigrant-profile' %}">View profile</a>
                 </li>
-                <li>
-                    <a href="#">Update profile</a>
+                <li class="ml-3">
+                    <a href="{% url 'immigrant-profile-update' %}">Update profile</a>
                 </li>
             </ul>
           </li>

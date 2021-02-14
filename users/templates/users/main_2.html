@@ -25,7 +25,21 @@
     <title>Attendant</title>
   </head>
   <body>
-
+    <style>
+        .modal-body {
+            max-height: calc(100vh - 210px);
+            overflow-y: auto;
+        }
+        body.modal-open {
+          overflow: inherit;
+          padding-right: 0 !important;
+        }
+        div.sticky {
+          position: -webkit-sticky; /* Safari */
+          position: sticky;
+          top: 0;
+        }
+    </style>
     {%  include 'users/attendant_sidebar.html' %}
 
     <main>

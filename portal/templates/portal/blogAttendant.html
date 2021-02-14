@@ -3,7 +3,7 @@
 {% block content %}
     <div class="row">
         <div class="col-lg-2">
-            <div class="card p-2 sticky-top shadow" style="border-radius: 10px;">
+            <div class="card p-2 sticky shadow" style="border-radius: 10px;">
                 <div class="text-center">
                     <div class="bg-light py-2">
                         <img class="img logo rounded-circle" src="{{ request.user.attendant.photo.url }}" alt="Image" class="img-fluid" style="width: 50px; height: 50px;">
@@ -91,105 +91,20 @@
               </div>
         </div>
         <div class="col-lg-4">
-            <div class="card p-2 sticky-top shadow" style="border-radius: 10px;">
+            <div class="card p-2 sticky shadow" style="border-radius: 10px; z-index: 0">
                 <div class="card-title text-center bg-info text-light pt-1" style="border-radius: 20px">
                     <h4 class="font-weight-bold">PENDING POST</h4>
                 </div>
                 <div class="card-body p-0">
-                    <ul class="list-group list-group-flush">
-                        <li class="list-group-item bg-light">
-                          <div class="row">
-                              <div class="col-10">
-                                <h5 class="font-weight-bolder text-dark">Cras justo odio</h5>
-                                <div class="post-meta align-items-center text-left">
-                                    <img src="https://avatars3.githubusercontent.com/u/47079665?s=460&u=a32284fed6c90a4b5d8a202d10a0efdbd7f3ee9d&v=4" alt="Image" class="rounded-circle pr-1" style="width: 30px; height: auto">
-                                    <span class="d-inline-block small">By <a href="#">Carrol Atkinson</a></span>
-                                    <span class="small">&nbsp;-&nbsp; July 19, 2019 4:00 PM</span>
-                                </div>
-                              </div>
-                              <div class="col-2">
-                                  <div class="btn-group-vertical">
-                                      <button class="btn btn-sm btn-success"><i class="far fa-check-circle"></i></button>
-                                      <button class="btn btn-sm btn-danger"><i class="far fa-times-circle"></i></button>
-                                  </div>
-                              </div>
-                            </div>
-                        </li>
-                      <li class="list-group-item bg-light">
-                          <div class="row">
-                              <div class="col-10">
-                                <h5 class="font-weight-bolder text-dark">Dapibus ac facilisis in</h5>
-                                <div class="post-meta align-items-center text-left">
-                                    <img src="https://avatars3.githubusercontent.com/u/47079665?s=460&u=a32284fed6c90a4b5d8a202d10a0efdbd7f3ee9d&v=4" alt="Image" class="rounded-circle pr-1" style="width: 30px; height: auto">
-                                    <span class="d-inline-block small">By <a href="#">Carrol Atkinson</a></span>
-                                    <span class="small">&nbsp;-&nbsp; July 19, 2019 4:00 PM</span>
-                                </div>
-                              </div>
-                              <div class="col-2">
-                                  <div class="btn-group-vertical">
-                                      <button class="btn btn-sm btn-success"><i class="far fa-check-circle"></i></button>
-                                      <button class="btn btn-sm btn-danger"><i class="far fa-times-circle"></i></button>
-                                  </div>
-                              </div>
-                            </div>
-                        </li>
-                      <li class="list-group-item bg-light">
-                          <div class="row">
-                              <div class="col-10">
-                                <h5 class="font-weight-bolder text-dark">Morbi leo risus</h5>
-                                <div class="post-meta align-items-center text-left">
-                                    <img src="https://avatars3.githubusercontent.com/u/47079665?s=460&u=a32284fed6c90a4b5d8a202d10a0efdbd7f3ee9d&v=4" alt="Image" class="rounded-circle pr-1" style="width: 30px; height: auto">
-                                    <span class="d-inline-block small">By <a href="#">Carrol Atkinson</a></span>
-                                    <span class="small">&nbsp;-&nbsp; July 19, 2019 4:00 PM</span>
-                                </div>
-                              </div>
-                              <div class="col-2">
-                                  <div class="btn-group-vertical">
-                                      <button class="btn btn-sm btn-success"><i class="far fa-check-circle"></i></button>
-                                      <button class="btn btn-sm btn-danger"><i class="far fa-times-circle"></i></button>
-                                  </div>
-                              </div>
-                            </div>
-                        </li>
-                      <li class="list-group-item bg-light">
-                          <div class="row">
-                              <div class="col-10">
-                                <h5 class="font-weight-bolder text-dark">Porta ac consectetur ac</h5>
-                                <div class="post-meta align-items-center text-left">
-                                    <img src="https://avatars3.githubusercontent.com/u/47079665?s=460&u=a32284fed6c90a4b5d8a202d10a0efdbd7f3ee9d&v=4" alt="Image" class="rounded-circle pr-1" style="width: 30px; height: auto">
-                                    <span class="d-inline-block small">By <a href="#">Carrol Atkinson</a></span>
-                                    <span class="small">&nbsp;-&nbsp; July 19, 2019 4:00 PM</span>
-                                </div>
-                              </div>
-                              <div class="col-2">
-                                  <div class="btn-group-vertical">
-                                      <button class="btn btn-sm btn-warning"><i class="far fa-check-circle"></i></button>
-                                      <button class="btn btn-sm btn-danger"><i class="far fa-times-circle"></i></button>
-                                  </div>
-                              </div>
-                            </div>
-                        </li>
-                      <li class="list-group-item bg-light">
-                          <div class="row">
-                              <div class="col-10">
-                                <h5 class="font-weight-bolder text-dark">Vestibulum at eros</h5>
-                                <div class="post-meta align-items-center text-left">
-                                    <img src="https://avatars3.githubusercontent.com/u/47079665?s=460&u=a32284fed6c90a4b5d8a202d10a0efdbd7f3ee9d&v=4" alt="Image" class="rounded-circle pr-1" style="width: 30px; height: auto">
-                                    <span class="d-inline-block small">By <a href="#">Carrol Atkinson</a></span>
-                                    <span class="small">&nbsp;-&nbsp; July 19, 2019 4:00 PM</span>
-                                </div>
-                              </div>
-                              <div class="col-2">
-                                  <div class="btn-group-vertical">
-                                      <button class="btn btn-sm btn-warning"><i class="far fa-check-circle"></i></button>
-                                      <button class="btn btn-sm btn-danger"><i class="far fa-times-circle"></i></button>
-                                  </div>
-                              </div>
-                            </div>
-                        </li>
+                    <ul class="list-group list-group-flush" id="blog-pending-wrapper">
+
                     </ul>
                 </div>
             </div>
+        </div>
+{#        pending blog detail view#}
+        <div class="modal fade" id="blogModal" role="dialog">
+
         </div>
     </div>
     <script>
@@ -214,8 +129,12 @@
         var activeItem = null
 		var list_snapshot = []
 
+        var activePendingItem = null
+		var pendinglist_snapshot = []
+
 
         blogList()
+        pendingBlogList()
 
         function blogList() {
             var wrapper = document.getElementById('blog-wrapper')
@@ -249,7 +168,7 @@
                                         <button role="button" type="button" class="btn btn-default" data-toggle="dropdown">
                                           <i class="fas fa-ellipsis-v text-primary"></i>
                                         </button>
-                                        <div class="dropdown-menu text-left" style="min-width: 6rem;">
+                                        <div class="dropdown-menu text-left" style="min-width: 6rem; z-index: 1;">
                                           <button class="dropdown-item edit" data-toggle="modal" data-target="#myModal"><i class="fas fa-edit text-info"></i> Update</button>
                                           <button class="dropdown-item delete"><i class="fas fa-trash-alt text-danger"></i> Delete</button>
                                         </div>
@@ -259,7 +178,7 @@
 
                             <div class="post-meta align-items-center text-left">
                                 <img src="https://avatars3.githubusercontent.com/u/47079665?s=460&u=a32284fed6c90a4b5d8a202d10a0efdbd7f3ee9d&v=4" alt="Image" class="rounded-circle pr-1" style="width: 50px; height: auto">
-                                <span class="d-inline-block mt-1">By <a href="#">${list[i].author}</a></span>
+                                <span class="d-inline-block mt-1">By <a href="#">${list[i].author.first_name} ${list[i].author.last_name}</a></span>
                                 <span>&nbsp;-&nbsp; ${list[i].date_posted}</span>
                             </div>
                             <p class="text-dark card-text">${list[i].content}</p>
@@ -299,6 +218,90 @@
 
                 }
 
+
+            })
+        }
+
+        function pendingBlogList() {
+            var wrapper = document.getElementById('blog-pending-wrapper')
+            {#wrapper.innerHTML = ''#}
+
+            var url = 'http://127.0.0.1:8000/api/blog-pending-list/'
+
+            fetch(url)
+            .then((resp) => resp.json())
+            .then(function (data) {
+                console.log(data)
+                var list = data
+                var iid = ''
+                console.log(`{{ request.user }}`)
+                for(var i in list){
+                    try{
+						document.getElementById(`pending-row-${i}`).remove()
+					}catch(err){
+
+					}
+                    {#var iid = list[i].author#}
+                    console.log(list[i].author)
+
+                    var item = `
+                    <li id="pending-row-${i}" class="list-group-item bg-light">
+                      <div class="row">
+                          <div class="col-10">
+                            <h5 class="font-weight-bolder text-dark">${list[i].title}</h5>
+                            <div class="post-meta align-items-center text-left">
+                                <img src="{{ request.user.attendant.photo.url }}" alt="Image" class="rounded-circle" style="width: 30px; height: 30px">
+                                <span class="d-inline-block small">By <a href="#">${list[i].author.first_name} ${list[i].author.last_name}</a></span>
+                                <span class="small">&nbsp;-&nbsp; ${list[i].date_posted}</span>
+                            </div>
+                          </div>
+                          <div class="col-2">
+                              <div class="btn-group-vertical">
+                                  <button class="detail btn btn-sm btn-outline-info"><i class="fas fa-bars"></i></button>
+                              </div>
+                          </div>
+                        </div>
+                    </li>
+                    `
+                    wrapper.innerHTML += item
+                }
+
+                if (pendinglist_snapshot.length > list.length){
+					for (var i = list.length; i < pendinglist_snapshot.length; i++){
+						document.getElementById(`pending-row-${i}`).remove()
+					}
+				}
+
+                pendinglist_snapshot = list
+
+                for (var i in list) {
+
+                    var detailBtn = document.getElementsByClassName('detail')[i]
+
+                    console.log(detailBtn)
+                    detailBtn.addEventListener('click', (function(item){
+						return function(){
+							modalViewPending(item)
+                            var editPendingBtn = document.getElementsByClassName('editPending')[0]
+                            var deletePendingBtn = document.getElementsByClassName('deletePending')[0]
+
+                            console.log(editPendingBtn)
+
+                            editPendingBtn.addEventListener('click', (function (item) {
+                                return function () {
+                                    editPendingItem(item)
+                                }
+                            })(list[0]))
+
+                            deletePendingBtn.addEventListener('click', (function(item){
+                                return function(){
+                                    deletePendingItem(item)
+                                }
+                            })(list[0]))
+                                }
+					})(list[i]))
+
+                }
 
             })
         }
@@ -380,6 +383,79 @@
 			}).then((response) => {
 				blogList()
 			})
+		}
+
+		{#pending udate#}
+        function editPendingItem(item){
+			console.log('Item clicked:', item)
+			activePendingItem = item
+			{#document.getElementById('title').value = activeItem.title#}
+            {#document.getElementById('content').value = activeItem.content#}
+            var url = `http://127.0.0.1:8000/api/blog-update/${activePendingItem.id}/`
+            fetch(url, {
+				method:'POST',
+				headers:{
+					'Content-type':'application/json',
+					'X-CSRFToken':csrftoken,
+				},
+				body:JSON.stringify({'permission':true})
+			}
+			).then(function(response){
+			    $('#blogModal').modal('hide');
+				blogList()
+                pendingBlogList()
+				{#document.getElementById('form').reset()#}
+			})
+
+		}
+
+		{#pending delete#}
+		function deletePendingItem(item){
+			console.log(item.id)
+			fetch(`http://127.0.0.1:8000/api/blog-delete/${item.id}/`, {
+				method:'DELETE',
+				headers:{
+					'Content-type':'application/json',
+					'X-CSRFToken':csrftoken,
+				}
+			}).then((response) => {
+			    $('#blogModal').modal('hide');
+				blogList()
+                pendingBlogList()
+			})
+		}
+
+        {# pending list details #}
+        function modalViewPending(item){
+			console.log('Strike clicked')
+            var myModal = $("#blogModal")
+            console.log(`${item.permission}`)
+            myModal.html(`
+                <div class="modal-dialog modal-lg">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h4 class="modal-title">${item.title}</h4>
+                      <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    </div>
+                    <div class="modal-body">
+                      <img src="http://127.0.0.1:8000${item.photo}" alt="Image" class="img-fluid rounded" style="height: 300px; width: 100%;">
+                      <div class="post-meta align-items-center text-left my-3">
+                            <img src="{{ request.user.attendant.photo.url }}" alt="Image" class="rounded-circle" style="width: 40px; height: 40px">
+                            <span class="d-inline-block small">By <a href="#">${item.author.first_name} ${item.author.last_name}</a></span>
+                            <span class="small">&nbsp;-&nbsp; ${item.date_posted}</span>
+                            <button class="editPending btn btn-outline-success btn-sm border-0"><i class="far fa-check-circle"></i></button>
+                            <button class="deletePending btn btn-outline-danger btn-sm border-0"><i class="far fa-times-circle"></i></button>
+                       </div>
+                      <p class="text-dark">${item.content}</p>
+                    </div>
+                    <div class="modal-footer">
+                      <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    </div>
+                  </div>
+                </div>
+            `)
+
+            $('#blogModal').modal('show');
 		}
     </script>
 {% endblock %}

@@ -41,6 +41,7 @@
             background-color: #f8b739;
             color: white;
         }
+
     </style>
     <div class="text-white mb-3">
         <section id="feedback">
@@ -120,20 +121,43 @@
         <div class="row">
             {% for blog in blogs %}
             <div class="col-lg-4 mb-4">
-                <div class="card">
-                    <img src="{{ blog.photo.url }}" alt="Image" class="img-fluid rounded">
+                <div class="card shadow" style="height: 500px;">
+                    <img src="{{ blog.photo.url }}" alt="Image" class="img-fluid rounded" style="height: 250px;">
                     <div class="card-body">
-                        <h4 class="card-title"><a href="single.html">{{ blog.title }}</a></h4>
+                        <h4 class="card-title overflow-hidden" style="height: 100px;"><a href="#">{{ blog.title }}</a></h4>
                         <div class="post-meta align-items-center text-left clearfix">
                             <img src={{ blog.author.immigrant.photo.url }} alt="Image" class="rounded-circle p-1" style="width: 50px; height: 50px;">
                             <span class="d-inline-block mt-1">By <a href="#">{{ blog.author.immigrant.immigrant_name }}</a></span>
                             <span>&nbsp;-&nbsp; {{ blog.date_posted|date:'M d, Y' }}</span>
                         </div>
-                        <p class="text-dark card-text">{{ blog.content }}</p>
-                        <p><a href="#">Read More</a></p>
+{#                        <p class="text-dark card-text">{{ blog.content }}</p>#}
+{#                        <p><a href="#">Read More</a></p>#}
+{#                        <p id="details-{{ blog.id }}" class="collapse text-dark card-text overflow-auto">{{ blog.content }}</p>#}
+
+                    </div>
+                    <div class="card-footer bg-white py-0">
+                        <p class="text-right"><a href="#" data-toggle="modal" data-target="#details-{{ blog.id }}">Read More</a></p>
                     </div>
                 </div>
             </div>
+
+             <!-- Modal -->
+              <div class="modal fade" id="details-{{ blog.id }}" role="dialog">
+                <div class="modal-dialog modal-lg">
+                  <div class="bg-light modal-content">
+                    <div class="modal-header">
+                      <h4 class="modal-title">{{ blog.title }}</h4>
+                      <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    </div>
+                    <div class="modal-body">
+                      <p>{{ blog.content }}</p>
+                    </div>
+                    <div class="modal-footer">
+                      <button type="button" class="btn btn-outline-danger" data-dismiss="modal">Close</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
             {% endfor %}
 {#            <div class="col-lg-4">#}
 {#                <div class="card">#}
@@ -172,7 +196,7 @@
                   <div class="modal-content">
                         <div class="modal-header">
                             <div class="text-center modal-title text-center">
-                                    <h3 class="font-weight-bolder">Contact Me</h3>
+                                    <h3 class="font-weight-bolder">Create a post</h3>
                             </div>
                             <button type="button" class="close" data-dismiss="modal">&times;</button>
 
@@ -180,38 +204,29 @@
                         <div class="modal-body">
                           <div class="contact-section">
 
-                                <form action="" class="col-lg-8 col-md-6 m-auto was-validated bg-light text-black p-3  ">
+                            <form action="" method="post" enctype="multipart/form-data" class="col-lg-8 col-md-6 m-auto was-validated bg-light text-black p-3">
+                                {% csrf_token %}
+                                <div class="form-group">
+                                    <label for="title">Title</label>
+                                      {{ blog_form.title }}
+                                </div>
 
-                                    <div class="form-group">
-                                        <label for="fullname">Fullname</label>
-                                        <input type="text" class="form-control" name="fullname" required>
-                                        <div class="valid-feedback">Valid</div>
-                                        <div class="invalid-feedback">Please enter your fullname as soon as possible</div>
-                                    </div>
+                                <div class="form-group">
+                                    <label for="photo">Photo</label>
+                                      {{ blog_form.photo }}
+                                </div>
 
-                                    <div class="form-group">
-                                        <label for="email">Email</label>
-                                        <input type="email" class="form-control" name="email">
-                                        <div class="invalid-feedback">Please enter your valid email</div>
-                                    </div>
+                                <div class="form-group">
+                                    <label for="content">Content</label>
+                                    {{ blog_form.content }}
+                                </div>
 
-                                    <div class="form-group">
-                                        <label for="subject">Subject</label>
-                                        <input type="text" class="form-control" name="subject">
-                                    </div>
-
-                                    <div class="form-group">
-                                        <label for="message">message</label>
-                                        <textarea style="resize: none;" name="message" class="form-control" id="" cols="30"
-                                            rows="10"></textarea>
-                                    </div>
-
-                                    <div class="form-group text-right">
-                                        <input type="submit" class="btn btn-secondary" value="submit">
-                                        <input type="reset" class="btn btn-secondary" value="Reset">
-                                    </div>
-                                </form>
-                            </div>
+                                <div class="form-group text-right">
+                                    <button type="submit" class="btn btn-secondary" value="submit">Submit</button>
+                                    <button type="reset" class="btn btn-secondary" value="Reset">Reset</button>
+                                </div>
+                            </form>
+                          </div>
                         </div>
                         <div class="modal-footer">
                           <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
@@ -220,5 +235,21 @@
             </div>
         </div>
     </div>
+
+    <script>
+        if ( window.history.replaceState ) {
+          window.history.replaceState( null, null, window.location.href );
+        }
+        var form_fields = document.getElementsByTagName('input')
+		form_fields[2].className='p-1';
+
+        var form_textarea = document.getElementsByTagName('textarea')
+
+        form_textarea[0].className='form-control';
+
+		for (var field in form_fields){
+			form_fields[field].className += ' form-control'
+		}
+    </script>
 
 {% endblock %}
