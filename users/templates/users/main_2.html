@@ -39,17 +39,28 @@
           position: sticky;
           top: 0;
         }
+        .allButFooter {
+             min-height: calc(100vh - 65px);
+        }
     </style>
     {%  include 'users/attendant_sidebar.html' %}
 
     <main>
-      <div class="site-section">
+      <div class="site-section allButFooter">
         <div class="container-fluid">
           {% block content %}
 
           {% endblock %}
         </div>
       </div>
+
+
+      <footer class="bg-white">
+          <div class="text-center p-2">
+             <img src="https://pbs.twimg.com/profile_images/1253566709597945856/KFEtDsyR.jpg" alt="Image" class="rounded-circle pr-1" style="width: 50px; height: auto">
+             <span class="h6 font-weight-light">Developed by <a href="https://www.facebook.com/prosenjit.chowdhury.988" target="_blank">Prosenjit Chowdhury. ID: 183-16-346  DIU</a></span>
+          </div>
+      </footer>
     </main>
 
 

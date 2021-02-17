@@ -1,7 +1,29 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="967abaad-3c23-4ba5-a316-2282a56c8cdb" name="Default Changelist" comment="" />
+    <list default="true" id="967abaad-3c23-4ba5-a316-2282a56c8cdb" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/users/serializers.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/users/templates/users/pending_user_request.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/desk/serializers.py" beforeDir="false" afterPath="$PROJECT_DIR$/desk/serializers.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/desk/templates/desk/meetingAttendant.html" beforeDir="false" afterPath="$PROJECT_DIR$/desk/templates/desk/meetingAttendant.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/desk/templates/desk/noticeAttendant.html" beforeDir="false" afterPath="$PROJECT_DIR$/desk/templates/desk/noticeAttendant.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/desk/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/desk/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/desk/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/desk/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/portal/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/portal/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/probashi_kollan/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/probashi_kollan/settings.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/users/templates/users/about.html" beforeDir="false" afterPath="$PROJECT_DIR$/users/templates/users/about.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/users/templates/users/attendant_profile_update.html" beforeDir="false" afterPath="$PROJECT_DIR$/users/templates/users/attendant_profile_update.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/users/templates/users/attendant_sidebar.html" beforeDir="false" afterPath="$PROJECT_DIR$/users/templates/users/attendant_sidebar.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/users/templates/users/contact.html" beforeDir="false" afterPath="$PROJECT_DIR$/users/templates/users/contact.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/users/templates/users/immigrant_navbar.html" beforeDir="false" afterPath="$PROJECT_DIR$/users/templates/users/immigrant_navbar.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/users/templates/users/immigrant_profile.html" beforeDir="false" afterPath="$PROJECT_DIR$/users/templates/users/immigrant_profile.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/users/templates/users/main.html" beforeDir="false" afterPath="$PROJECT_DIR$/users/templates/users/main.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/users/templates/users/main_2.html" beforeDir="false" afterPath="$PROJECT_DIR$/users/templates/users/main_2.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/users/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/users/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/users/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/users/views.py" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -26,7 +48,6 @@
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
-    <option name="showExcludedFiles" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
@@ -92,6 +113,7 @@
       </list>
     </option>
   </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="SvnConfiguration">
     <configuration />
   </component>
@@ -179,49 +201,18 @@
       <workItem from="1613150949664" duration="5528000" />
       <workItem from="1613192510682" duration="8682000" />
       <workItem from="1613226065242" duration="9106000" />
-      <workItem from="1613316332399" duration="2138000" />
+      <workItem from="1613316332399" duration="2817000" />
+      <workItem from="1613364285319" duration="1633000" />
+      <workItem from="1613392790206" duration="17507000" />
+      <workItem from="1613450254265" duration="2898000" />
+      <workItem from="1613461513528" duration="6080000" />
+      <workItem from="1613488556171" duration="12031000" />
+      <workItem from="1613548338314" duration="10223000" />
+      <workItem from="1613564267811" duration="8260000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
-    <option name="version" value="1" />
-  </component>
-  <component name="WindowStateProjectService">
-    <state x="346" y="126" key="#com.intellij.ide.fileTemplates.ui.ConfigureTemplatesDialog" timestamp="1608655613421">
-      <screen x="0" y="0" width="1536" height="834" />
-    </state>
-    <state x="346" y="126" key="#com.intellij.ide.fileTemplates.ui.ConfigureTemplatesDialog/0.0.1536.834@0.0.1536.834" timestamp="1608655613421" />
-    <state x="482" y="258" key="ANALYSIS_DLG_com.intellij.analysis.BaseAnalysisAction$1" timestamp="1613108369053">
-      <screen x="0" y="0" width="1536" height="834" />
-    </state>
-    <state x="482" y="258" key="ANALYSIS_DLG_com.intellij.analysis.BaseAnalysisAction$1/0.0.1536.834@0.0.1536.834" timestamp="1613108369053" />
-    <state x="499" y="110" key="FileChooserDialogImpl" timestamp="1609952158015">
-      <screen x="0" y="0" width="1536" height="834" />
-    </state>
-    <state x="499" y="110" key="FileChooserDialogImpl/0.0.1536.834@0.0.1536.834" timestamp="1609952158015" />
-    <state width="1481" height="180" key="GridCell.Tab.0.bottom" timestamp="1613237014154">
-      <screen x="0" y="0" width="1536" height="834" />
-    </state>
-    <state width="1481" height="180" key="GridCell.Tab.0.bottom/0.0.1536.834@0.0.1536.834" timestamp="1613237014154" />
-    <state width="1481" height="180" key="GridCell.Tab.0.center" timestamp="1613237014153">
-      <screen x="0" y="0" width="1536" height="834" />
-    </state>
-    <state width="1481" height="180" key="GridCell.Tab.0.center/0.0.1536.834@0.0.1536.834" timestamp="1613237014153" />
-    <state width="1481" height="180" key="GridCell.Tab.0.left" timestamp="1613237014153">
-      <screen x="0" y="0" width="1536" height="834" />
-    </state>
-    <state width="1481" height="180" key="GridCell.Tab.0.left/0.0.1536.834@0.0.1536.834" timestamp="1613237014153" />
-    <state width="1481" height="180" key="GridCell.Tab.0.right" timestamp="1613237014154">
-      <screen x="0" y="0" width="1536" height="834" />
-    </state>
-    <state width="1481" height="180" key="GridCell.Tab.0.right/0.0.1536.834@0.0.1536.834" timestamp="1613237014154" />
-    <state x="372" y="0" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser" timestamp="1608719310258">
-      <screen x="0" y="0" width="1536" height="834" />
-    </state>
-    <state x="372" y="0" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser/0.0.1536.834@0.0.1536.834" timestamp="1608719310258" />
-    <state x="347" y="-1" width="840" height="1034" key="search.everywhere.popup" timestamp="1610090428220">
-      <screen x="0" y="0" width="1536" height="834" />
-    </state>
-    <state x="347" y="-1" width="840" height="1034" key="search.everywhere.popup/0.0.1536.834@0.0.1536.834" timestamp="1610090428220" />
+    <option name="version" value="3" />
   </component>
 </project>

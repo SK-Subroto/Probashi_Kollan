@@ -23,4 +23,9 @@ urlpatterns = [
 
     path('attendant/search', views.searchImmigrant),
     path('attendant/search/<str:pk>', views.searchImmigrantDetail, name='attendant-search-detail'),
+
+    path('attendant/pending/', views.pendingUser, name='attendant-pending-user'),
+    path('api/user-pending/', views.immigrantPendingList),
+    path('api/user-pending-update/<str:pk>/', views.immigrantAttenPendingUpdate),
+    path('api/user-pending-delete/<str:pk>/', views.immigrantAttenPendingDelete),
 ]

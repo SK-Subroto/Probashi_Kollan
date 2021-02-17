@@ -1,102 +1,162 @@
 {% extends 'users/main_2.html' %}
 
 {% block content %}
-    <div class="row">
-        <div class="col-lg-5 col-md-12 pr-lg-2">
-            <div class="">
-                <form action="{% url 'attendant-meeting' %}" method="get">
-                  <div class="input-group input-group-lg">
-                    <input name="query" type="search" class="form-control border border-primary" placeholder="Search">
-                    <div class="input-group-prepend">
-                      <button class="btn btn-primary" type="submit">
-                        <i class="fas fa-search"></i>
-                      </button>
-                    </div>
-                  </div>
-                </form>
-                <div class="card mt-3">
-                    <table class="table">
-                        <thead>
-                          <tr>
-                            <th>Id</th>
-                            <th>Fullname</th>
-                            <th>Passport Nb.</th>
-                            <th>Action</th>
-                          </tr>
-                        </thead>
-                        <tbody>
-                        {% for immigrant in immigrant_lists %}
-                          <tr>
-                            <td>{{ immigrant.immigrant_id }}</td>
-                            <td>{{ immigrant.immigrant_name }}</td>
-                            <td>{{ immigrant.passport_nb }}</td>
-                            <td>
-                                <button class="btn btn-sm btn-outline-primary" onclick="getImmigrantID({{ immigrant.id }})">Add</button>
-                            </td>
-                          </tr>
-                        {% endfor %}
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-        </div>
-        <div class="col-lg-7 col-md-12 pl-lg-2">
-            <div class="card">
-                <div class="card-header">
-                    <h5 class="text-center">Meeting</h5>
-                </div>
-                <div id="form-wrapper" class="card-body">
-                    <form id="form" action="">
-                        <div class="row">
-                            <div class="col-lg-6">
-                                <div class="form-group">
-                                  <label for="title">Title:</label>
-                                  <input type="text" class="form-control" id="title" placeholder="Write title" name="title">
-                                </div>
-                                <div class="form-group">
-                                  <label for="dateTime">Date & Time:</label>
-                                  <input type="datetime-local" class="form-control" id="meeting_date" placeholder="Select Date & Time" name="meeting_date">
-                                </div>
-                            </div>
-                            <div class="col-lg-6">
-                                <div class="form-group">
-                                  <label for="description">Description:</label>
-                                  <textarea class="form-control" id="description" placeholder="Enter description" name="description"></textarea>
-                                </div>
-                                <div class="btn float-right">
-                                    <input type="reset" class="btn btn-secondary" value="Reset">
-                                    <button type="submit" class="btn btn-primary">Submit</button>
-                                </div>
+    <ul class="nav nav-tabs" id="myTab" role="tablist">
+	  <li class="nav-item">
+	    <a class="nav-link active" data-toggle="tab" href="#home" role="tab">Create Meeting</a>
+	  </li>
+	  <li class="nav-item">
+	    <a class="nav-link" data-toggle="tab" href="#profile" role="tab">Approve Meeting</a>
+	  </li>
+	</ul>
 
-                            </div>
+	<div class="tab-content">
+	  <div class="tab-pane active" id="home" role="tabpanel">
+          <div class="row px-3 m-2">
+            <div class="col-lg-5 col-md-12 pr-lg-2">
+                <div class="">
+                    <form action="{% url 'attendant-meeting' %}" method="get">
+                      <div class="input-group input-group-lg">
+                        <input name="query" type="search" class="form-control border border-primary" placeholder="Search">
+                        <div class="input-group-prepend">
+                          <button class="btn btn-primary" type="submit">
+                            <i class="fas fa-search"></i>
+                          </button>
                         </div>
-                     </form>
+                      </div>
+                    </form>
+                    <div class="card mt-3">
+                        <table class="table">
+                            <thead>
+                              <tr>
+                                <th>Id</th>
+                                <th>Fullname</th>
+                                <th>Passport Nb.</th>
+                                <th>Action</th>
+                              </tr>
+                            </thead>
+                            <tbody>
+                            {% for immigrant in immigrant_lists %}
+                              <tr>
+                                <td>{{ immigrant.immigrant_id }}</td>
+                                <td>{{ immigrant.immigrant_name }}</td>
+                                <td>{{ immigrant.passport_nb }}</td>
+                                <td>
+                                    <button class="btn btn-sm btn-outline-primary" onclick="getImmigrantID({{ immigrant.id }})">Add</button>
+                                </td>
+                              </tr>
+                            {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
                 </div>
             </div>
-            <div class="card mt-1">
-                <div class="card-body">
-                    <table id="myTable" class="table table-striped" >
-                        <thead>
-                          <tr>
-                            <th>#</th>
-                            <th>Author</th>
-                            <th>Title</th>
-                            <th>Date</th>
-                            <th>Action</th>
-                          </tr>
-                        </thead>
-                        <tbody id="meeting-wrapper">
+            <div class="col-lg-7 col-md-12 pl-lg-2">
+                <div class="card">
+                    <div class="card-header">
+                        <h5 class="text-center">Meeting</h5>
+                    </div>
+                    <div id="form-wrapper" class="card-body">
+                        <form id="form" action="">
+                            <div class="row">
+                                <div class="col-lg-6">
+                                    <div class="form-group">
+                                      <label for="title">Title:</label>
+                                      <input type="text" class="form-control" id="title" placeholder="Write title" name="title">
+                                    </div>
+                                    <div class="form-group">
+                                      <label for="dateTime">Date & Time:</label>
+                                      <input type="datetime-local" class="form-control" id="meeting_date" placeholder="Select Date & Time" name="meeting_date">
+                                    </div>
+                                </div>
+                                <div class="col-lg-6">
+                                    <div class="form-group">
+                                      <label for="description">Description:</label>
+                                      <textarea class="form-control" id="description" placeholder="Enter description" name="description"></textarea>
+                                    </div>
+                                    <div class="btn float-right">
+                                        <input type="reset" class="btn btn-secondary" value="Reset">
+                                        <button type="submit" class="btn btn-primary">Submit</button>
+                                    </div>
 
-                        </tbody>
-                     </table>
+                                </div>
+                            </div>
+                         </form>
+                    </div>
+                </div>
+                <div class="card mt-1">
+                    <div class="card-body">
+                        <table id="myTable" class="table table-striped" >
+                            <thead>
+                              <tr>
+                                <th>#</th>
+                                <th>Author</th>
+                                <th>Title</th>
+                                <th>Date</th>
+                                <th>Action</th>
+                              </tr>
+                            </thead>
+                            <tbody id="meeting-wrapper">
+
+                            </tbody>
+                         </table>
+                    </div>
                 </div>
             </div>
-        </div>
-    </div>
-    <div class="modal fade" id="myModal" role="dialog">
+          </div>
+          <div class="modal fade" id="myModal" role="dialog">
 
-    </div>
+          </div>
+      </div>
+	  <div class="tab-pane" id="profile" role="tabpanel">
+
+          <div id="pending-wrapper" class="accordion px-5 mt-2" >
+
+          </div>
+{#          <div class="accordion" id="accordionExample">#}
+{#            <div class="card">#}
+{#                <div class="card-header" id="headingOne">#}
+{#                    <h2 class="mb-0">#}
+{#                        <button type="button" class="btn btn-link" data-toggle="collapse" data-target="#collapseOne">1. What is HTML?</button>#}
+{#                    </h2>#}
+{#                </div>#}
+{#                <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordionExample">#}
+{#                    <div class="card-body">#}
+{#                        <p>HTML stands for HyperText Markup Language. HTML is the standard markup language for describing the structure of web pages. <a href="https://www.tutorialrepublic.com/html-tutorial/" target="_blank">Learn more.</a></p>#}
+{#                    </div>#}
+{#                </div>#}
+{#            </div>#}
+{#            <div class="card">#}
+{#                <div class="card-header" id="headingTwo">#}
+{#                    <h2 class="mb-0">#}
+{#                        <button type="button" class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseTwo">2. What is Bootstrap?</button>#}
+{#                    </h2>#}
+{#                </div>#}
+{#                <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">#}
+{#                    <div class="card-body">#}
+{#                        <p>Bootstrap is a sleek, intuitive, and powerful front-end framework for faster and easier web development. It is a collection of CSS and HTML conventions. <a href="https://www.tutorialrepublic.com/twitter-bootstrap-tutorial/" target="_blank">Learn more.</a></p>#}
+{#                    </div>#}
+{#                </div>#}
+{#            </div>#}
+{#            <div class="card">#}
+{#                <div class="card-header" id="headingThree">#}
+{#                    <h2 class="mb-0">#}
+{#                        <button type="button" class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseThree">3. What is CSS?</button>#}
+{#                    </h2>#}
+{#                </div>#}
+{#                <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">#}
+{#                    <div class="card-body">#}
+{#                        <p>CSS stands for Cascading Style Sheet. CSS allows you to specify various style properties for a given HTML element such as colors, backgrounds, fonts etc. <a href="https://www.tutorialrepublic.com/css-tutorial/" target="_blank">Learn more.</a></p>#}
+{#                    </div>#}
+{#                </div>#}
+{#            </div>#}
+{#        </div>#}
+      </div>
+	</div>
+
+
     <script>
+
         function getCookie(name) {
 		    var cookieValue = null;
 		    if (document.cookie && document.cookie !== '') {
@@ -117,7 +177,11 @@
         var activeItem = null
 		var list_snapshot = []
 
+        var pendingItem = null
+		var pendinglist_snapshot = []
+
         {#meetingList()#}
+        pendingMeetingList()
 
         function meetingList() {
             var wrapper = document.getElementById('meeting-wrapper')
@@ -187,6 +251,95 @@
 							modalView(item)
 						}
 					})(list[i]))
+
+                }
+
+            })
+        }
+
+        function pendingMeetingList(){
+            var wrapper = document.getElementById('pending-wrapper')
+            {#wrapper.innerHTML = ''#}
+
+            var url = 'http://127.0.0.1:8000/api/meeting-atten-pending-list/'
+
+            fetch(url)
+            .then((resp) => resp.json())
+            .then(function (data) {
+                console.log(data)
+                var list = data
+                for(var i in list){
+
+                    try{
+						document.getElementById(`pending-row-${i}`).remove()
+					}catch(err){
+
+					}
+
+                    var item = `
+                    <div id="pending-row-${i}" class="card">
+                        <div class="card-header" id="heading-${i}">
+                            <div class="row">
+                                <div class="col-1">
+                                    <p><b>${i}</b></p>
+                                </div>
+                                <div class="col-4">
+                                    <h2 class="mb-0">
+                                        <button type="button" class="btn btn-link" data-toggle="collapse" data-target="#collapse-${i}">${list[i].title}</button>
+                                    </h2>
+                                    <div class="small text-right">${list[i].date_posted}</div>
+                                </div>
+                                <div class="col-2">
+                                    <p>${list[i].immigrant.user.first_name} ${list[i].immigrant.user.last_name}</p>
+                                </div>
+                                <div class="col-3">
+                                    <input type="datetime-local" class="form-control" id="meeting_date-${list[i].id}" placeholder="Select Date & Time" name="meeting_date-${i}">
+                                </div>
+                                <div class="col-2 text-right">
+                                    <button class="btn btn-sm btn-outline-warning editPending">Approve</button>
+                                    <button class="btn btn-sm btn-outline-danger deletePending">Deny</button>
+                                </div>
+                            </div>
+
+                        </div>
+                        <div id="collapse-${i}" class="collapse" aria-labelledby="heading-${i}" data-parent="#pending-wrapper">
+                            <div class="card-body">
+                                <p class="px-5" >${list[i].description}</p>
+                            </div>
+                        </div>
+                    </div>
+                    `
+                    wrapper.innerHTML += item
+                }
+
+                {#$('#myPendingTable').dataTable();#}
+
+                if (pendinglist_snapshot.length > list.length){
+					for (var i = list.length; i < pendinglist_snapshot.length; i++){
+						document.getElementById(`pending-row-${i}`).remove()
+					}
+				}
+
+				pendinglist_snapshot = list
+
+
+				for (var i in list) {
+                    var editPendingBtn = document.getElementsByClassName('editPending')[i]
+                    var deletePendingBtn = document.getElementsByClassName('deletePending')[i]
+
+
+                    editPendingBtn.addEventListener('click', (function (item) {
+                        return function () {
+                            editPendingItem(item)
+                        }
+                    })(list[i]))
+
+                    deletePendingBtn.addEventListener('click', (function(item){
+						return function(){
+							deletePendingItem(item)
+						}
+					})(list[i]))
+
 
                 }
 
@@ -289,6 +442,45 @@
 
 
             $('#myModal').modal('show');
+		}
+
+		{#pending udate#}
+        function editPendingItem(item){
+			console.log('Item clicked:', item)
+			pendingItem = item
+			{#document.getElementById(`meeting_date-${item.id}`).value = activeItem.title#}
+            {#document.getElementById('content').value = activeItem.content#}
+            var meeting_date = document.getElementById(`meeting_date-${item.id}`).value
+            console.log(meeting_date)
+            var url = `http://127.0.0.1:8000/api/meeting-atten-pending-update/${pendingItem.id}/`
+            fetch(url, {
+				method:'POST',
+				headers:{
+					'Content-type':'application/json',
+					'X-CSRFToken':csrftoken,
+				},
+				body:JSON.stringify({'meeting_date':meeting_date, 'meeting_status':true})
+			}
+			).then(function(response){
+                pendingMeetingList()
+				{#document.getElementById('form').reset()#}
+			})
+
+		}
+
+		{#pending delete#}
+		function deletePendingItem(item){
+			console.log(item.id)
+			fetch(`http://127.0.0.1:8000/api/meeting-delete/${item.id}/`, {
+				method:'DELETE',
+				headers:{
+					'Content-type':'application/json',
+					'X-CSRFToken':csrftoken,
+				}
+			}).then((response) => {
+			    {#$('#blogModal').modal('hide');#}
+                pendingMeetingList()
+			})
 		}
     </script>
 {% endblock %}

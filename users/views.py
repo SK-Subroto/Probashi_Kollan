@@ -9,8 +9,14 @@ from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.models import Group, User
 from django.contrib.auth.decorators import login_required
 from .decorators import unauthenticated_user, allowed_users
+from rest_framework.decorators import api_view
+from rest_framework.response import Response
+from .serializers import ImmigrantSerializer, UserSerializer
+from django.core.mail import send_mail
+from django.conf import settings
 
 
+@unauthenticated_user
 def landing(request):
     return render(request, 'users/landing.html')
 
@@ -29,7 +35,7 @@ def home(request):
     return render(request, 'users/immigrant_dashboard.html')
 
 
-@login_required(login_url='login-immigrant')
+@login_required(login_url='login-attendant')
 @allowed_users(allowed_roles=['attendant'])
 def home_2(request):
     return render(request, 'users/attendant_dashboard.html')
@@ -45,6 +51,8 @@ def registerImmigrant(request):
         i_form = ImmigrantForm(request.POST)
         if u_form.is_valid() and i_form.is_valid():
             user_im = u_form.save()
+            user_im.is_active = False
+            user_im.save()
 
             group = Group.objects.get(name='immigrant')
             user_im.groups.add(group)
@@ -52,13 +60,28 @@ def registerImmigrant(request):
             user = u_form.cleaned_data.get('username')
             contact_nb = i_form.cleaned_data.get('contact_nb')
             passport_nb = i_form.cleaned_data.get('passport_nb')
-            print(user)
+
+            email = u_form.cleaned_data.get('email')
+            first_name = u_form.cleaned_data.get('first_name')
+
+            print(first_name)
             Immigrant.objects.create(
                 user=user_im,
                 contact_nb=contact_nb,
                 passport_nb=passport_nb,
             )
-            messages.success(request, 'Account was created for ' + user)
+
+            #send email
+
+            subject = 'PROBASHI KOLLAN'
+            message = "Hello " + first_name + ",\nThank you for registering to our site. " \
+                                "You can login to your account after get a verification email" + "\n\n"\
+                                "Thank you"
+            email_from = settings.EMAIL_HOST_USER
+            recipient_list = [email, ]
+            send_mail(subject, message, email_from, recipient_list)
+
+            messages.success(request, user + ', Your account is pending for verification.')
 
             return redirect('login-immigrant')
 
@@ -113,12 +136,16 @@ def logoutUser(request):
         return HttpResponse("Not a part of any group")
 
 
+@login_required(login_url='login-immigrant')
+@allowed_users(allowed_roles=['immigrant'])
 def profileImmigrant(request):
     immigrant = Immigrant.objects.get(user_id=request.user.id)
     context = {'immigrant': immigrant}
     return render(request, 'users/immigrant_profile.html', context)
 
 
+@login_required(login_url='login-immigrant')
+@allowed_users(allowed_roles=['immigrant'])
 def profileUpdateImmigrant(request):
     immigrant = request.user.immigrant
     form = ImmigrantUpdateForm(instance=immigrant)
@@ -132,12 +159,16 @@ def profileUpdateImmigrant(request):
     return render(request, 'users/immigrant_profile_update.html', context)
 
 
+@login_required(login_url='login-attendant')
+@allowed_users(allowed_roles=['attendant'])
 def profileAttendant(request):
     attendant = Attendant.objects.get(user_id=request.user.id)
     context = {'attendant': attendant}
     return render(request, 'users/attendant_profile.html', context)
 
 
+@login_required(login_url='login-attendant')
+@allowed_users(allowed_roles=['attendant'])
 def profileUpdateAttendant(request):
     attendant = request.user.attendant
     form = AttendantUpdateForm(instance=attendant)
@@ -151,6 +182,8 @@ def profileUpdateAttendant(request):
     return render(request, 'users/attendant_profile_update.html', context)
 
 
+@login_required(login_url='login-attendant')
+@allowed_users(allowed_roles=['attendant'])
 def searchImmigrant(request):
     key = request.GET.get('key')
     # meeting_data = request.data
@@ -162,7 +195,79 @@ def searchImmigrant(request):
     return render(request,'users/search_result.html', context)
 
 
+@login_required(login_url='login-attendant')
+@allowed_users(allowed_roles=['attendant'])
 def searchImmigrantDetail(request, pk):
     immigrant = Immigrant.objects.get(id=pk)
     context = {'immigrant': immigrant}
     return render(request, 'users/search_immigration_detail.html', context)
+
+
+@login_required(login_url='login-attendant')
+@allowed_users(allowed_roles=['attendant'])
+def pendingUser(request):
+    return render(request, 'users/pending_user_request.html')
+
+
+@login_required(login_url='login-attendant')
+@allowed_users(allowed_roles=['attendant'])
+@api_view(['GET'])
+def immigrantPendingList(request):
+    immigrants = Immigrant.objects.filter(user__is_active=False).order_by('-user__date_joined')
+    serializer = ImmigrantSerializer(immigrants, many=True)
+    return Response(serializer.data)
+
+
+@login_required(login_url='login-attendant')
+@allowed_users(allowed_roles=['attendant'])
+@api_view(['POST'])
+def immigrantAttenPendingUpdate(request, pk):
+    # attendant_user_id = Attendant.objects.get(user__id=request.user.id).id
+    user = User.objects.get(id=pk)
+    user.is_active = request.data["is_active"]
+    # immigrant.user.is_active = request.data["is_active"]
+    # meeting.attendant = Attendant.objects.get(id=attendant_user_id)
+    # meeting.meeting_date = request.data["meeting_date"]
+    # print(request.data["meeting_date"])
+    print(request.data)
+    serializer = UserSerializer(instance=user, data=request.data)
+
+    if serializer.is_valid():
+        serializer.save()
+
+        # send email
+        email = user.email
+        first_name = user.first_name
+        subject = 'PROBASHI KOLLAN'
+        message = "Hello " + first_name + ",\nYour account verification is completed. " \
+                                          "Now you can login to your account." + "\n\n" \
+                                          "Thank you"
+        email_from = settings.EMAIL_HOST_USER
+        recipient_list = [email, ]
+        send_mail(subject, message, email_from, recipient_list)
+
+    else:
+        print(serializer.errors)
+
+    return Response(serializer.data)
+
+
+@login_required(login_url='login-attendant')
+@allowed_users(allowed_roles=['attendant'])
+@api_view(['DELETE'])
+def immigrantAttenPendingDelete(request, pk):
+    user = User.objects.get(id=pk)
+    user.delete()
+
+    # send email
+    email = user.email
+    first_name = user.first_name
+    subject = 'PROBASHI KOLLAN'
+    message = "Hello " + first_name + ",\nYour account verification is failed. " \
+                                      "Please contact with us for further instruction." + "\n\n" \
+                                      "Thank you"
+    email_from = settings.EMAIL_HOST_USER
+    recipient_list = [email, ]
+    send_mail(subject, message, email_from, recipient_list)
+
+    return Response('User successfully delete!')

@@ -11,7 +11,7 @@ class MeetingSerializer(serializers.ModelSerializer):
     class Meta:
         model = Meeting
         fields = ('id', 'attendant', 'immigrant', 'title', 'description', 'date_posted', 'meeting_date', 'meeting_status')
-
+        depth = 3
 
 # class AttendantSerializer(serializers.ModelSerializer):
 #     class Meta:

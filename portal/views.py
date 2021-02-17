@@ -11,14 +11,19 @@ from .forms import TestForm, JobFormAtten, blogForm
 from users.models import Attendant
 from django.contrib.auth.models import User
 from django.contrib.auth.decorators import login_required
+from users.decorators import unauthenticated_user, allowed_users
 
 
+@login_required(login_url='login-immigrant')
+@allowed_users(allowed_roles=['immigrant'])
 def job(request):
     jobs = Job.objects.all()
     context = {'jobs': jobs}
     return render(request, 'portal/job.html', context)
 
 
+@login_required(login_url='login-immigrant')
+@allowed_users(allowed_roles=['immigrant'])
 def blog(request):
     blogs = Blog.objects.filter(permission=True)
     blog_form = blogForm()
@@ -46,6 +51,8 @@ def blog(request):
 #     return render(request, 'portal/blog.html', context)
 
 
+@login_required(login_url='login-immigrant')
+@allowed_users(allowed_roles=['immigrant'])
 def flight(request):
     return render(request, 'portal/flight.html')
 
@@ -54,10 +61,14 @@ def chat(request):
     return HttpResponse("this is job chat")
 
 
+@login_required(login_url='login-attendant')
+@allowed_users(allowed_roles=['attendant'])
 def blogAttendant(request):
     return render(request, 'portal/blogAttendant.html')
 
 
+@login_required(login_url='login-attendant')
+@allowed_users(allowed_roles=['attendant'])
 @api_view(['GET'])
 def blogAttenPendingList(request):
     blogs = Blog.objects.filter(permission=False).order_by('-date_posted')
@@ -67,6 +78,8 @@ def blogAttenPendingList(request):
 search_q = ''
 
 
+@login_required(login_url='login-attendant')
+@allowed_users(allowed_roles=['attendant'])
 @api_view(['POST'])
 def blogAttenSearch(request):
     query_data = request.data
@@ -77,6 +90,8 @@ def blogAttenSearch(request):
     return HttpResponse(search)
 
 
+@login_required(login_url='login-attendant')
+@allowed_users(allowed_roles=['attendant'])
 @api_view(['GET'])
 def blogAttenList(request):
     global search_q
@@ -91,6 +106,8 @@ def blogAttenList(request):
 
 
 # @parser_classes([MultiPartParser, FormParser])
+@login_required(login_url='login-attendant')
+@allowed_users(allowed_roles=['attendant'])
 @api_view(['POST'])
 def blogAttenCreate(request):
     user_id = User.objects.get(id=request.user.id)
@@ -107,6 +124,8 @@ def blogAttenCreate(request):
     return Response(serializer.data)
 
 
+@login_required(login_url='login-attendant')
+@allowed_users(allowed_roles=['attendant'])
 @api_view(['POST'])
 def blogUpdate(request, pk):
     blog = Blog.objects.get(id=pk)
@@ -118,6 +137,8 @@ def blogUpdate(request, pk):
     return Response(serializer.data)
 
 
+@login_required(login_url='login-attendant')
+@allowed_users(allowed_roles=['attendant'])
 @api_view(['DELETE'])
 def blogDelete(request, pk):
     blog = Blog.objects.get(id=pk)
@@ -126,10 +147,14 @@ def blogDelete(request, pk):
     return Response('Item succsesfully delete!')
 
 
+@login_required(login_url='login-attendant')
+@allowed_users(allowed_roles=['attendant'])
 def attendnatChat(request):
     return render(request, 'portal/chatAttendant.html')
 
 
+@login_required(login_url='login-attendant')
+@allowed_users(allowed_roles=['attendant'])
 def jobAttendentCreate(request):
     form = JobFormAtten()
     if request.method == 'POST':
@@ -142,10 +167,14 @@ def jobAttendentCreate(request):
     return render(request, 'portal/jobAttenCreate.html', context)
 
 
+@login_required(login_url='login-attendant')
+@allowed_users(allowed_roles=['attendant'])
 def jobAttendant(request):
     return render(request, 'portal/jobAttendant.html')
 
 
+@login_required(login_url='login-attendant')
+@allowed_users(allowed_roles=['attendant'])
 @api_view(['POST'])
 def jobCreate(request):
     attendant_user = Attendant.objects.get(user__id=request.user.id)

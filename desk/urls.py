@@ -19,5 +19,7 @@ urlpatterns = [
     path('api/meeting-create/', views.meetingCreate),
     path('api/meeting-update/<str:pk>/', views.meetingUpdate),
     path('api/meeting-delete/<str:pk>/', views.meetingDelete),
+    path('api/meeting-atten-pending-list/', views.meetingAttenPendingList),
+    path('api/meeting-atten-pending-update/<str:pk>/', views.meetingAttenPendingUpdate),
 
 ]

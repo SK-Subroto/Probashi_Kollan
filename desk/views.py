@@ -7,19 +7,25 @@ from .serializers import MeetingSerializer, NoticeSerializer
 from .models import Notice, Meeting
 from users.models import Attendant, Immigrant
 from django.contrib.auth.decorators import login_required
+from users.decorators import unauthenticated_user, allowed_users
 
 
 @login_required(login_url='login-immigrant')
+@allowed_users(allowed_roles=['immigrant'])
 def notice(request):
-    notices = Notice.objects.all()
+    notices = Notice.objects.all().order_by('-date_posted')
     context = {'notices': notices}
     return render(request, 'desk/notice.html', context)
 
 
+@login_required(login_url='login-attendant')
+@allowed_users(allowed_roles=['attendant'])
 def noticeAttendant(request):
     return render(request, 'desk/noticeAttendant.html')
 
 
+@login_required(login_url='login-attendant')
+@allowed_users(allowed_roles=['attendant'])
 @api_view(['GET'])
 def noticeList(request):
     notices = Notice.objects.all().order_by('-id')
@@ -27,6 +33,8 @@ def noticeList(request):
     return Response(serializer.data)
 
 
+@login_required(login_url='login-attendant')
+@allowed_users(allowed_roles=['attendant'])
 @api_view(['POST'])
 def noticeCreate(request):
     attendant_user_id = Attendant.objects.get(user__id=request.user.id).id
@@ -45,6 +53,8 @@ def noticeCreate(request):
     return Response(serializer.data)
 
 
+@login_required(login_url='login-attendant')
+@allowed_users(allowed_roles=['attendant'])
 @api_view(['POST'])
 def noticeUpdate(request, pk):
     task = Notice.objects.get(id=pk)
@@ -56,6 +66,8 @@ def noticeUpdate(request, pk):
     return Response(serializer.data)
 
 
+@login_required(login_url='login-attendant')
+@allowed_users(allowed_roles=['attendant'])
 @api_view(['DELETE'])
 def taskDelete(request, pk):
     task = Notice.objects.get(id=pk)
@@ -64,10 +76,14 @@ def taskDelete(request, pk):
     return Response('Item succsesfully delete!')
 
 
+@login_required(login_url='login-immigrant')
+@allowed_users(allowed_roles=['immigrant'])
 def meeting(request):
     return render(request, 'desk/meeting.html')
 
 
+@login_required(login_url='login-immigrant')
+@allowed_users(allowed_roles=['immigrant'])
 @api_view(['GET'])
 def meetingList(request):
     meetings = Meeting.objects.filter(Q(immigrant__user_id=request.user.id) & Q(meeting_status=True)).order_by('-date_posted')
@@ -75,6 +91,8 @@ def meetingList(request):
     return Response(serializer.data)
 
 
+@login_required(login_url='login-immigrant')
+@allowed_users(allowed_roles=['immigrant'])
 @api_view(['POST'])
 def meetingImmiCreate(request):
     user_id = request.user.id
@@ -90,6 +108,8 @@ def meetingImmiCreate(request):
     return Response(serializer.data)
 
 
+@login_required(login_url='login-immigrant')
+@allowed_users(allowed_roles=['immigrant'])
 @api_view(['GET'])
 def meetingPendingList(request):
     meetings = Meeting.objects.filter(Q(immigrant__user_id=request.user.id) & Q(meeting_status=False))
@@ -97,6 +117,8 @@ def meetingPendingList(request):
     return Response(serializer.data)
 
 
+@login_required(login_url='login-attendant')
+@allowed_users(allowed_roles=['attendant'])
 def meetingAttendant(request):
     if request.method == 'GET':
         query = request.GET.get('query')
@@ -114,6 +136,8 @@ def meetingAttendant(request):
 immi_id = 0
 
 
+@login_required(login_url='login-attendant')
+@allowed_users(allowed_roles=['attendant'])
 @api_view(['POST'])
 def getImmigrantId(request):
     immigrant_data = request.data
@@ -122,6 +146,8 @@ def getImmigrantId(request):
     return HttpResponse(immi_id)
 
 
+@login_required(login_url='login-attendant')
+@allowed_users(allowed_roles=['attendant'])
 @api_view(['GET'])
 def meetingAttenList(request):
     global immi_id
@@ -133,6 +159,8 @@ def meetingAttenList(request):
     return Response(serializer.data)
 
 
+@login_required(login_url='login-attendant')
+@allowed_users(allowed_roles=['attendant'])
 @api_view(['POST'])
 def meetingCreate(request):
     attendant_user_id = Attendant.objects.get(user__id=request.user.id).id
@@ -154,6 +182,8 @@ def meetingCreate(request):
     return Response(serializer.data)
 
 
+@login_required(login_url='login-attendant')
+@allowed_users(allowed_roles=['attendant'])
 @api_view(['POST'])
 def meetingUpdate(request, pk):
     task = Meeting.objects.get(id=pk)
@@ -167,9 +197,40 @@ def meetingUpdate(request, pk):
     return Response(serializer.data)
 
 
+@login_required(login_url='login-attendant')
+@allowed_users(allowed_roles=['attendant'])
 @api_view(['DELETE'])
 def meetingDelete(request, pk):
     task = Meeting.objects.get(id=pk)
     task.delete()
 
     return Response('Item succsesfully delete!')
+
+
+@login_required(login_url='login-attendant')
+@allowed_users(allowed_roles=['attendant'])
+@api_view(['GET'])
+def meetingAttenPendingList(request):
+    meetings = Meeting.objects.filter(meeting_status=False).order_by('-meeting_date')
+    serializer = MeetingSerializer(meetings, many=True)
+    return Response(serializer.data)
+
+
+@login_required(login_url='login-attendant')
+@allowed_users(allowed_roles=['attendant'])
+@api_view(['POST'])
+def meetingAttenPendingUpdate(request, pk):
+    attendant_user_id = Attendant.objects.get(user__id=request.user.id).id
+    meeting = Meeting.objects.get(id=pk)
+    meeting.attendant = Attendant.objects.get(id=attendant_user_id)
+    meeting.meeting_date = request.data["meeting_date"]
+    print(request.data["meeting_date"])
+    print(meeting)
+    serializer = MeetingSerializer(instance=meeting, data=request.data)
+
+    if serializer.is_valid():
+        serializer.save()
+    else:
+        print('error')
+
+    return Response(serializer.data)

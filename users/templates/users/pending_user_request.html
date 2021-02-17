@@ -1,0 +1,160 @@
+{% extends 'users/main_2.html' %}
+
+{% block content %}
+    <style>
+      table {
+        border-collapse: separate;
+        border-spacing: 0 15px;
+      }
+      .table td {
+        vertical-align: middle!important;
+      }
+    </style>
+    <table class="table">
+      <thead>
+        <tr class="bg-light">
+          <th scope="col">#</th>
+          <th scope="col">Name</th>
+          <th scope="col">Id</th>
+          <th scope="col">Passport</th>
+          <th scope="col">Contact</th>
+          <th scope="col">Country</th>
+          <th scope="col">Action</th>
+        </tr>
+      </thead>
+      <tbody id="pending-wrapper">
+
+      </tbody>
+    </table>
+    <script>
+        function getCookie(name) {
+		    var cookieValue = null;
+		    if (document.cookie && document.cookie !== '') {
+		        var cookies = document.cookie.split(';');
+		        for (var i = 0; i < cookies.length; i++) {
+		            var cookie = cookies[i].trim();
+		            // Does this cookie string begin with the name we want?
+		            if (cookie.substring(0, name.length + 1) === (name + '=')) {
+		                cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+		                break;
+		            }
+		        }
+		    }
+		    return cookieValue;
+		}
+		var csrftoken = getCookie('csrftoken');
+
+        var pendingItem = null
+		var pendinglist_snapshot = []
+
+        pendingUserList()
+
+        function pendingUserList(){
+            var wrapper = document.getElementById('pending-wrapper')
+            {#wrapper.innerHTML = ''#}
+
+            var url = 'http://127.0.0.1:8000/api/user-pending/'
+
+            fetch(url)
+            .then((resp) => resp.json())
+            .then(function (data) {
+                console.log(data)
+                var list = data
+                for(var i in list){
+
+                    try{
+						document.getElementById(`pending-row-${i}`).remove()
+					}catch(err){
+
+					}
+                    console.log(list[i].photo)
+                    var item = `
+                    <tr id="pending-row-${i}" class="bg-light shadow">
+                      <th><img class="img logo rounded-circle" src="http://127.0.0.1:8000${list[i].photo}" alt="Image" style="width:40px; height: 40px;"></th>
+                      <td><strong>${list[i].user.first_name} ${list[i].user.last_name}</strong></td>
+                      <td>1234</td>
+                      <td>${list[i].passport_nb}</td>
+                      <td>${list[i].contact_nb}</td>
+                      <td>N/A</td>
+                      <td>
+                        <button class="btn btn-sm btn-outline-success editPending">Approve</button>
+                        <button class="btn btn-sm btn-outline-danger deletePending">Deny</button>
+                      </td>
+                    </tr>
+                    `
+                    wrapper.innerHTML += item
+                }
+
+                {#$('#myPendingTable').dataTable();#}
+
+                if (pendinglist_snapshot.length > list.length){
+					for (var i = list.length; i < pendinglist_snapshot.length; i++){
+						document.getElementById(`pending-row-${i}`).remove()
+					}
+				}
+
+				pendinglist_snapshot = list
+
+
+				for (var i in list) {
+                    var editPendingBtn = document.getElementsByClassName('editPending')[i]
+                    var deletePendingBtn = document.getElementsByClassName('deletePending')[i]
+
+
+                    editPendingBtn.addEventListener('click', (function (item) {
+                        return function () {
+                            editPendingItem(item)
+                        }
+                    })(list[i]))
+
+                    deletePendingBtn.addEventListener('click', (function(item){
+						return function(){
+							deletePendingItem(item)
+						}
+					})(list[i]))
+
+
+                }
+
+            })
+        }
+
+        {#pending udate#}
+        function editPendingItem(item){
+			console.log('Item clicked:', item)
+			pendingItem = item
+			{#document.getElementById(`meeting_date-${item.id}`).value = activeItem.title#}
+            {#document.getElementById('content').value = activeItem.content#}
+            {#var meeting_date = document.getElementById(`meeting_date-${item.id}`).value#}
+            console.log(pendingItem.user.id)
+            var url = `http://127.0.0.1:8000/api/user-pending-update/${pendingItem.user.id}/`
+            fetch(url, {
+				method:'POST',
+				headers:{
+					'Content-type':'application/json',
+					'X-CSRFToken':csrftoken,
+				},
+				body:JSON.stringify({'is_active':true})
+			}
+			).then(function(response){
+                pendingUserList()
+				{#document.getElementById('form').reset()#}
+			})
+
+		}
+
+		{#pending delete#}
+		function deletePendingItem(item){
+			console.log(item.user.id)
+			fetch(`http://127.0.0.1:8000/api/user-pending-delete/${item.user.id}/`, {
+				method:'DELETE',
+				headers:{
+					'Content-type':'application/json',
+					'X-CSRFToken':csrftoken,
+				}
+			}).then((response) => {
+                pendingUserList()
+			})
+		}
+    </script>
+{% endblock %}
