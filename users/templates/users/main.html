@@ -45,6 +45,9 @@
           position: sticky;
           top: 0;
         }
+        .allButFooter {
+             min-height: calc(100vh - 65px);
+        }
     </style>
     <div class="wrapper d-flex align-items-stretch">
         {%  include 'users/immigrant_sidebar.html' %}
@@ -52,24 +55,32 @@
         <!-- Page Content  -->
         <div id="content" class="p-2 p-md-2">
             {%  include 'users/immigrant_navbar.html' %}
-            {% block content %}
+            <div class="allButFooter">
+                {% block content %}
 
-
-
-            {% endblock %}
+                {% endblock %}
+            </div>
             {%  include 'portal/chat.html' %}
+            <hr>
+            <footer class="bg-light" style="background: #343957">
+              <div class="text-center p-2">
+                 <img src="https://pbs.twimg.com/profile_images/1253566709597945856/KFEtDsyR.jpg" alt="Image" class="rounded-circle pr-1" style="width: 50px; height: auto">
+                 <span class="h6 font-weight-light">Developed by <a href="https://www.facebook.com/prosenjit.chowdhury.988" target="_blank">Prosenjit Chowdhury. ID: 183-16-346  DIU</a></span>
+              </div>
+            </footer>
+
         </div>
 
     </div>
 
 
 
-	<footer class="" style="background: #343957">
-      <div class="text-center p-2">
-         <img src="https://pbs.twimg.com/profile_images/1253566709597945856/KFEtDsyR.jpg" alt="Image" class="rounded-circle pr-1" style="width: 50px; height: auto">
-         <span class="h6 font-weight-light">Developed by <a href="https://www.facebook.com/prosenjit.chowdhury.988" target="_blank">Prosenjit Chowdhury. ID: 183-16-346  DIU</a></span>
-      </div>
-    </footer>
+{#	<footer class="bg-light" style="background: #343957">#}
+{#      <div class="text-center p-2">#}
+{#         <img src="https://pbs.twimg.com/profile_images/1253566709597945856/KFEtDsyR.jpg" alt="Image" class="rounded-circle pr-1" style="width: 50px; height: auto">#}
+{#         <span class="h6 font-weight-light">Developed by <a href="https://www.facebook.com/prosenjit.chowdhury.988" target="_blank">Prosenjit Chowdhury. ID: 183-16-346  DIU</a></span>#}
+{#      </div>#}
+{#    </footer>#}
 </body>
 <!-- bootstrap js, jquery, popper -->
 {#    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"#}

@@ -8213,15 +8213,15 @@ h1, h2, h3, h4, h5,
   width: 100%; }
 
 #sidebar {
-  min-width: 300px;
-  max-width: 300px;
+  min-width: 250px;
+  max-width: 250px;
   background: #343957;
   color: #fff;
   -webkit-transition: all 0.3s;
   -o-transition: all 0.3s;
   transition: all 0.3s; }
   #sidebar.active {
-    margin-left: -300px; }
+    margin-left: -250px; }
   #sidebar .logo {
     display: block;
     width: 150px;

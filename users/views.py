@@ -4,6 +4,8 @@ from django.http import HttpResponse
 from django.contrib.auth.forms import UserCreationForm
 from .forms import CreateUserForm, ImmigrantForm, ImmigrantUpdateForm, AttendantUpdateForm
 from .models import Immigrant, Attendant
+from desk.models import Meeting
+from portal.models import Blog
 from django.contrib import messages
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.models import Group, User
@@ -32,13 +34,27 @@ def contact(request):
 @login_required(login_url='login-immigrant')
 @allowed_users(allowed_roles=['immigrant'])
 def home(request):
-    return render(request, 'users/immigrant_dashboard.html')
+    blogs = Blog.objects.filter(author_id=request.user.id)
+    total_blog = blogs.count()
+
+    context = {'total_blog': total_blog}
+    return render(request, 'users/immigrant_dashboard.html', context)
 
 
 @login_required(login_url='login-attendant')
 @allowed_users(allowed_roles=['attendant'])
 def home_2(request):
-    return render(request, 'users/attendant_dashboard.html')
+    immigrants = Immigrant.objects.filter(user__is_active=False).order_by('-user__date_joined')
+    total_immigrant = immigrants.count()
+
+    meetings = Meeting.objects.filter(meeting_status=False).order_by('-date_posted')
+    total_meeting = meetings.count()
+
+    blogs = Blog.objects.filter(permission=False).order_by('date_posted')
+    total_blog = blogs.count()
+
+    context = {'immigrants': immigrants, 'total_immigrant': total_immigrant, 'meetings': meetings, 'total_meeting': total_meeting, 'blogs': blogs, 'total_blog': total_blog}
+    return render(request, 'users/attendant_dashboard.html', context)
 
 
 @unauthenticated_user

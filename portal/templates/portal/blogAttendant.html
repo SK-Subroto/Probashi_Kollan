@@ -242,7 +242,8 @@
 
 					}
                     {#var iid = list[i].author#}
-                    console.log(list[i].author)
+                    {#console.log( user.attendant.photo.url )#}
+                    {#user1 = list[i].author#}
 
                     var item = `
                     <li id="pending-row-${i}" class="list-group-item bg-light">
@@ -250,7 +251,7 @@
                           <div class="col-10">
                             <h5 class="font-weight-bolder text-dark">${list[i].title}</h5>
                             <div class="post-meta align-items-center text-left">
-                                <img src="{{ request.user.attendant.photo.url }}" alt="Image" class="rounded-circle" style="width: 30px; height: 30px">
+                                <img src="{{ user.attendant.photo.url }}" alt="Image" class="rounded-circle" style="width: 30px; height: 30px">
                                 <span class="d-inline-block small">By <a href="#">${list[i].author.first_name} ${list[i].author.last_name}</a></span>
                                 <span class="small">&nbsp;-&nbsp; ${list[i].date_posted}</span>
                             </div>
