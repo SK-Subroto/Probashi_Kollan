@@ -25,7 +25,7 @@ def job(request):
 @login_required(login_url='login-immigrant')
 @allowed_users(allowed_roles=['immigrant'])
 def blog(request):
-    blogs = Blog.objects.filter(permission=True)
+    blogs = Blog.objects.filter(permission=True).order_by('-date_posted')
     blog_form = blogForm()
     if request.method == 'POST':
         blog_form = blogForm(request.POST, request.FILES)
@@ -161,7 +161,7 @@ def jobAttendentCreate(request):
         form = JobFormAtten(request.POST)
         if form.is_valid():
             form.save()
-            form.reset()
+            # form.reset()
 
     context = {'form': form}
     return render(request, 'portal/jobAttenCreate.html', context)

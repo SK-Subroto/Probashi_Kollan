@@ -205,7 +205,8 @@ def searchImmigrant(request):
     # meeting_data = request.data
     # print(meeting_data["key"])
     immigrants = Immigrant.objects.filter(Q(immigrant_id__icontains=key) |
-                                               Q(immigrant_name__icontains=key) |
+                                               Q(user__first_name__icontains=key) |
+                                               Q(user__last_name__icontains=key) |
                                                Q(passport_nb__icontains=key))
     context = {'immigrants': immigrants}
     return render(request,'users/search_result.html', context)

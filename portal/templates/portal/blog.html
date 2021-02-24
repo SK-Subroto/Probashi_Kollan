@@ -25,7 +25,7 @@
 
         .feedback-img {
             width: 120px;
-            height: auto;
+            height: 120px;
         }
 
         .carousel-indicators {
@@ -63,25 +63,25 @@
                                 <p>Item1. Lorem ipsum dolor sit amet consectetur adipisicing elit. Explicabo maxime
                                     provident amet fugiat, repellat sunt?</p>
                                 <img class="feedback-img rounded-circle mb-3"
-                                    src="https://avatars3.githubusercontent.com/u/47079665?s=460&u=a32284fed6c90a4b5d8a202d10a0efdbd7f3ee9d&v=4"
+                                    src="https://lh3.googleusercontent.com/proxy/4id74OZpsahkhq_ElhEHyuGYpnIXk1YSYw1wavKs87WVxqeMK1OMwB7ieczB3NlEQXxPPDew3RFlE0Kr-bxpL5HMH9I"
                                     alt="">
-                                <h6>Subroto Karmokar</h6>
+                                <h6>Mustafa Kamal</h6>
                             </div>
                             <div class="carousel-item">
                                 <p>Item2. Lorem ipsum dolor sit amet consectetur adipisicing elit. Explicabo maxime
                                     provident amet fugiat, repellat sunt?</p>
                                 <img class="feedback-img rounded-circle mb-3"
-                                    src="https://avatars3.githubusercontent.com/u/47079665?s=460&u=a32284fed6c90a4b5d8a202d10a0efdbd7f3ee9d&v=4"
+                                    src="https://www.thehindu.com/news/cities/Delhi/all62x/article30291270.ece/alternates/FREE_435/DE13ABDULMOMIN"
                                     alt="">
-                                <h6>Subroto Karmokar</h6>
+                                <h6>Ak Abdul Momen</h6>
                             </div>
                             <div class="carousel-item">
                                 <p>Item3. Lorem ipsum dolor sit amet consectetur adipisicing elit. Explicabo maxime
                                     provident amet fugiat, repellat sunt?</p>
                                 <img class="feedback-img rounded-circle mb-3"
-                                    src="https://avatars3.githubusercontent.com/u/47079665?s=460&u=a32284fed6c90a4b5d8a202d10a0efdbd7f3ee9d&v=4"
+                                    src="https://upload.wikimedia.org/wikipedia/commons/8/88/Zahid_Maleque.jpg"
                                     alt="">
-                                <h6>Subroto Karmokar</h6>
+                                <h6>Zahid Maleque</h6>
                             </div>
                         </div>
                         <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button"
@@ -124,10 +124,10 @@
                 <div class="card shadow" style="height: 500px;">
                     <img src="{{ blog.photo.url }}" alt="Image" class="img-fluid rounded" style="height: 250px;">
                     <div class="card-body">
-                        <h4 class="card-title overflow-hidden" style="height: 100px;"><a href="#">{{ blog.title }}</a></h4>
+                        <h4 class="card-title overflow-hidden" style="height: 100px; color: #3949AB">{{ blog.title }}</h4>
                         <div class="post-meta align-items-center text-left clearfix">
                             <img src={{ blog.author.immigrant.photo.url }} alt="Image" class="rounded-circle p-1" style="width: 50px; height: 50px;">
-                            <span class="d-inline-block mt-1">By <a href="#">{{ blog.author.immigrant.immigrant_name }}</a></span>
+                            <span class="d-inline-block mt-1">By <a class="text-danger">{{ blog.author.first_name }} {{ blog.author.last_name }}</a></span>
                             <span>&nbsp;-&nbsp; {{ blog.date_posted|date:'M d, Y' }}</span>
                         </div>
 {#                        <p class="text-dark card-text">{{ blog.content }}</p>#}
@@ -222,8 +222,9 @@
                                 </div>
 
                                 <div class="form-group text-right">
-                                    <button type="submit" class="btn btn-secondary" value="submit">Submit</button>
-                                    <button type="reset" class="btn btn-secondary" value="Reset">Reset</button>
+                                    <button type="reset" class="btn btn-danger" value="Reset">Reset</button>
+                                    <button type="submit" class="btn btn-success" value="submit">Submit</button>
+
                                 </div>
                             </form>
                           </div>

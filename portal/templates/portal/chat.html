@@ -5,13 +5,13 @@
 
     /* Button used to open the chat form - fixed at the bottom of the page */
     .open-button {
-    background-color: white;
+    background-color: #00C853;
     border-radius: 50%;
-    color: #81D4FA;
-    padding: 16px 20px;
+    color: white;
+    padding: 13px 12px 10px 12px;
     border: none;
     cursor: pointer;
-    opacity: 0.6;
+    opacity: 0.7;
     position: fixed;
     bottom: 23px;
     right: 28px;
@@ -22,8 +22,10 @@
     position: fixed;
     z-index: 1;
     }
-    .open-button i:hover{
-        color: #039BE5;
+    .open-button:hover{
+        {#background-color: white;#}
+        {#color: #00C853;#}
+        opacity: 1;
     }
 
     /* The popup chat - hidden by default */
@@ -118,7 +120,7 @@
         </div>
 
         <div id="sec_2" class="input-group mb-3" style="">
-          <input type="hidden" id="user" value="{{ request.user.immigrant.immigrant_name }}">
+          <input type="hidden" id="user" value="{{ request.user.first_name }} {{ request.user.last_name }}">
           <input type="text" class="form-control" id="mgs" placeholder="Type message..." style="border-radius: 20px">
           <div class="input-group-append">
               <button class="btn btn-primary ml-2" id="send" type="submit" style="border-radius: 10px"><i class="fa fa-paper-plane"></i></button>
@@ -141,5 +143,6 @@
     document.getElementById("myForm").style.display = "none";
     }
 </script>
-<script src="https://www.gstatic.com/firebasejs/8.2.1/firebase.js"></script>
+
+<script src="https://www.gstatic.com/firebasejs/8.2.9/firebase.js"></script>
 <script src="{% static 'js/chat.js' %}"></script>

@@ -126,7 +126,7 @@ def meetingAttendant(request):
             immigrant_lists = None
         else:
             immigrant_lists = Immigrant.objects.filter(Q(immigrant_id__icontains=query) |
-                                                       Q(immigrant_name__icontains=query) |
+                                                       Q(user__first_name__icontains=query) |
                                                        Q(passport_nb__icontains=query))
         # print(immigrant_lists)
         context = {'immigrant_lists': immigrant_lists}

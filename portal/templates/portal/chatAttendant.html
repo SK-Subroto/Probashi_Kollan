@@ -89,7 +89,7 @@
                 </div>
                 <div class="card-footer">
                     <div class="input-group">
-                      <input placeholder="User" id="user" type="hidden" value="{{ request.user.attendant.attendant_name }}" class="mb-2">
+                      <input placeholder="User" id="user" type="hidden" value="{{ request.user.first_name }} {{ request.user.last_name }}" class="mb-2">
                       <input type="text" class="form-control border-info" id="mgs" placeholder="Type...." style="border-top-left-radius: 20px; border-bottom-left-radius: 20px;">
                       <div class="input-group-append">
                         <button class="btn btn-info" id="send" style="border-top-right-radius: 20px; border-bottom-right-radius: 20px;"><i class="fa fa-paper-plane"></i></button>
@@ -105,6 +105,6 @@
 
 
 
-    <script src="https://www.gstatic.com/firebasejs/8.2.1/firebase.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.2.9/firebase.js"></script>
     <script src="{% static 'js/attendantChat.js' %}"></script>
 {% endblock %}

@@ -38,8 +38,9 @@
                             <tbody>
                             {% for immigrant in immigrant_lists %}
                               <tr>
-                                <td>{{ immigrant.immigrant_id }}</td>
-                                <td>{{ immigrant.immigrant_name }}</td>
+{#                                <td>{{ immigrant.immigrant_id }}</td>#}
+                                <td>6712</td>
+                                <td>{{ immigrant.user.first_name }} {{ immigrant.user.last_name }}</td>
                                 <td>{{ immigrant.passport_nb }}</td>
                                 <td>
                                     <button class="btn btn-sm btn-outline-primary" onclick="getImmigrantID({{ immigrant.id }})">Add</button>
