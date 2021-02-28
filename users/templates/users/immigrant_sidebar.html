@@ -8,6 +8,9 @@
           <li class="active">
               <a href="{% url 'home' %}"><i class="fas fa-home mr-2"></i> Dashboard</a>
           </li>
+          <li class="">
+              <a href="{% url 'find-nearby' %}"><i class="fas fa-search-location mr-2"></i> Find Nearby</a>
+          </li>
           <li>
             <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle"><i class="fas fa-user mr-2"></i> Profile</a>
             <ul class="collapse list-unstyled" id="homeSubmenu">
@@ -26,7 +29,7 @@
                 <a href="{% url 'blog' %}">All blog</a>
             </li>
             <li>
-                <a href="#">New blow</a>
+                <a href="#">New blog</a>
             </li>
             <li>
                 <a href="#">My blog</a>
@@ -53,9 +56,9 @@
           <li>
             <a href="{% url 'job' %}"><i class="fas fa-briefcase mr-2"></i> Job</a>
           </li>
-          <li>
-            <a href="{% url 'flight' %}"><i class="fas fa-plane mr-2"></i> Flight</a>
-          </li>
+{#          <li>#}
+{#            <a href="{% url 'flight' %}"><i class="fas fa-plane mr-2"></i> Flight</a>#}
+{#          </li>#}
           <li>
             <a href="{% url 'logout' %}"><i class="fas fa-sign-out-alt mr-2"></i> Logout</a>
           </li>

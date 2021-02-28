@@ -72,8 +72,19 @@
                         </div>
                         <div id="form-wrapper" class="form-group mt-3 px-2">
                             <form id="form" action="">
-                                <input class="form-control bg-light mb-4" id="title" placeholder="Give a title" style="border-radius: 10px">
-                                <textarea class="form-control bg-light" id="content" rows="5" id="blogPost" placeholder="Write something..." style="border-radius: 10px"></textarea>
+                                <select name="region" id="region" class="form-control bg-light mb-4" style="border-radius: 10px" required>
+                                  <option value="" selected="">---------</option>
+                                  <option value="88">Australia</option>
+                                  <option value="77">Canada</option>
+                                  <option value="66">France</option>
+                                  <option value="55">Germany</option>
+                                  <option value="44">Malaysia</option>
+                                  <option value="33">United States</option>
+                                  <option value="22">Italy</option>
+                                  <option value="11">Arabia</option>
+                                </select>
+                                <input class="form-control bg-light mb-4" id="title" placeholder="Give a title" style="border-radius: 10px" required>
+                                <textarea class="form-control bg-light" id="content" rows="5" id="blogPost" placeholder="Write something..." style="border-radius: 10px" required></textarea>
 {#                                <input type="file" class="form-control border-0" id="blogFile" />#}
                                 <div class="text-right mt-2">
                                     <button class="btn btn-secondary" type="reset" style="border-radius: 20px;">Reset</button>
@@ -348,6 +359,7 @@
 
 			var title = document.getElementById('title').value
             var content = document.getElementById('content').value
+            var region = document.getElementById('region').value
             {#var photo = document.getElementById('blogFile').value#}
 			fetch(url, {
 				method:'POST',
@@ -356,7 +368,7 @@
 					'Content-type':'application/json',
 					'X-CSRFToken':csrftoken,
 				},
-				body:JSON.stringify({'title':title, 'content':content})
+				body:JSON.stringify({'title':title, 'content':content, 'region': region})
 			}
 			).then(function(response){
 				blogList()

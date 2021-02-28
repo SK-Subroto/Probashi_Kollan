@@ -50,7 +50,7 @@
                         </div>
                         <div class="col form-group">
                             <label>Country:</label>
-                            {{ form.county }}
+                            {{ form.region }}
                         </div>
                     </div>
                 </div>
@@ -92,6 +92,7 @@
     var select_fields = document.getElementsByTagName('select')
 
     select_fields[0].className = 'form-control'
+    select_fields[1].className = 'form-control'
 
     form_fields[1].className = "p-1";
     form_fields[2].type = "date";

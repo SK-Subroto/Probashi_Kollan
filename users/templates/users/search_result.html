@@ -56,7 +56,7 @@
               <td>{{immigrant.immigrant_id}}</td>
               <td>{{ immigrant.passport_nb }}</td>
               <td>{{ immigrant.job_desig }}</td>
-              <td>{{ immigrant.county }}</td>
+              <td>{{ immigrant.region.country_name }}</td>
               <td><a href="{% url 'attendant-search-detail' immigrant.id %}" class="btn btn-sm btn-outline-info">Detail</a></td>
             </tr>
           {% endfor %}

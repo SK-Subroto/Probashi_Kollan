@@ -5,7 +5,8 @@ from rest_framework.decorators import api_view
 from rest_framework.response import Response
 from .serializers import MeetingSerializer, NoticeSerializer
 from .models import Notice, Meeting
-from users.models import Attendant, Immigrant
+from .filters import NoticeFilter
+from users.models import Attendant, Immigrant, Country
 from django.contrib.auth.decorators import login_required
 from users.decorators import unauthenticated_user, allowed_users
 
@@ -13,8 +14,18 @@ from users.decorators import unauthenticated_user, allowed_users
 @login_required(login_url='login-immigrant')
 @allowed_users(allowed_roles=['immigrant'])
 def notice(request):
+    country_code = Immigrant.objects.get(user__id=request.user.id).region.country_code
+    region = Country.objects.get(country_code=country_code)
+
     notices = Notice.objects.all().order_by('-date_posted')
-    context = {'notices': notices}
+
+    filter_data = request.GET.copy()
+    filter_data.setdefault('region', region)
+
+    noticeFilter = NoticeFilter(filter_data, queryset=notices)
+    notices = noticeFilter.qs
+
+    context = {'notices': notices, 'noticeFilter': noticeFilter}
     return render(request, 'desk/notice.html', context)
 
 
@@ -41,7 +52,9 @@ def noticeCreate(request):
     print(attendant_user_id)
     notice_data = request.data
     print(notice_data)
-    new_notice = Notice.objects.create(author=Attendant.objects.get(id=attendant_user_id), title=notice_data["title"],
+    new_notice = Notice.objects.create(author=Attendant.objects.get(id=attendant_user_id),
+                                       region=Country.objects.get(country_code=notice_data["region"]),
+                                       title=notice_data["title"],
                                        description=notice_data["description"])
     new_notice.save()
     serializer = NoticeSerializer(new_notice)

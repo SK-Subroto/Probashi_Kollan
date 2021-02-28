@@ -15,7 +15,7 @@
         <tr class="bg-light">
           <th scope="col">#</th>
           <th scope="col">Name</th>
-          <th scope="col">Id</th>
+          <th scope="col">N.Id</th>
           <th scope="col">Passport</th>
           <th scope="col">Contact</th>
           <th scope="col">Country</th>
@@ -72,10 +72,10 @@
                     <tr id="pending-row-${i}" class="bg-light shadow">
                       <th><img class="img logo rounded-circle" src="http://127.0.0.1:8000${list[i].photo}" alt="Image" style="width:40px; height: 40px;"></th>
                       <td><strong>${list[i].user.first_name} ${list[i].user.last_name}</strong></td>
-                      <td>1234</td>
+                      <td>${list[i].national_id}</td>
                       <td>${list[i].passport_nb}</td>
                       <td>${list[i].contact_nb}</td>
-                      <td>N/A</td>
+                      <td>${list[i].region.country_name}</td>
                       <td>
                         <button class="btn btn-sm btn-outline-success editPending">Approve</button>
                         <button class="btn btn-sm btn-outline-danger deletePending">Deny</button>

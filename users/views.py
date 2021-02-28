@@ -76,6 +76,8 @@ def registerImmigrant(request):
             user = u_form.cleaned_data.get('username')
             contact_nb = i_form.cleaned_data.get('contact_nb')
             passport_nb = i_form.cleaned_data.get('passport_nb')
+            national_id = i_form.cleaned_data.get('national_id')
+            region = i_form.cleaned_data.get('region')
 
             email = u_form.cleaned_data.get('email')
             first_name = u_form.cleaned_data.get('first_name')
@@ -85,6 +87,8 @@ def registerImmigrant(request):
                 user=user_im,
                 contact_nb=contact_nb,
                 passport_nb=passport_nb,
+                national_id=national_id,
+                region=region
             )
 
             #send email

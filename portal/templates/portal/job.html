@@ -90,6 +90,28 @@
                 <div class="col-12 text-center">
                     <h1 class="text-primary font-weight-bold" >LATEST JOBS</h1>
                     <p class="text-secondary font-italic" >View Thousands of Latest Full Time or Part Time Job Offers listed by Top Companies</p>
+
+                    <div class="row mb-2">
+                        <div class="col">
+                            <div class="card pt-3" style="background: #BBDEFB">
+
+                                <form method="get">
+{#                                    {{jobFilter.form}}#}
+                                    <div class="form-group">
+                                        <div class="row px-3 text-center">
+                                            <div class="col">{{ jobFilter.form.title }}</div>
+                                            <div class="col">{{ jobFilter.form.company_name }}</div>
+                                            <div class="col">{{ jobFilter.form.region }}</div>
+                                            <div class="mr-2"><button class="btn btn-primary" type="submit">Search</button></div>
+                                        </div>
+                                    </div>
+
+                                </form>
+
+                            </div>
+                        </div>
+                    </div>
+
                 </div>
             </div>
             <div class="row px-3 mb-2">
@@ -196,6 +218,17 @@
             $(`#jobBody-${id}`).hide()
             $(`#applyBody-${id}`).show()
         }
+
+        var form_fields = document.getElementsByTagName('input')
+
+        for (var field in form_fields){
+            form_fields[field].className += ' form-control'
+        }
+        form_fields[0].placeholder='Position Name';
+        form_fields[1].placeholder='Company Name';
+
+        var form_select = document.getElementsByTagName('select')
+        form_select[0].className = 'form-control'
 
     </script>
 {% endblock %}

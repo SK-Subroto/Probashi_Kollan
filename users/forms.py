@@ -14,7 +14,7 @@ class CreateUserForm(UserCreationForm):
 class ImmigrantForm(ModelForm):
     class Meta:
         model = Immigrant
-        fields = ('contact_nb', 'passport_nb')
+        fields = ('national_id', 'contact_nb', 'passport_nb', 'region')
 
 
 class ImmigrantUpdateForm(ModelForm):

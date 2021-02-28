@@ -1,7 +1,7 @@
 from django.utils import timezone
 from django.db import models
 from django.contrib.auth.models import User
-from users.models import Immigrant, Attendant
+from users.models import Immigrant, Attendant, Country
 
 
 class Meeting(models.Model):
@@ -22,6 +22,7 @@ class Notice(models.Model):
     title = models.CharField(max_length=100, null=True)
     description = models.TextField(null=True)
     date_posted = models.DateTimeField(default=timezone.now, null=True)
+    region = models.ForeignKey(Country, null=True, on_delete=models.SET_NULL)
 
     def __str__(self):
         return self.title

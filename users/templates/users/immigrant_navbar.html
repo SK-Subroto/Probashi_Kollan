@@ -7,6 +7,14 @@
       <i class="fa fa-bars"></i>
       <span class="sr-only">Toggle Menu</span>
     </button>
+
+     {% for message in messages %}
+        <p id="messages" class="m-0 ml-2 py-2 alert alert-success alert-dismissible text-center font-weight-bold">
+            {{message}}
+            <button class="close pt-2" data-dismiss="alert"> ×</button>
+        </p>
+     {% endfor %}
+
     <button class="btn btn-dark d-inline-block d-lg-none ml-auto" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <i class="fa fa-bars"></i>
     </button>
@@ -32,3 +40,12 @@
     </div>
   </div>
 </nav>
+<script>
+    // suppose the `id` attribute of element is `message_container`.
+    var message_ele = document.getElementById("messages");
+
+    setTimeout(function(){
+       message_ele.style.display = "none";
+    }, 3000);
+    // Timeout is 3 sec, you can change it
+</script>

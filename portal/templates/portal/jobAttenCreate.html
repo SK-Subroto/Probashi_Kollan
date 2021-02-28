@@ -1,6 +1,17 @@
 {% extends 'users/main_2.html' %}
 
 {% block content %}
+{#    <h3 style="margin: -85px 5px 50px 70px;">hello</h3>#}
+    {% if messages %}
+        <div id="mgs_div" style="margin: -85px 70px 43px 70px;">
+            {% for message in messages %}
+                <p id="messages" class="m-0 py-2 alert alert-success alert-dismissible text-center font-weight-bold">
+                    {{message}}
+                    <button class="close pt-2" data-dismiss="alert"> ×</button>
+                </p>
+            {% endfor %}
+        </div>
+    {% endif %}
 {#    <form action="" method="post">#}
 {#        {% csrf_token %}#}
 {#        {{ form.media }}#}
@@ -34,6 +45,10 @@
                           <label for="title">Deadline:</label>
                             {{ form.deadline }}
                         </div>
+                        <div class="form-group">
+                          <label for="Region">Region:</label>
+                            {{ form.region }}
+                        </div>
                     </div>
                     <div class="col-lg-6">
                         <div class="form-group">
@@ -57,10 +72,21 @@
 		form_fields[4].placeholder='Company logo URL';
 		form_fields[5].type='date';
 
+		var form_select = document.getElementsByTagName('select')
+        form_select[0].className = 'form-control'
+
 
 
 		for (var field in form_fields){
 			form_fields[field].className += ' form-control'
 		}
+
+		// suppose the `id` attribute of element is `message_container`.
+        var message_ele = document.getElementById("mgs_div");
+
+        setTimeout(function(){
+           message_ele.style.display = "none";
+        }, 3000);
+        // Timeout is 3 sec, you can change it
 	</script>
 {% endblock %}

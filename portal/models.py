@@ -1,7 +1,7 @@
 from django.db import models
 from django.utils import timezone
 from django.contrib.auth.models import User
-from users.models import Immigrant, Attendant
+from users.models import Immigrant, Attendant, Country
 from ckeditor.fields import RichTextField
 
 
@@ -13,6 +13,7 @@ class Job(models.Model):
     date_posted = models.DateTimeField(default=timezone.now, null=True)
     deadline = models.DateField(null=True)
     body = RichTextField(blank=True, null=True)
+    region = models.ForeignKey(Country, null=True, on_delete=models.SET_NULL)
 
     def __str__(self):
         return self.title
@@ -25,6 +26,7 @@ class Blog(models.Model):
     date_posted = models.DateTimeField(default=timezone.now, null=True)
     photo = models.ImageField(null=True, blank=True)
     permission = models.BooleanField(default=False, null=True)
+    region = models.ForeignKey(Country, null=True, on_delete=models.SET_NULL)
 
     def __str__(self):
         return self.title

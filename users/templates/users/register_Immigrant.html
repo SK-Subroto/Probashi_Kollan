@@ -111,31 +111,28 @@ body {
 				</div>
 	        </div>
             <div class="form-group">
-{#	        	<input type="email" class="form-control" name="email" placeholder="Email" required="required">#}
                 {{ u_form.username }}
 	        </div>
 	        <div class="form-group">
-{#	        	<input type="email" class="form-control" name="email" placeholder="Email" required="required">#}
-                {{ u_form.email }}
+                <div class="row">
+                    <div class="col">{{ u_form.email }}</div>
+                    <div class="col">{{ i_form.contact_nb }}</div>
+                </div>
+	        </div>
+            <div class="form-group">
+                {{ i_form.national_id }}
+	        </div>
+            <div class="form-group">
+	        	{{ i_form.region }}
 	        </div>
 	        <div class="form-group">
-{#	        	<input type="text" class="form-control" name="contact" placeholder="Contact Number" required="required">#}
-                {{ i_form.contact_nb }}
-	        </div>
-{#	        <div class="form-group">#}
-{#	        	<input type="text" class="form-control" name="nid" placeholder="National ID Number" required="required">#}
-{#	        </div>#}
-	        <div class="form-group">
-{#	        	<input type="text" class="form-control" name="passport" placeholder="Passport Number" required="required">#}
                 {{ i_form.passport_nb }}
 	        </div>
 			<div class="form-group">
-{#	            <input type="password" class="form-control" name="password" placeholder="Password" required="required">#}
-                {{ u_form.password1 }}
-	        </div>
-			<div class="form-group">
-{#	            <input type="password" class="form-control" name="confirm_password" placeholder="Confirm Password" required="required">#}
-                {{ u_form.password2 }}
+                <div class="row">
+                    <div class="col">{{ u_form.password1 }}</div>
+                    <div class="col">{{ u_form.password2 }}</div>
+                </div>
 	        </div>
 	        <div class="form-group">
 				<label class="form-check-label"><input type="checkbox" required="required"> I accept the <a href="#">Terms of Use</a> &amp; <a href="#">Privacy Policy</a></label>
@@ -147,7 +144,7 @@ body {
     </div>
     {{ u_form.errors }}
     {{ i_form.errors }}
-	<div class="hint-text text-light">Already have an account? <a class="text-primary" href="#">Login here</a></div>
+	<div class="hint-text text-light">Already have an account? <a class="text-primary" href="{% url 'login-immigrant' %}">Login here</a></div>
 </div>
 <script>
 
@@ -158,14 +155,18 @@ body {
     form_fields[3].placeholder='Username...';
     form_fields[4].placeholder='Email address..';
     form_fields[5].placeholder='Contact number...';
-    form_fields[6].placeholder='Passport number...';
-    form_fields[7].placeholder='Enter Password...';
-    form_fields[8].placeholder='Re-enter Password...';
+    form_fields[6].placeholder='National ID...';
+    form_fields[7].placeholder='Passport number...';
+    form_fields[8].placeholder='Enter Password...';
+    form_fields[9].placeholder='Re-enter Password...';
 
     for (var field in form_fields){
         form_fields[field].className += ' form-control'
     }
-    form_fields[9].className = ""
+    form_fields[10].className = ""
+
+    var form_select = document.getElementsByTagName('select')
+    form_select[0].className = 'form-control'
 </script>
 </body>
 </html>

@@ -23,11 +23,8 @@ urlpatterns = [
     path('attendant/chat/', views.attendnatChat, name='attendant-chat'),
 
     path('attendant/job/', views.jobAttendant, name='attendant-job'),
-    path('api/job-create/', views.jobCreate),
+    # path('api/job-create/', views.jobCreate),
     path('attendant/job-create/', views.jobAttendentCreate, name='attendant-job-create'),
-
-    path('test-create/', views.testCreate),
-    path('test-list/', views.testView),
 
     # path('', include(router.urls)),
 ]

@@ -88,8 +88,8 @@
         <div class="bg-light">
             <div class="row  mb-2">
                 <div class="col-12 text-center">
-                    <h1 class="text-primary font-weight-bold" >Doctors List for Emargency</h1>
-                    <p class="text-secondary font-italic" >For any emargency situation contract with our doctors</p>
+                    <h1 class="text-primary font-weight-bold" >Doctors List for Emergency</h1>
+                    <p class="text-secondary font-italic" >For any emergency situation contract with our doctors</p>
                 </div>
             </div>
             <div class="row px-3 mb-2">
@@ -106,26 +106,40 @@
                                     <h5 class="card-title">Microsoft</h5>
                                     <a href="" class="card-text" data-toggle="modal" data-target="#myModal" data-backdrop="static" data-keyboard="false"><i class="fa fa-arrow-circle-right"></i> Jr. software enginer</a>
                                 </div> -->
-                                <form action="" class="was-validated">
+                                <form action="" class="">
                                     <label for="fullname" class="text-center text-success text-uppercase row">
                                         <img class="rounded-circle " src="https://upload.wikimedia.org/wikipedia/commons/4/41/Stethoscope_Flat_Icon_GIF_Animation.gif" alt="sans" style="width: 80px; height: 80px;">
                                         <h3 class="mt-3">Find doctor in your area</h3>
                                     </label>
 
                                     <div class="form-group">
-
-                                        <label for="fullname">Doctor Name </label>
-                                        <input type="text" class="form-control" name="fullname" required>
-                                        <div class="valid-feedback">Valid</div>
-                                        <div class="invalid-feedback">Please enter your fullname</div>
-
-                                    </div>
-                                    <div class="form-group">
-
                                         <label for="subject">Select Area Location </label>
-                                        <input type="text" class="form-control" name="subject">
-
+                                        <select name="region" id="region" class="form-control bg-light mb-4" required>
+                                          <option value="" selected="">---------</option>
+                                          <option value="88">Australia</option>
+                                          <option value="77">Canada</option>
+                                          <option value="66">France</option>
+                                          <option value="55">Germany</option>
+                                          <option value="44">Malaysia</option>
+                                          <option value="33">United States</option>
+                                          <option value="22">Italy</option>
+                                          <option value="11">Arabia</option>
+                                        </select>
                                     </div>
+
+                                    <div class="form-group">
+                                        <label for="fullname">Speciality </label>
+                                        <select name="region" id="region" class="form-control bg-light mb-4" required>
+                                          <option value="" selected="">---------</option>
+                                          <option value="88">Medicine</option>
+                                          <option value="77">Cardiology</option>
+                                          <option value="66">Orthopedic</option>
+                                          <option value="55">Neurology</option>
+                                          <option value="44">Urology</option>
+                                          <option value="33">Dermatology</option>
+                                        </select>
+                                    </div>
+
 
                                     <div class="form-group text-center">
                                         <input type="submit" value="Submit" class="btn btn-success">

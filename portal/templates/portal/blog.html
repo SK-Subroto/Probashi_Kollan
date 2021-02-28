@@ -42,6 +42,11 @@
             color: white;
         }
 
+        .dropdown-toggle::after {
+            {#display: none;#}
+            margin-right: 5px;
+        }
+
     </style>
     <div class="text-white mb-3">
         <section id="feedback">
@@ -63,7 +68,7 @@
                                 <p>Item1. Lorem ipsum dolor sit amet consectetur adipisicing elit. Explicabo maxime
                                     provident amet fugiat, repellat sunt?</p>
                                 <img class="feedback-img rounded-circle mb-3"
-                                    src="https://lh3.googleusercontent.com/proxy/4id74OZpsahkhq_ElhEHyuGYpnIXk1YSYw1wavKs87WVxqeMK1OMwB7ieczB3NlEQXxPPDew3RFlE0Kr-bxpL5HMH9I"
+                                    src="https://assets.weforum.org/sf_account/image/kHsu6qQqtcAAk2iijMMsI0DSGM_SHGwn7vUZ_bzd9-4.jpg"
                                     alt="">
                                 <h6>Mustafa Kamal</h6>
                             </div>
@@ -100,9 +105,41 @@
         </section>
     </div>
     <div class="bg-light px-2 py-3">
-        <div class="row">
+
+    <div class="row mb-2">
+        <div class="col">
+            <div class="card">
+                <form method="get">
+{#                    {{blogFilter.form}}#}
+                    <div class="" style="background: #BBDEFB">
+                        <div class="row px-3 pt-2">
+                            <div class="col form-group">
+                                <label class="h6" for="title">Title:</label>
+                                {{ blogFilter.form.title }}
+                            </div>
+                            <div class="col form-group">
+                                <label class="h6" for="region">Region:</label>
+                                {{ blogFilter.form.region }}
+                            </div>
+                            <div class="col form-group">
+                                <label class="h6" for="start_date">Start Date:</label>
+                                {{ blogFilter.form.start_date }}
+                            </div>
+                            <div class="col form-group">
+                                <label class="h6" for="end_date">End Date:</label>
+                                {{ blogFilter.form.end_date }}
+                            </div>
+                            <div class="mr-2" style="margin-top: 28px;"><button class="btn btn-primary" type="submit">Search</button></div>
+                        </div>
+                    </div>
+              </form>
+            </div>
+        </div>
+    </div>
+
+        <div class="row mb-2">
             <div class="col-8">
-                <h3 class="pl-2">Recent</h3>
+                 <h3 class="pl-2">Recent</h3>
             </div>
             <div class="col-4 text-right">
 {#                <button class="btn btn-primary"><i class="fa fa-plus-circle"></i></button>#}
@@ -127,7 +164,7 @@
                         <h4 class="card-title overflow-hidden" style="height: 100px; color: #3949AB">{{ blog.title }}</h4>
                         <div class="post-meta align-items-center text-left clearfix">
                             <img src={{ blog.author.immigrant.photo.url }} alt="Image" class="rounded-circle p-1" style="width: 50px; height: 50px;">
-                            <span class="d-inline-block mt-1">By <a class="text-danger">{{ blog.author.first_name }} {{ blog.author.last_name }}</a></span>
+                            <span class="d-inline-block mt-1">By <a href="{% url 'immigrant-detail' blog.author.immigrant.id %}" class="text-danger">{{ blog.author.first_name }} {{ blog.author.last_name }}</a></span>
                             <span>&nbsp;-&nbsp; {{ blog.date_posted|date:'M d, Y' }}</span>
                         </div>
 {#                        <p class="text-dark card-text">{{ blog.content }}</p>#}
@@ -207,6 +244,11 @@
                             <form action="" method="post" enctype="multipart/form-data" class="col-lg-8 col-md-6 m-auto was-validated bg-light text-black p-3">
                                 {% csrf_token %}
                                 <div class="form-group">
+                                    <label for="region">Region</label>
+                                      {{ blog_form.region }}
+                                </div>
+
+                                <div class="form-group">
                                     <label for="title">Title</label>
                                       {{ blog_form.title }}
                                 </div>
@@ -235,14 +277,21 @@
                   </div>
             </div>
         </div>
+
     </div>
 
     <script>
         if ( window.history.replaceState ) {
           window.history.replaceState( null, null, window.location.href );
         }
+
+        var form_select = document.getElementsByTagName('select')
+        form_select[1].className = 'form-control'
+
         var form_fields = document.getElementsByTagName('input')
-		form_fields[2].className='p-1';
+		{#form_fields[2].className='p-1';#}
+        form_fields[1].type='Date';
+        form_fields[2].type='Date';
 
         var form_textarea = document.getElementsByTagName('textarea')
 
@@ -251,6 +300,10 @@
 		for (var field in form_fields){
 			form_fields[field].className += ' form-control'
 		}
+
+		var form_select = document.getElementsByTagName('select')
+        form_select[0].className = 'form-control'
+
     </script>
 
 {% endblock %}
