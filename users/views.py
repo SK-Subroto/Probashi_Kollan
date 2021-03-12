@@ -37,7 +37,11 @@ def home(request):
     blogs = Blog.objects.filter(author_id=request.user.id)
     total_blog = blogs.count()
 
-    context = {'total_blog': total_blog}
+    country_code = Immigrant.objects.get(user__id=request.user.id).region.country_code
+    nearby = Immigrant.objects.filter(region__country_code=country_code)
+    total_nearby = nearby.count()
+
+    context = {'total_blog': total_blog, 'total_nearby':total_nearby}
     return render(request, 'users/immigrant_dashboard.html', context)
 
 

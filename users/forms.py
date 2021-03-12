@@ -21,7 +21,7 @@ class ImmigrantUpdateForm(ModelForm):
     class Meta:
         model = Immigrant
         fields = '__all__'
-        exclude = ('user', 'immigrant_id', 'immigrant_name',)
+        exclude = ('user', 'immigrant_id', 'immigrant_name', 'national_id', 'county')
         widgets = {
             'photo': forms.FileInput(),
         }
@@ -31,7 +31,7 @@ class AttendantUpdateForm(ModelForm):
     class Meta:
         model = Attendant
         fields = '__all__'
-        exclude = ('user', 'attendant_id', 'attendant_name',)
+        exclude = ('user', 'attendant_id', 'attendant_name', 'category')
         widgets = {
             'photo': forms.FileInput(),
         }

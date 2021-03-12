@@ -37,7 +37,7 @@ def searchImmigrant(request):
     country_code = Immigrant.objects.get(user__id=request.user.id).region.country_code
     region = Country.objects.get(country_code=country_code)
 
-    immigrants = Immigrant.objects.filter(Q(user__is_active=True) & ~Q(user__id=request.user.id))
+    immigrants = Immigrant.objects.filter(Q(user__is_active=True) & ~Q(user__id=request.user.id)).order_by('user__first_name')
 
     filter_data = request.GET.copy()
     filter_data.setdefault('region', region)

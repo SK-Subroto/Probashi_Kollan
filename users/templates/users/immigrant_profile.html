@@ -12,17 +12,17 @@
                   <img class="img-fluid" src="{{ immigrant.photo.url }}" alt="" style="width: 400px; height: 370px;" />
                 </div>
                 <div class="mt-4">
-                  <h3 class="nav nav-tabs">work</h3>
+                  <h3 class="nav nav-tabs">Bio</h3>
                   <div class="mt-2">
-                    <h5>IT Solution </h5>
-                    <p>123, South Mugda</p>
-                    <p>New York, 1214</p>
+{#                    <h5>IT Solution </h5>#}
+                    <p>When you see the word gratitude thrown in there, you get a little intrigued. And after scrolling through some pictures, you immediately see that she has a prosthetic leg. </p>
+                    <p>{{ immigrant.address }}</p>
                   </div>
-                  <div class="work-content">
-                    <h5>Unix</h5>
-                    <p>123, South Mugda</p>
-                    <p>New York, 1214</p>
-                  </div>
+{#                  <div class="work-content">#}
+{#                    <h5>Unix</h5>#}
+{#                    <p>123, South Mugda</p>#}
+{#                    <p>New York, 1214</p>#}
+{#                  </div>#}
                 </div>
 {#                <div class="user-skill">#}
 {#                  <h5 class="nav nav-tabs">Skill</h5>#}
@@ -53,7 +53,7 @@
                 <div class="text-info" style="font-size: large">{{ immigrant.job_desig }}</div>
                 <div class="">
                   <h6>Ratings</h6>
-                  <div>8.9</div>
+                  <div>8.3</div>
                   <i class="far fa-star text-warning"></i>
                   <i class="far fa-star text-warning"></i>
                   <i class="far fa-star text-warning"></i>
@@ -61,8 +61,8 @@
                   <i class="far fa-star"></i>
                 </div>
                 <div class="mt-2">
-                  <button class="btn btn-primary" type="button">
-                    <i class="far fa-envelope"></i> Send Message</button>
+{#                  <button class="btn btn-primary" type="button">#}
+{#                    <i class="far fa-envelope"></i> Send Email</button>#}
 
                   <a href="{% url 'immigrant-profile-update' %}" class="btn btn-secondary">Update Profile</a>
                 </div>

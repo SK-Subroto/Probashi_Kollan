@@ -36,7 +36,7 @@ class Attendant(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
     attendant_id = models.CharField(max_length=20, null=True)
     attendant_name = models.CharField(max_length=100, null=True)
-    photo = models.ImageField(default="default_profile_2.jpg", null=True, blank=True)
+    photo = models.ImageField(default="default_profile.jpg", null=True, blank=True)
     dob = models.DateField(null=True)
     contact_nb = models.CharField(max_length=20, null=True)
     passport_nb = models.CharField(max_length=20, null=True)

@@ -25,13 +25,13 @@
           <li>
           <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle"><i class="fas fa-blog mr-2"></i> Blog</a>
           <ul class="collapse list-unstyled" id="pageSubmenu">
-            <li>
+            <li class="ml-3">
                 <a href="{% url 'blog' %}">All blog</a>
             </li>
-            <li>
-                <a href="#">New blog</a>
+            <li class="ml-3">
+                <a href="{% url 'blog' %}" data-toggle="modal" data-target="#newModal">New blog</a>
             </li>
-            <li>
+            <li class="ml-3">
                 <a href="#">My blog</a>
             </li>
           </ul>
@@ -40,15 +40,15 @@
             <a href="{% url 'notice' %}"><i class="fas fa-bell mr-2"></i> Notice</a>
           </li>
           <li>
-            <a href="{% url 'meeting' %}"><i class="fas fa-users mr-2"></i> Meeting</a>
+            <a href="{% url 'meeting' %}"><i class="fas fa-calendar-check mr-2"></i> Appointment</a>
           </li>
           <li>
           <a href="#emergencySubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle"><i class="fas fa-heartbeat mr-2"></i></i> Emergency</a>
           <ul class="collapse list-unstyled" id="emergencySubmenu">
-            <li>
+            <li class="ml-3">
                 <a href="{% url 'emergency-doctor' %}">Doctor</a>
             </li>
-            <li>
+            <li class="ml-3">
                 <a href="{% url 'emergency-lawyer' %}">Lawyer</a>
             </li>
           </ul>
