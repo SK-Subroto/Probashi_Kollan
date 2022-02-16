@@ -30,7 +30,7 @@ week_date = getWeeksInMonth(today.getMonth(), today.getFullYear())[2];
 $(document).ready(function () {
     $.ajax({
         type: 'GET',
-        url: 'http://probashi-kollan.herokuapp.com/meeting-list/',
+        url: 'https://probashi-kollan.herokuapp.com/meeting-list/',
         success: function (meetings) {
          var arrayList=[];
             $.each(meetings,function (i, meeting) {

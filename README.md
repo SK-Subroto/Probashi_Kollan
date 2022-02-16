@@ -3,11 +3,11 @@
 
 ### Live site:
 
-http://probashi-kollan.herokuapp.com
+https://probashi-kollan.herokuapp.com
 
 ### Makers Portfolio Site: 
-https://prosenjit-chowdhury.web.app
-https://subroto-karmokar.web.app
+-https://prosenjit-chowdhury.web.app
+-https://subroto-karmokar.web.app
 
 ### Purpose of this project
 -https://drive.google.com/drive/u/1/folders/12bAgOXtSVLGXbi2sPHHr_IqIsstPpigi
@@ -47,7 +47,7 @@ https://subroto-karmokar.web.app
 ###As a immigrant
 - user: Prodip.ch
 - password: Sk123456
-- url: http://probashi-kollan.herokuapp.com/login
+- url: https://probashi-kollan.herokuapp.com/login
 ###As a admin
 - user: Prosenjit
 - password: Sk123456

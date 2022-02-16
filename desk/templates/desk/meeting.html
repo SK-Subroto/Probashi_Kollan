@@ -129,7 +129,7 @@
         var wrapper = document.getElementById('meeting-pending-wrapper')
         {#wrapper.innerHTML = ''#}
 
-        var url = 'http://probashi-kollan.herokuapp.com/api/meeting-pending-list/'
+        var url = 'https://probashi-kollan.herokuapp.com/api/meeting-pending-list/'
 
         fetch(url)
         .then((resp) => resp.json())
@@ -183,9 +183,9 @@
     form.addEventListener('submit', function(e){
         e.preventDefault()
         console.log('Form submitted')
-        var url = 'http://probashi-kollan.herokuapp.com/api/meeting-immi-create/'
+        var url = 'https://probashi-kollan.herokuapp.com/api/meeting-immi-create/'
         /*if (activeItem != null){
-            var url = `http://probashi-kollan.herokuapp.com/api/notice-update/${activeItem.id}/`
+            var url = `https://probashi-kollan.herokuapp.com/api/notice-update/${activeItem.id}/`
             activeItem = null
         }*/
 
