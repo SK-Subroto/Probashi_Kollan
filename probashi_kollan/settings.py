@@ -140,6 +140,8 @@ STATICFILES_DIRS = [
 
 MEDIA_ROOT = os.path.join(BASE_DIR, 'static/images')
 
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedStaticFilesStorage'
+
 CKEDITOR_CONFIGS = {
     'default': {
         'toolbar': [["Format", "Bold", "Italic", "Underline", "Strike", "SpellChecker"],
