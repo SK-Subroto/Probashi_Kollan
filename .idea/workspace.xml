@@ -20,15 +20,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="967abaad-3c23-4ba5-a316-2282a56c8cdb" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/portal/templates/portal/2.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/images/rest_framework/docs/favicon.ico" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/portal/templates/portal/chat.html" beforeDir="false" afterPath="$PROJECT_DIR$/portal/templates/portal/chat.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/portal/templates/portal/chatAttendant.html" beforeDir="false" afterPath="$PROJECT_DIR$/portal/templates/portal/chatAttendant.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/probashi_kollan/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/probashi_kollan/settings.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/js/attendantChat.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/js/attendantChat.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/js/chat.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/js/chat.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/users/templates/users/contact.html" beforeDir="false" afterPath="$PROJECT_DIR$/users/templates/users/contact.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -73,7 +66,7 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/static/images/rest_framework/docs" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
@@ -286,7 +279,7 @@
       <workItem from="1625146006685" duration="226000" />
       <workItem from="1627141846632" duration="18000" />
       <workItem from="1630820750907" duration="274000" />
-      <workItem from="1644986300616" duration="1848000" />
+      <workItem from="1644986300616" duration="2797000" />
     </task>
     <servers />
   </component>
@@ -306,6 +299,10 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="WindowStateProjectService">
+    <state x="73" y="123" key="FileChooserDialogImpl" timestamp="1644988651820">
+      <screen x="0" y="0" width="1366" height="738" />
+    </state>
+    <state x="73" y="123" key="FileChooserDialogImpl/0.0.1366.738@0.0.1366.738" timestamp="1644988651820" />
     <state width="1323" height="176" key="GridCell.Tab.0.bottom" timestamp="1644986937470">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
@@ -322,5 +319,9 @@
       <screen x="0" y="0" width="1366" height="738" />
     </state>
     <state width="1323" height="176" key="GridCell.Tab.0.right/0.0.1366.738@0.0.1366.738" timestamp="1644986937469" />
+    <state x="0" y="0" width="587" height="738" key="find.popup" timestamp="1644988779009">
+      <screen x="0" y="0" width="1366" height="738" />
+    </state>
+    <state x="0" y="0" width="587" height="738" key="find.popup/0.0.1366.738@0.0.1366.738" timestamp="1644988779009" />
   </component>
 </project>
