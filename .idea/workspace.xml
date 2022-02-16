@@ -21,9 +21,14 @@
   <component name="ChangeListManager">
     <list default="true" id="967abaad-3c23-4ba5-a316-2282a56c8cdb" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/probashi_kollan/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/probashi_kollan/settings.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/images/rest_framework/docs/favicon.ico" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/desk/templates/desk/meeting.html" beforeDir="false" afterPath="$PROJECT_DIR$/desk/templates/desk/meeting.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/desk/templates/desk/meetingAttendant.html" beforeDir="false" afterPath="$PROJECT_DIR$/desk/templates/desk/meetingAttendant.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/desk/templates/desk/noticeAttendant.html" beforeDir="false" afterPath="$PROJECT_DIR$/desk/templates/desk/noticeAttendant.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/portal/templates/portal/blogAttendant.html" beforeDir="false" afterPath="$PROJECT_DIR$/portal/templates/portal/blogAttendant.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/portal/templates/portal/jobAttendant.html" beforeDir="false" afterPath="$PROJECT_DIR$/portal/templates/portal/jobAttendant.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/js/demo.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/js/demo.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/users/templates/users/attendant_sidebar.html" beforeDir="false" afterPath="$PROJECT_DIR$/users/templates/users/attendant_sidebar.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/users/templates/users/pending_user_request.html" beforeDir="false" afterPath="$PROJECT_DIR$/users/templates/users/pending_user_request.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -281,7 +286,8 @@
       <workItem from="1625146006685" duration="226000" />
       <workItem from="1627141846632" duration="18000" />
       <workItem from="1630820750907" duration="274000" />
-      <workItem from="1644986300616" duration="5574000" />
+      <workItem from="1644986300616" duration="6214000" />
+      <workItem from="1645020780035" duration="3436000" />
     </task>
     <servers />
   </component>
@@ -305,25 +311,25 @@
       <screen x="0" y="0" width="1366" height="738" />
     </state>
     <state x="73" y="123" key="FileChooserDialogImpl/0.0.1366.738@0.0.1366.738" timestamp="1644988651820" />
-    <state width="1323" height="283" key="GridCell.Tab.0.bottom" timestamp="1644992248164">
+    <state width="1323" height="283" key="GridCell.Tab.0.bottom" timestamp="1645003076524">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
-    <state width="1323" height="283" key="GridCell.Tab.0.bottom/0.0.1366.738@0.0.1366.738" timestamp="1644992248164" />
-    <state width="1323" height="283" key="GridCell.Tab.0.center" timestamp="1644992248164">
+    <state width="1323" height="283" key="GridCell.Tab.0.bottom/0.0.1366.738@0.0.1366.738" timestamp="1645003076524" />
+    <state width="1323" height="283" key="GridCell.Tab.0.center" timestamp="1645003076524">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
-    <state width="1323" height="283" key="GridCell.Tab.0.center/0.0.1366.738@0.0.1366.738" timestamp="1644992248164" />
-    <state width="1323" height="283" key="GridCell.Tab.0.left" timestamp="1644992248164">
+    <state width="1323" height="283" key="GridCell.Tab.0.center/0.0.1366.738@0.0.1366.738" timestamp="1645003076524" />
+    <state width="1323" height="283" key="GridCell.Tab.0.left" timestamp="1645003076523">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
-    <state width="1323" height="283" key="GridCell.Tab.0.left/0.0.1366.738@0.0.1366.738" timestamp="1644992248164" />
-    <state width="1323" height="283" key="GridCell.Tab.0.right" timestamp="1644992248164">
+    <state width="1323" height="283" key="GridCell.Tab.0.left/0.0.1366.738@0.0.1366.738" timestamp="1645003076523" />
+    <state width="1323" height="283" key="GridCell.Tab.0.right" timestamp="1645003076524">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
-    <state width="1323" height="283" key="GridCell.Tab.0.right/0.0.1366.738@0.0.1366.738" timestamp="1644992248164" />
-    <state x="0" y="0" width="587" height="738" key="find.popup" timestamp="1644988779009">
+    <state width="1323" height="283" key="GridCell.Tab.0.right/0.0.1366.738@0.0.1366.738" timestamp="1645003076524" />
+    <state x="0" y="0" width="555" height="738" key="find.popup" timestamp="1645024356200">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
-    <state x="0" y="0" width="587" height="738" key="find.popup/0.0.1366.738@0.0.1366.738" timestamp="1644988779009" />
+    <state x="0" y="0" width="555" height="738" key="find.popup/0.0.1366.738@0.0.1366.738" timestamp="1645024356200" />
   </component>
 </project>

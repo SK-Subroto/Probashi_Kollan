@@ -53,7 +53,7 @@
             var wrapper = document.getElementById('pending-wrapper')
             {#wrapper.innerHTML = ''#}
 
-            var url = 'http://127.0.0.1:8000/api/user-pending/'
+            var url = 'http://probashi-kollan.herokuapp.com/api/user-pending/'
 
             fetch(url)
             .then((resp) => resp.json())
@@ -70,7 +70,7 @@
                     console.log(list[i].photo)
                     var item = `
                     <tr id="pending-row-${i}" class="bg-light shadow">
-                      <th><img class="img logo rounded-circle" src="http://127.0.0.1:8000${list[i].photo}" alt="Image" style="width:40px; height: 40px;"></th>
+                      <th><img class="img logo rounded-circle" src="http://probashi-kollan.herokuapp.com${list[i].photo}" alt="Image" style="width:40px; height: 40px;"></th>
                       <td><strong>${list[i].user.first_name} ${list[i].user.last_name}</strong></td>
                       <td>${list[i].national_id}</td>
                       <td>${list[i].passport_nb}</td>
@@ -127,7 +127,7 @@
             {#document.getElementById('content').value = activeItem.content#}
             {#var meeting_date = document.getElementById(`meeting_date-${item.id}`).value#}
             console.log(pendingItem.user.id)
-            var url = `http://127.0.0.1:8000/api/user-pending-update/${pendingItem.user.id}/`
+            var url = `http://probashi-kollan.herokuapp.com/api/user-pending-update/${pendingItem.user.id}/`
             fetch(url, {
 				method:'POST',
 				headers:{
@@ -146,7 +146,7 @@
 		{#pending delete#}
 		function deletePendingItem(item){
 			console.log(item.user.id)
-			fetch(`http://127.0.0.1:8000/api/user-pending-delete/${item.user.id}/`, {
+			fetch(`http://probashi-kollan.herokuapp.com/api/user-pending-delete/${item.user.id}/`, {
 				method:'DELETE',
 				headers:{
 					'Content-type':'application/json',

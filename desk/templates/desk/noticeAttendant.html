@@ -94,7 +94,7 @@
             var wrapper = document.getElementById('notice-wrapper')
             {#wrapper.innerHTML = ''#}
 
-            var url = 'http://127.0.0.1:8000/api/notice-list/'
+            var url = 'http://probashi-kollan.herokuapp.com/api/notice-list/'
 
             fetch(url)
             .then((resp) => resp.json())
@@ -168,9 +168,9 @@
 		form.addEventListener('submit', function(e){
 			e.preventDefault()
 			console.log('Form submitted')
-			var url = 'http://127.0.0.1:8000/api/notice-create/'
+			var url = 'http://probashi-kollan.herokuapp.com/api/notice-create/'
             if (activeItem != null){
-				var url = `http://127.0.0.1:8000/api/notice-update/${activeItem.id}/`
+				var url = `http://probashi-kollan.herokuapp.com/api/notice-update/${activeItem.id}/`
 				activeItem = null
 			}
 
@@ -203,7 +203,7 @@
 		{#delete#}
 		function deleteItem(item){
 			console.log(item.id)
-			fetch(`http://127.0.0.1:8000/api/notice-delete/${item.id}/`, {
+			fetch(`http://probashi-kollan.herokuapp.com/api/notice-delete/${item.id}/`, {
 				method:'DELETE',
 				headers:{
 					'Content-type':'application/json',

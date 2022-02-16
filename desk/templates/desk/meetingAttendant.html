@@ -188,7 +188,7 @@
             var wrapper = document.getElementById('meeting-wrapper')
             wrapper.innerHTML = ''
 
-            var url = 'http://127.0.0.1:8000/api/meeting-atten-list/'
+            var url = 'http://probashi-kollan.herokuapp.com/api/meeting-atten-list/'
 
             fetch(url)
             .then((resp) => resp.json())
@@ -262,7 +262,7 @@
             var wrapper = document.getElementById('pending-wrapper')
             {#wrapper.innerHTML = ''#}
 
-            var url = 'http://127.0.0.1:8000/api/meeting-atten-pending-list/'
+            var url = 'http://probashi-kollan.herokuapp.com/api/meeting-atten-pending-list/'
 
             fetch(url)
             .then((resp) => resp.json())
@@ -350,7 +350,7 @@
         function getImmigrantID(i) {
              activeItem = null
 		    list_snapshot = []
-            var url = 'http://127.0.0.1:8000/api/get-immigrant-id/'
+            var url = 'http://probashi-kollan.herokuapp.com/api/get-immigrant-id/'
 
             var id = i
             console.log(id)
@@ -374,9 +374,9 @@
 		form.addEventListener('submit', function(e){
 			e.preventDefault()
 			console.log('Form submitted')
-			var url = 'http://127.0.0.1:8000/api/meeting-create/'
+			var url = 'http://probashi-kollan.herokuapp.com/api/meeting-create/'
             if (activeItem != null){
-				var url = `http://127.0.0.1:8000/api/meeting-update/${activeItem.id}/`
+				var url = `http://probashi-kollan.herokuapp.com/api/meeting-update/${activeItem.id}/`
 				activeItem = null
 			}
 
@@ -409,7 +409,7 @@
 		{#delete#}
 		function deleteItem(item){
 			console.log(item.id)
-			fetch(`http://127.0.0.1:8000/api/meeting-delete/${item.id}/`, {
+			fetch(`http://probashi-kollan.herokuapp.com/api/meeting-delete/${item.id}/`, {
 				method:'DELETE',
 				headers:{
 					'Content-type':'application/json',
@@ -453,7 +453,7 @@
             {#document.getElementById('content').value = activeItem.content#}
             var meeting_date = document.getElementById(`meeting_date-${item.id}`).value
             console.log(meeting_date)
-            var url = `http://127.0.0.1:8000/api/meeting-atten-pending-update/${pendingItem.id}/`
+            var url = `http://probashi-kollan.herokuapp.com/api/meeting-atten-pending-update/${pendingItem.id}/`
             fetch(url, {
 				method:'POST',
 				headers:{
@@ -472,7 +472,7 @@
 		{#pending delete#}
 		function deletePendingItem(item){
 			console.log(item.id)
-			fetch(`http://127.0.0.1:8000/api/meeting-delete/${item.id}/`, {
+			fetch(`http://probashi-kollan.herokuapp.com/api/meeting-delete/${item.id}/`, {
 				method:'DELETE',
 				headers:{
 					'Content-type':'application/json',

@@ -151,7 +151,7 @@
             var wrapper = document.getElementById('blog-wrapper')
             {#wrapper.innerHTML = ''#}
 
-            var url = 'http://127.0.0.1:8000/api/blog-list/'
+            var url = 'http://probashi-kollan.herokuapp.com/api/blog-list/'
 
             fetch(url)
             .then((resp) => resp.json())
@@ -168,7 +168,7 @@
 
                     var item = `
                     <div class="card mb-3 shadow" id="blog-row-${i}" style="border-radius: 10px;">
-                        <img src="http://127.0.0.1:8000${list[i].photo}" alt="Image" class="img-fluid rounded" style="height: 300px;">
+                        <img src="http://probashi-kollan.herokuapp.com${list[i].photo}" alt="Image" class="img-fluid rounded" style="height: 300px;">
                         <div class="card-body">
                             <div class="row">
                                 <div class="col-10">
@@ -237,7 +237,7 @@
             var wrapper = document.getElementById('blog-pending-wrapper')
             {#wrapper.innerHTML = ''#}
 
-            var url = 'http://127.0.0.1:8000/api/blog-pending-list/'
+            var url = 'http://probashi-kollan.herokuapp.com/api/blog-pending-list/'
 
             fetch(url)
             .then((resp) => resp.json())
@@ -323,7 +323,7 @@
 		form_search.addEventListener('submit', function(e){
 			e.preventDefault()
 			console.log('Form submitted')
-			var url = 'http://127.0.0.1:8000/api/blog-search/'
+			var url = 'http://probashi-kollan.herokuapp.com/api/blog-search/'
 
 			var search = document.getElementById('search').value
             {#var content = document.getElementById('content').value#}
@@ -348,10 +348,10 @@
 		form.addEventListener('submit', function(e){
 			e.preventDefault()
 			console.log('Form submitted')
-			var url = 'http://127.0.0.1:8000/api/blog-create/'
+			var url = 'http://probashi-kollan.herokuapp.com/api/blog-create/'
 
             if (activeItem != null){
-				var url = `http://127.0.0.1:8000/api/blog-update/${activeItem.id}/`
+				var url = `http://probashi-kollan.herokuapp.com/api/blog-update/${activeItem.id}/`
 				activeItem = null
                 console.log("ok")
 			}
@@ -387,7 +387,7 @@
 		{#delete#}
 		function deleteItem(item){
 			console.log(item.id)
-			fetch(`http://127.0.0.1:8000/api/blog-delete/${item.id}/`, {
+			fetch(`http://probashi-kollan.herokuapp.com/api/blog-delete/${item.id}/`, {
 				method:'DELETE',
 				headers:{
 					'Content-type':'application/json',
@@ -404,7 +404,7 @@
 			activePendingItem = item
 			{#document.getElementById('title').value = activeItem.title#}
             {#document.getElementById('content').value = activeItem.content#}
-            var url = `http://127.0.0.1:8000/api/blog-update/${activePendingItem.id}/`
+            var url = `http://probashi-kollan.herokuapp.com/api/blog-update/${activePendingItem.id}/`
             fetch(url, {
 				method:'POST',
 				headers:{
@@ -425,7 +425,7 @@
 		{#pending delete#}
 		function deletePendingItem(item){
 			console.log(item.id)
-			fetch(`http://127.0.0.1:8000/api/blog-delete/${item.id}/`, {
+			fetch(`http://probashi-kollan.herokuapp.com/api/blog-delete/${item.id}/`, {
 				method:'DELETE',
 				headers:{
 					'Content-type':'application/json',
@@ -451,7 +451,7 @@
                       <button type="button" class="close" data-dismiss="modal">&times;</button>
                     </div>
                     <div class="modal-body">
-                      <img src="http://127.0.0.1:8000${item.photo}" alt="Image" class="img-fluid rounded" style="height: 300px; width: 100%;">
+                      <img src="http://probashi-kollan.herokuapp.com${item.photo}" alt="Image" class="img-fluid rounded" style="height: 300px; width: 100%;">
                       <div class="post-meta align-items-center text-left my-3">
                             <img src="{{ request.user.attendant.photo.url }}" alt="Image" class="rounded-circle" style="width: 40px; height: 40px">
                             <span class="d-inline-block small">By <a href="#">${item.author.first_name} ${item.author.last_name}</a></span>
