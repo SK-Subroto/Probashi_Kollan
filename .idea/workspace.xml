@@ -20,69 +20,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="967abaad-3c23-4ba5-a316-2282a56c8cdb" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/requirements.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/probashi_kollan.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/probashi_kollan.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/portal/templates/portal/2.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/desk/templates/desk/meeting.html" beforeDir="false" afterPath="$PROJECT_DIR$/desk/templates/desk/meeting.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/desk/templates/desk/meetingAttendant.html" beforeDir="false" afterPath="$PROJECT_DIR$/desk/templates/desk/meetingAttendant.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/desk/templates/desk/notice.html" beforeDir="false" afterPath="$PROJECT_DIR$/desk/templates/desk/notice.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/personal/templates/personal/immigrant_search_result.html" beforeDir="false" afterPath="$PROJECT_DIR$/personal/templates/personal/immigrant_search_result.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/personal/templates/personal/immigration_details.html" beforeDir="false" afterPath="$PROJECT_DIR$/personal/templates/personal/immigration_details.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/personal/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/personal/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/portal/templates/portal/job.html" beforeDir="false" afterPath="$PROJECT_DIR$/portal/templates/portal/job.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/requirements" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/images/01015_119.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/images/01086_159.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/images/01384_582.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/images/043a01c7e09eb35b24b9c21a4796571e.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/images/06317_64.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/images/101708093_2711048765887004_164821629136797696_n.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/images/101714523_10222196175120659_8675148564218773504_n.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/images/112473183_1910271582437741_2275953037159382278_o.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/images/130308265_2836626313240728_8152023764653004026_n.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/images/131273367_442860390060406_6554547610252269846_n.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/images/135460254_3431688853610571_8239062429327273285_o.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/images/151256361_2704937716483365_8516181964559168466_n.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/images/2018-04-07_143034.615118naparapidtabletparacetamol500mg_5ac1ef7bc2104-.58256.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/images/221.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/images/277.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/images/2b559c2c645e74469e08e97761e2501c.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/images/490447-Product-2-I-637393071841438652_large.webp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/images/4wt45.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/images/790049_-_Radio_astronomy_dish.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/images/800x600_-_Virginias_Majestic_Mountain_Sunsets_001.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/images/800x600_-_Virginias_Majestic_Mountain_Sunsets_002.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/images/800x600_-_Virginias_Majestic_Mountain_Sunsets_002_YxCfb65.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/images/84cc30523cf4646626f2cb8ee25e9794.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/images/966630_54352563.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/images/Auchland.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/images/Biplob_ch.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/images/Castle14_1024.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/images/Dup1WALLPA1.JPG" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/images/EbkbMQiXsAIkmcg.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/images/London_-_London_Tower_Bridge_-_140806_171049.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/images/OIP.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/images/Prodip.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/images/angry-cat.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/images/bridges_csg002_tower_bridge-london_england.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/images/chandan_paul.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/images/coronavirsu-in-china.webp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/images/house.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/images/italian-citizenship-assistance-2021-1280x723.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/images/migrant-worker-mehedi-1601298851297.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/images/new_york_7-wallpaper-2048x1152.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/images/smile-cat.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/images/yseali-fall-2019-professional-fellows-program.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/users/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/users/forms.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/users/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/users/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/users/templates/users/attendant_dashboard.html" beforeDir="false" afterPath="$PROJECT_DIR$/users/templates/users/attendant_dashboard.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/users/templates/users/attendant_sidebar.html" beforeDir="false" afterPath="$PROJECT_DIR$/users/templates/users/attendant_sidebar.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/users/templates/users/immigrant_dashboard.html" beforeDir="false" afterPath="$PROJECT_DIR$/users/templates/users/immigrant_dashboard.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/users/templates/users/immigrant_profile.html" beforeDir="false" afterPath="$PROJECT_DIR$/users/templates/users/immigrant_profile.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/users/templates/users/immigrant_sidebar.html" beforeDir="false" afterPath="$PROJECT_DIR$/users/templates/users/immigrant_sidebar.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/users/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/users/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/portal/templates/portal/chat.html" beforeDir="false" afterPath="$PROJECT_DIR$/portal/templates/portal/chat.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/portal/templates/portal/chatAttendant.html" beforeDir="false" afterPath="$PROJECT_DIR$/portal/templates/portal/chatAttendant.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/probashi_kollan/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/probashi_kollan/settings.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/js/attendantChat.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/js/attendantChat.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/js/chat.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/js/chat.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/users/templates/users/contact.html" beforeDir="false" afterPath="$PROJECT_DIR$/users/templates/users/contact.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -309,6 +255,38 @@
       <workItem from="1614957009423" duration="1487000" />
       <workItem from="1615006222768" duration="602000" />
       <workItem from="1615181833294" duration="923000" />
+      <workItem from="1615563748274" duration="2650000" />
+      <workItem from="1615642519343" duration="3257000" />
+      <workItem from="1615735525774" duration="1818000" />
+      <workItem from="1615866827799" duration="1188000" />
+      <workItem from="1615989148553" duration="1183000" />
+      <workItem from="1616037140085" duration="607000" />
+      <workItem from="1616084547328" duration="1477000" />
+      <workItem from="1616862234588" duration="1466000" />
+      <workItem from="1618231634762" duration="1513000" />
+      <workItem from="1618285467147" duration="1275000" />
+      <workItem from="1619411994801" duration="4000" />
+      <workItem from="1619415299530" duration="2000" />
+      <workItem from="1619946005950" duration="595000" />
+      <workItem from="1621433148682" duration="608000" />
+      <workItem from="1622623706817" duration="618000" />
+      <workItem from="1622731242745" duration="418000" />
+      <workItem from="1622818037965" duration="131000" />
+      <workItem from="1622818364341" duration="1827000" />
+      <workItem from="1623392449199" duration="2526000" />
+      <workItem from="1623401104171" duration="1080000" />
+      <workItem from="1623507106457" duration="3055000" />
+      <workItem from="1623573362514" duration="2220000" />
+      <workItem from="1623594924343" duration="1785000" />
+      <workItem from="1623684775669" duration="3877000" />
+      <workItem from="1623737616405" duration="2194000" />
+      <workItem from="1624089317450" duration="1679000" />
+      <workItem from="1624098550588" duration="1842000" />
+      <workItem from="1625122193020" duration="342000" />
+      <workItem from="1625146006685" duration="226000" />
+      <workItem from="1627141846632" duration="18000" />
+      <workItem from="1630820750907" duration="274000" />
+      <workItem from="1644986300616" duration="1207000" />
     </task>
     <servers />
   </component>
@@ -328,33 +306,21 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="137" y="0" width="1092" height="738" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1614524706276">
+    <state width="1323" height="176" key="GridCell.Tab.0.bottom" timestamp="1644986937470">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
-    <state x="137" y="0" width="1092" height="738" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1366.738@0.0.1366.738" timestamp="1614524706276" />
-    <state x="463" y="123" key="FileChooserDialogImpl" timestamp="1615008483624">
+    <state width="1323" height="176" key="GridCell.Tab.0.bottom/0.0.1366.738@0.0.1366.738" timestamp="1644986937470" />
+    <state width="1323" height="176" key="GridCell.Tab.0.center" timestamp="1644986937469">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
-    <state x="463" y="123" key="FileChooserDialogImpl/0.0.1366.738@0.0.1366.738" timestamp="1615008483624" />
-    <state width="1323" height="228" key="GridCell.Tab.0.bottom" timestamp="1614847679764">
+    <state width="1323" height="176" key="GridCell.Tab.0.center/0.0.1366.738@0.0.1366.738" timestamp="1644986937469" />
+    <state width="1323" height="176" key="GridCell.Tab.0.left" timestamp="1644986937469">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
-    <state width="1323" height="228" key="GridCell.Tab.0.bottom/0.0.1366.738@0.0.1366.738" timestamp="1614847679764" />
-    <state width="1323" height="228" key="GridCell.Tab.0.center" timestamp="1614847679764">
+    <state width="1323" height="176" key="GridCell.Tab.0.left/0.0.1366.738@0.0.1366.738" timestamp="1644986937469" />
+    <state width="1323" height="176" key="GridCell.Tab.0.right" timestamp="1644986937469">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
-    <state width="1323" height="228" key="GridCell.Tab.0.center/0.0.1366.738@0.0.1366.738" timestamp="1614847679764" />
-    <state width="1323" height="228" key="GridCell.Tab.0.left" timestamp="1614847679764">
-      <screen x="0" y="0" width="1366" height="738" />
-    </state>
-    <state width="1323" height="228" key="GridCell.Tab.0.left/0.0.1366.738@0.0.1366.738" timestamp="1614847679764" />
-    <state width="1323" height="228" key="GridCell.Tab.0.right" timestamp="1614847679764">
-      <screen x="0" y="0" width="1366" height="738" />
-    </state>
-    <state width="1323" height="228" key="GridCell.Tab.0.right/0.0.1366.738@0.0.1366.738" timestamp="1614847679764" />
-    <state x="184" y="13" key="SettingsEditor" timestamp="1614524719740">
-      <screen x="0" y="0" width="1366" height="738" />
-    </state>
-    <state x="184" y="13" key="SettingsEditor/0.0.1366.738@0.0.1366.738" timestamp="1614524719740" />
+    <state width="1323" height="176" key="GridCell.Tab.0.right/0.0.1366.738@0.0.1366.738" timestamp="1644986937469" />
   </component>
 </project>

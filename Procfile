@@ -1,0 +1,1 @@
+web: gunicorn probashi_kollan.wsgi --log-file -

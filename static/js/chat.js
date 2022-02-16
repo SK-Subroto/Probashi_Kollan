@@ -1,11 +1,11 @@
-var firebaseConfig = {
-    apiKey: "AIzaSyCA-JUNKVHEU903IhuN3SxNG-bTtfO6lwE",
-    authDomain: "probashi-kollan.firebaseapp.com",
-    projectId: "probashi-kollan",
-    storageBucket: "probashi-kollan.appspot.com",
-    messagingSenderId: "869534149024",
-    appId: "1:869534149024:web:433fc22eaef7839db11cc5",
-    measurementId: "G-PBSPDGC59N"
+  var firebaseConfig = {
+    apiKey: "AIzaSyB2o0Wonz_aYRLGunrGoJTKyj-dtwMT0tM",
+    authDomain: "probashi-kallyan.firebaseapp.com",
+    projectId: "probashi-kallyan",
+    storageBucket: "probashi-kallyan.appspot.com",
+    messagingSenderId: "426865090977",
+    appId: "1:426865090977:web:a2b1868bd23ec5b605abe0",
+    measurementId: "G-3E191QCF4L"
   };
 
   firebase.initializeApp(firebaseConfig);
